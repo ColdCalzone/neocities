@@ -131,10 +131,10 @@ the images as variables */
 * {
     cursor: url(images/cursors/default.png) 2 2, default;
 }
-/*
-p, h1, h2, h3, h4, h5, h6, textarea{
-    cursor: url(images/cursors/text.png) 6 7, text;
-} */
+
+h3, h4, h5, h6, textarea{
+    margin: 10px;
+}
 
 /* if you have the URL of a font, you can set it below */
 /* feel free to delete this if it's not your vibe */
@@ -206,7 +206,7 @@ and change the media query according to the comment! */
 }
 
 #headerArea {
-    width: 100%;
+    max-width:900px;
     height:fit-content;
     outline: none;
 }
@@ -329,7 +329,7 @@ strong {
 .box {
     background-color: #13092D;
     border: 1px solid #d7cdf7;
-    padding: 10px;
+    padding: 5px;
     margin-bottom: 10px;
 }
 

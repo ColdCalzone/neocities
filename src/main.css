@@ -112,6 +112,14 @@ img {
     filter: drop-shadow(1px 1px 0 white);
 }
 
+#colorpick {
+    background: #000000;
+    width: 14px;
+    height: 14px;
+    float: left;
+    margin-right: 3px;
+    margin-bottom: 3px;
+}
 
 /* user styles */
 

@@ -90,34 +90,12 @@ function setModeErase() {
     rect = ctx.clearRect;
 }
 
-const colors = [
-    "#181425",            
+const colors = [     
+    "#000000",
     "#FFFFFF",
-    "#c0cbdc",
-    "#8b9bb4",
-    "#5a6988",
-    "#3a4466",
-    "#262b44",
-    "#180b26",
     "#FF0000",
-    "#ff0044",
-    "#e43b44",
-    "#9e2835",
     "#00FF00",
-    "#63c74d",
-    "#3e8948",
-    "#265c42",
-    "#193c3e",
     "#0000FF",
-    "#124e89",
-    "#0095e9",
-    "#311b92",
-    "#4a148c",
-    "#4a148c",
-    "#2ce8f5",
-    "#68386c",
-    "#b55088",
-    "#8e24aa",
 ];
 
 // Does some silly math with the pixel sizes
@@ -208,14 +186,33 @@ function generateChangeColor(num, col) {
     };
 }
 
+var addColor = document.createElement("input");
+addColor.innerText = "+"
+addColor.type = "color";
+addColor.id = "colorpick";
+// add color to the colors thingy and regenerate palette
+addColor.onchange = (e) => {
+    colors.push(e.target.value);
+    generatePalette();
+};
+addColor.oninput = (e) => {
+    e.target.style.backgroundColor = e.target.value;
+};
+
 // Populates the palette
-for(var color = 0; color < colors.length; color += 1) {
-    var paletteColor = document.createElement("div");
-    paletteColor.className = "paletteColor";
-    paletteColor.style.backgroundColor = colors[color];
-    paletteColor.num = color;
-    palette.appendChild(paletteColor);
-    paletteColor.onmousedown = generateChangeColor(color, paletteColor);
-    // lol
-    if(color == 0) paletteColor.click();
+function generatePalette() {
+    palette.innerHTML = '';
+    for(var color = 0; color < colors.length; color += 1) {
+        var paletteColor = document.createElement("div");
+        paletteColor.className = "paletteColor";
+        paletteColor.style.backgroundColor = colors[color];
+        paletteColor.num = color;
+        palette.appendChild(paletteColor);
+        paletteColor.onmousedown = generateChangeColor(color, paletteColor);
+        // lol
+        if(color == 0) paletteColor.click();
+    }
+    palette.appendChild(addColor);
 }
+
+generatePalette()

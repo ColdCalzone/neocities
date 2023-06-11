@@ -49,20 +49,32 @@
         color: #ffffff;
         text-decoration: underline;
     }
+
+    #navbar div {
+        margin: 0 auto;
+        width: 900px;
+    }
     @media only screen and (max-width: 800px) {
 
         #navbar ul {
             flex-wrap: wrap;
         }
+
+        #navbar div {
+            width: 100%;
+        }
     }
 </style>
 <div id="header"></div>
 <nav id="navbar">
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="art.html">Art</a></li>
-        <li><a href="music.html">Music</a></li>
-    </ul>
+    <div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="art.html">Art</a></li>
+            <li><a href="music.html">Music</a></li>
+            <li><a href="read.html">Reading</a></li>
+        </ul>
+    </div>
 </nav>
 <!--Body-->

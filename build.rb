@@ -1,6 +1,7 @@
 require 'fileutils'
 require 'json'
 
+# Modes in Markdown parsing
 module ParseMode
     NORMAL       = 0
     ITALIC       = 1
@@ -15,6 +16,7 @@ module ParseMode
     HEADER_SIX   = 10
 end
 
+# Aforementione Markdown parsing
 def markdownParse(post_body)
     out = ""
     skip = 0
@@ -99,6 +101,18 @@ def markdownParse(post_body)
     return out
 end
 
+def generatePosts(args)
+    posts = JSON.parse(File.read("../" + args[0])).map do |post|
+        parsed_post = markdownParse (post["body"])
+        "<div class=\"box\">
+            <h2>" + post["title"] + "</h2>
+            <hr>
+        " + parsed_post + "
+        </div>"
+    end
+    posts.reverse.join("<br>")
+end
+
 # Get the header / sidebar from their html files
 header = File.open("header.html") {|f| f.gets(nil)}
 
@@ -118,8 +132,9 @@ Dir.glob(File.join("**", "*.{htm,html}")) {|file|
     updated_page = IO.readlines(file).map do |line|
         # replaces the line with the macro with its respective html
         if line.index("<!--MACRO") != nil and line.index("-->") != nil then
-            type = line[line.index("<!--MACRO") + 10 .. line.index("-->") - 1].split(' ')
-            case type[0]
+            macro = line[line.index("<!--MACRO") + 10 .. line.index("-->") - 1].split(' ')
+            type = macro[0]
+            case type
             when "header"
                 puts "> Header Macro"
                 header
@@ -127,16 +142,8 @@ Dir.glob(File.join("**", "*.{htm,html}")) {|file|
                 puts "> Sidebar Macro"
                 right_sidebar
             when "posts"
-                puts "> Blog Section Macro"
-                posts = JSON.parse(File.read("../" + type[1])).map do |post|
-                    parsed_post = markdownParse (post["body"])
-"<div class=\"box\">
-    <h2>" + post["title"] + "</h2>
-    <hr>
-    " + parsed_post + "
-</div>"
-                end
-                posts.reverse.join("<br>")
+                puts "> Blog Section Macro on " + macro[1]
+                generatePosts macro[1..-1]
             end
         else
             # or just leaves it alone

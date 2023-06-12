@@ -91,7 +91,7 @@ function setModeErase() {
 }
 
 const colors = [     
-    "#000000",
+    "#030621",
     "#FFFFFF",
     "#FF0000",
     "#00FF00",
@@ -194,6 +194,7 @@ addColor.id = "colorpick";
 addColor.onchange = (e) => {
     colors.push(e.target.value);
     generatePalette();
+    palette.childNodes[palette.childNodes.length - 2].click();
 };
 addColor.oninput = (e) => {
     e.target.style.backgroundColor = e.target.value;
@@ -210,9 +211,10 @@ function generatePalette() {
         palette.appendChild(paletteColor);
         paletteColor.onmousedown = generateChangeColor(color, paletteColor);
         // lol
-        if(color == 0) paletteColor.click();
+        if(color == colors.length - 1) paletteColor.onmousedown();
     }
     palette.appendChild(addColor);
 }
 
 generatePalette()
+palette.children[0].onmousedown();

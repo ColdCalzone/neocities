@@ -1,0 +1,6 @@
+[
+    {
+        "title": "Working on a Metroidvania",
+        "body": "## I've begun working on a new game!<br>### There isn't a lot to show now, just a doodled player sprite and stolen tilemap, but I've got collision *mostly* working, and the basic movement slapped together in code.<br>The game's being made in [Bevy](https://bevyengine.org/), an ECS engine made in Rust!<br><br>I'll upload occasional updates, 'til then just stew in the knowledge that this game will be about *Alchemy*."
+    }
+]

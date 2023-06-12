@@ -204,7 +204,7 @@ before and after the text */
 the other elements, you will need to move that div outside
 of the container */
 #container {
-    max-width: 900px;
+    max-width: 1000px;
     /* this is the width of your layout! */
     /* if you change the above value, scroll to the bottom
 and change the media query according to the comment! */
@@ -214,7 +214,7 @@ and change the media query according to the comment! */
 }
 
 #headerArea {
-    max-width:900px;
+    max-width:1000px;
     height:fit-content;
     outline: none;
 }
@@ -333,12 +333,23 @@ strong {
     color: #d7cdf7;
 }
 
+#postButtons {
+    text-align: center;
+    width: 100%;
+}
+
 /* this is just a cool box, it's the darker colored one */
 .box {
     background-color: #13092D;
     border: 1px solid #d7cdf7;
     padding: 5px;
     margin-bottom: 10px;
+}
+button.box:hover:enabled {
+    color: orangered;
+}
+button.box:enabled {
+    color: white;
 }
 
 /* CSS for extras */
@@ -372,7 +383,7 @@ and then subtrack it by 100. use this new number as the
 "max-width" value below
 */
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 850px) {
 
     #navbar ul {
         flex-wrap: wrap;

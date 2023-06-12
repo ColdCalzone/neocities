@@ -6,17 +6,20 @@ module ParseMode
     NORMAL       = 0
     ITALIC       = 1
     BOLD         = 2
-    LINK_TEXT    = 3
-    LINK_URL     = 4
-    HEADER_ONE   = 5
-    HEADER_TWO   = 6
-    HEADER_THREE = 7
-    HEADER_FOUR  = 8
-    HEADER_FIVE  = 9
-    HEADER_SIX   = 10
+    IMAGE        = 3
+    LINK_TEXT    = 4
+    LINK_URL     = 5
+    IMAGE_TEXT   = 6
+    IMAGE_URL    = 7
+    HEADER_ONE   = 8
+    HEADER_TWO   = 9
+    HEADER_THREE = 10
+    HEADER_FOUR  = 11
+    HEADER_FIVE  = 12
+    HEADER_SIX   = 13
 end
 
-# Aforementione Markdown parsing
+# Aforementioned Markdown parsing
 def markdownParse(post_body)
     out = ""
     skip = 0
@@ -68,21 +71,43 @@ def markdownParse(post_body)
                 header_size = style_stack.pop() - 2
                 out += "<h" + header_size.to_s + ">"
             end
+        when '!'
+            if post_body[i + 1] == '[' || post_body[i + 1] == ']'
+                style_stack.push ParseMode::IMAGE
+            else
+                out += '!'
+            end
         when '['
-            style_stack.push ParseMode::LINK_TEXT
+            if style_stack.last == ParseMode::IMAGE
+                style_stack.push ParseMode::IMAGE_TEXT
+            else
+                style_stack.push ParseMode::LINK_TEXT
+            end
         when ']'
-            if style_stack.last == ParseMode::LINK_TEXT
+            if style_stack.last == ParseMode::LINK_TEXT || style_stack.last == ParseMode::IMAGE_TEXT
                 style_stack.pop
             end
         when '('
-            style_stack.push ParseMode::LINK_URL
-            out += "<a href="
+            if style_stack.last == ParseMode::IMAGE
+                style_stack.push ParseMode::IMAGE_URL
+                out += "<img src=\""
+            else
+                style_stack.push ParseMode::LINK_URL
+                out += "<a href=\""
+            end
         when ')'
-            while style_stack.last == ParseMode::LINK_TEXT || style_stack.last == ParseMode::LINK_URL
+            while style_stack.last == ParseMode::LINK_TEXT || style_stack.last == ParseMode::LINK_URL || style_stack.last == ParseMode::IMAGE_TEXT || style_stack.last == ParseMode::IMAGE_URL
                 style_stack.pop()
             end
-            out += ">" + content + "</a>"
+            if style_stack.last == ParseMode::IMAGE
+                out += "\">" + content + "</img>"
+            else
+                out += "\">" + content + "</a>"
+            end
             content = ""
+        when '\\'
+            skip += 1
+            out += post_body[i + 1]
         else
             if style_stack.last >= ParseMode::HEADER_ONE
                 if post_body[i..i + 3] == "<br>"
@@ -91,7 +116,7 @@ def markdownParse(post_body)
                     content = ""
                 end
             end
-            if style_stack.last != ParseMode::BOLD && style_stack.last != ParseMode::ITALIC && style_stack.last != ParseMode::LINK_TEXT
+            if style_stack.last != ParseMode::BOLD && style_stack.last != ParseMode::ITALIC && (style_stack.last != ParseMode::LINK_TEXT && style_stack.last != ParseMode::IMAGE_TEXT)
                 out += post_body[i]
             else
                 content += post_body[i]
@@ -103,14 +128,68 @@ end
 
 def generatePosts(args)
     posts = JSON.parse(File.read("../" + args[0])).map do |post|
-        parsed_post = markdownParse (post["body"])
-        "<div class=\"box\">
-            <h2>" + post["title"] + "</h2>
-            <hr>
-        " + parsed_post + "
-        </div>"
+        body = markdownParse post["body"]
+        {
+            "title": post["title"],
+            "body": body
+        }
     end
-    posts.reverse.join("<br>")
+    posts.reverse!
+    "<div id=\"postContainer\">
+        <div id=\"posts\"></div>
+        <div id=\"postButtons\">
+            <button class=\"box\" id=\"prevButton\" onclick=\"prevPage()\" disabled><=</button>
+            <button class=\"box\" id=\"nextButton\" onclick=\"nextPage()\" disabled>=></button>
+    </div>
+    <script>
+        var posts = " + posts.to_json + ";
+        var index = 0;
+        const displayedPosts = 5;
+        
+        function updatePosts() {
+            var postsDiv = document.getElementById(\"posts\");
+            postsDiv.innerHTML = '';
+            for(let post of posts.slice(index, index + displayedPosts)) {
+                var container = document.createElement(\"div\");
+                container.className = \"box\";
+                var title = document.createElement(\"h2\");
+                title.innerHTML = post[\"title\"];
+                container.appendChild(title);
+                container.appendChild(document.createElement(\"hr\"));
+                container.innerHTML += post[\"body\"];
+                postsDiv.appendChild(container);
+            }
+           
+            var prevButton = document.getElementById(\"prevButton\");
+            if(index != 0) {
+                prevButton.removeAttribute(\"disabled\");
+            } else {
+                prevButton.setAttribute(\"disabled\", true);
+            }
+
+            var nextButton = document.getElementById(\"nextButton\");
+            if(index < posts.length - displayedPosts) {
+                nextButton.removeAttribute(\"disabled\");
+            } else {
+                nextButton.setAttribute(\"disabled\", true);
+            }
+        }
+
+        function prevPage() {
+            index -= displayedPosts;
+            updatePosts()
+        }
+
+        function nextPage() {
+            index += displayedPosts;
+            updatePosts()
+        }
+
+        updatePosts()
+        if(posts.length > displayedPosts) {
+            document.getElementById(\"nextButton\").removeAttribute(\"disabled\");
+        }
+    </script>"
 end
 
 # Get the header / sidebar from their html files

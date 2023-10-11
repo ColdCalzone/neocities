@@ -1,0 +1,71 @@
+[
+    {
+        "panel": "shopfalls_files/panels/Panel0.png",
+        "response": "jaydee has been gone for so long we're out of food"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel1.png",
+        "response": "I'm fucking starving it's been days"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel2.png",
+        "response": "I'm leaving, I'm not getting any of your shit, I'm just hungry as fuck."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel3.png",
+        "call": "JAY: Can you get me some doritos?",
+        "response": "jay you're already at fucking tesco get it yourself"
+    },
+    {
+        "panel": ["shopfalls_files/panels/Panel4.png", "shopfalls_files/panels/Panel5.gif"],
+        "call": "pretty please :(",
+        "response": "unless I go in there and see some wacko shit I'm not getting your fucking-"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel6.gif",
+        "response": "what the fuck is this"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel7.png",
+        "call": "Maybe the plumbing needs fixing",
+        "response": "PLUMBING? PLUMBING? ARE YOU LOOKING AT THIS SHIT? CLEARLY YOU SEE IT YOU SEE REALITY CRUMBLING RIGHT?"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel8.png",
+        "call": "Honestly I don't see anything wrong<br>You must be see things because of the lack of food in you",
+        "response": "just HOW HUNGRY do you even have to BE just to HALLUCINATE something like this......"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel9.png",
+        "call": "I would let an employee know or call the manager to inform them of the fault in their water system.",
+        "response": "No."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel10.gif",
+        "call": "maybe you shouldn't have gone to the same tesco that jay disappeared in",
+        "response": "I don't think it's my fault the nearest tesco is a fucking quantum-vaporwave hellscape. I thought he just fucked off to somewhere else or just got shanked or something not this. fuck."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel11.png",
+        "call": "leave the tesco",
+        "response": "I just learnt that jay is not only probably Stuck in this tesco, but that it's vaporwave hell. I can't just leave. I gotta get him out."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel12.png",
+        "response": "oh this is so good holy shit"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel13.gif",
+        "call": "What's that to the right?!",
+        "response": "what's <em>what</em> to the right?<br><br>(also yes I was eating the whole orange.)"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel14.mp4",
+        "response": "Ok, back to business!"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel15.png",
+        "call": "Evaluate the current situation",
+        "response": "In my professional opinion, it feels like I've been dead for 6 months."
+    }
+]

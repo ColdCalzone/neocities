@@ -60,13 +60,15 @@
 
         // Regex for file extensions i.e. handling .mp4s, .pngs, etc.
         var extensionRegex = /(?:\.([^.]+))?$/;
-        
-        
-        if (page < 1) { page = 1; }
+    
+        // This is the only pattern I could find which covered NaN.
+        // why? I hate JavaScript.
+        if (!(page >= 1)) { page = 1; }
 
         // Parse the json and return the current page
         function getCurrentPageFromJSON(json) {
             console.log(json);
+            console.log(page);
             if (page >= json.length) {
                 document.getElementById("NextPage").href = ""
             }
@@ -94,7 +96,11 @@
         }
         
         function parseCall(call) {
-            document.getElementById("call").innerHTML = "<div class=\"centered\"><strong>" + pageData["call"] + "</strong></div>";
+            if(call == "" || call == null || call == undefined) {
+                document.getElementById("call").remove();
+                return;
+            }
+            document.getElementById("call").innerHTML = "<div class=\"centered\"><strong>" + call + "</strong></div>";
         }
 
         // Populate the panels section
@@ -119,9 +125,14 @@
             }
         }
                 
-        function parseResponse(call) {
-            document.getElementById("call").innerHTML = "<div class=\"centered\">" + pageData["response"] + "</div>";
+        function parseResponse(response) {
+            if(response == "" || response == null || response == undefined) {
+                document.getElementById("response").remove();
+                return;
+            }
+            document.getElementById("response").innerHTML = "<div class=\"centered\">" + response + "</div>";
         }
+
         fetch("shopfalls_files/shopfalls.json")
             .then((res) => {
                 return res.json();

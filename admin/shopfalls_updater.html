@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A spinoff of a parody of a webcomic alluding to another webcomic">
+    <meta name="author" content="Cold Calzone">
+
+    <title>Shopfalls Updater</title>
+    <link href="../src/shopfalls_files/shopfalls.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" type="image/x-icon" href="../src/images/favicon.png">
+</head>
+
+<body style="height:100vh;">
+
+    <div id="container">
+        <form id="submitter">
+            <!-- CALL -->
+
+            <main id="call" style="margin-bottom: 2px; padding-top:2px;">
+                <div class="centered"><strong>
+                    <label for="callin">CALL:</label>
+                    <textarea id="callin" type="text" name="call" style="width:100%;"></textarea>
+                </strong></div>
+            </main>
+
+            <!-- PANEL -->
+
+            <div id="flex">
+                <main>
+                    <div class="centered"><strong>
+                        <label for="panelsin">PANEL:</label>
+                        <textarea id="panelsin" type="text" name="panel" style="width:100%;" onchange="updatePanels()"></textarea>
+                    </strong></div>
+                    <div id="panelContainer"></div>
+                </main>
+            </div>
+            <!-- RESPONSE -->
+
+            <main id="response" style="padding: 10px;">
+                <div class="centered"><strong>
+                    <label for="responsein">RESPONSE:</label>
+                    <textarea id="responsein" type="text" name="response" style="width:100%;"></textarea>
+                </strong></div>
+                <div class="centered">
+                    <input type="submit" id="submit">
+                </div>
+            </main>
+        </form>
+        <a id="downloadAnchorElem"></a>
+    </div>
+
+    <!-- SCRIPTS SCRIPTS SCRIPTS -->
+    <script type="text/javascript">
+        document.getElementById("submitter").addEventListener('submit', updateShopfalls);
+        var extensionRegex = /(?:\.([^.]+))?$/;
+
+        updatePanels();
+
+        function updateShopfalls(e) {
+            e.preventDefault();
+
+            fetch("../src/shopfalls_files/shopfalls.json")
+            .then((res) => {
+                return res.json();
+            })
+            .then((json) => {
+                var form = new FormData(document.getElementById("submitter"));
+                
+                var newline = new RegExp(/[\n]/g);
+
+                var data = {
+                    "call": form.get("call").replace(newline, "<br>"),
+                    "panel": form.get("panel").split('\n'),
+                    "response": form.get("response").replace(newline, "<br>")
+                };
+                json.push(data);
+
+                var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
+                var dlAnchorElem = document.getElementById('downloadAnchorElem');
+                dlAnchorElem.setAttribute("href",     dataStr     );
+                dlAnchorElem.setAttribute("download", "shopfalls.json");
+                dlAnchorElem.click();
+            });
+        }
+
+        function updatePanels() {
+            document.getElementById("panelContainer").innerHTML = "";
+            let files = document.getElementById("panelsin").value.split("\n").filter((y) => y.trim() != "").map((x) => "../src/" + x);
+            // This doesn't cover the edge-case of two subsequent videos
+            // But why would you do that?
+            // Regardless... This checks if the panel is a video or image before displaying it
+            for(file of files) {
+                if (extensionRegex.exec(file)[1] == "mp4") {
+                    var panel = document.createElement("video");
+                    panel.setAttribute("controls", "");
+                    panel.setAttribute("width", "100%");
+                    let source = document.createElement("source");
+                    source.src = file;
+                    panel.appendChild(source);
+                    document.getElementById("panelContainer").appendChild(panel);
+                } else {
+                    let panel = document.createElement("img");
+                    panel.setAttribute("width", "100%");
+                    panel.src = file;
+                    document.getElementById("panelContainer").appendChild(panel);
+                }
+                }
+        }
+    </script>
+
+</body>
+
+</html>

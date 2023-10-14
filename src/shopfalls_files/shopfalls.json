@@ -17,7 +17,10 @@
         "response": "jay you're already at fucking tesco get it yourself"
     },
     {
-        "panel": ["shopfalls_files/panels/Panel4.png", "shopfalls_files/panels/Panel5.gif"],
+        "panel": [
+            "shopfalls_files/panels/Panel4.png",
+            "shopfalls_files/panels/Panel5.gif"
+        ],
         "call": "pretty please :(",
         "response": "unless I go in there and see some wacko shit I'm not getting your fucking-"
     },
@@ -67,5 +70,89 @@
         "panel": "shopfalls_files/panels/Panel15.png",
         "call": "Evaluate the current situation",
         "response": "In my professional opinion, it feels like I've been dead for 6 months."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel16.png",
+        "response": "where the fuck am I"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel17.png",
+        "call": "Perception check?",
+        "response": "It would seem, perhaps, maybe, I fell 700 feet into the fucking ground."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel18.png",
+        "call": "Cold: Check vitals",
+        "response": "Yep, uhuh.<br><br><br>still no blood."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel19.png",
+        "call": "Cold think to yourself for a second, what would <strong><a href=\"https://other-space.neocities.org/TheBastardizedModernRebootForAmericanAudiencesUsingThePriorNameRecognitionOfTheOriginalIntellectualProperty\">Jake Dee: American Hero</a></strong> do in this situation?",
+        "response": "Who the fuck is \"<strong><a href=\"https://other-space.neocities.org/TheBastardizedModernRebootForAmericanAudiencesUsingThePriorNameRecognitionOfTheOriginalIntellectualProperty\">Jake Dee</a></strong>\"?"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel20.png",
+        "call": "Cold: Summon <strong><a href=\"https://other-space.neocities.org/TheBastardizedModernRebootForAmericanAudiencesUsingThePriorNameRecognitionOfTheOriginalIntellectualProperty\">Jake Dee: American Hero</a></strong>",
+        "response": "I'M NOT SUMMONING \"<strong><a href=\"https://other-space.neocities.org/TheBastardizedModernRebootForAmericanAudiencesUsingThePriorNameRecognitionOfTheOriginalIntellectualProperty\">JAKE DEE</a></strong>\""
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel21.gif",
+        "call": "Begin conceptualization of a version of JayDee from a universe where he was born in the United States",
+        "response": "This is the dumbest fucking thing ever.<br>I cannot put into words how fucking idiotic this idea is.<br>But... No! No, this is stupid!"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel22.gif",
+        "call": "Try jumping back up",
+        "response": "...doesn't seem to be working."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel23.png",
+        "call": "why are your legs so long?",
+        "response": "Who, <em>me?</em><br><br>...I dunno, why are you... filled with blood?"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel24.png",
+        "call": "Expand your comically long legs back to the surface<br>/<br>Yeah, how about now, are your legs long enough to leave?",
+        "response": "Not exactly."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel25.png",
+        "call": "Where even are you?",
+        "response": "I have no idea, but there's a path over here..."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel26.png",
+        "call": "The surrounding terrain seems pretty odd, what's up with that",
+        "response": "Hey, you're right, these are pretty weird.<br><br>I... don't know what this is."
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel27.png",
+        "response": "I wonder, if I...<br><br><strong><em>Item Obtained: Pale Drop</em></strong>"
+    },
+    {
+        "panel": "shopfalls_files/panels/Panel28.png",
+        "call": "Lick it.",
+        "response": "Tastes vaguely like tv static mixed with caramel"
+    },
+    {
+        "call": "Hey that other tree looks mad curious",
+        "panel": [
+            "shopfalls_files/panels/Panel29.png"
+        ],
+        "response": "Looks like some more drops, but these ones have <strong>colors.</strong><br><br>and... hey, that's my <strong>red</strong> knife!"
+    },
+    {
+        "call": "Take that miniature sword, posthaste",
+        "panel": [
+            "shopfalls_files/panels/Panel30.png"
+        ],
+        "response": "Reunited at last."
+    },
+    {
+        "call": "Would rubbing the green drop on the blue knife give it permanent poison?",
+        "panel": [
+            "shopfalls_files/panels/Panel31.png"
+        ],
+        "response": "Seems to be the case!<br><em>The Dread Drop has been consumed</em><br><em>Knife of Swiftness has been <strong>crudely alchemized</strong> with <strong>Poison</strong></em>"
     }
 ]

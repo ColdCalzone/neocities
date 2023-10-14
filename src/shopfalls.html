@@ -71,7 +71,7 @@
         function parseJson(json) {
             console.log(json);
             if (page >= json.length) {
-                document.getElementById("NextPage").href = "index.html"
+                document.getElementById("NextPage").href = ""
             }
             return json[page - 1];
         }
@@ -131,7 +131,7 @@
             .catch(() => {
                 return [
                     {
-                        "panel": "shopfalls_files/panels/Panel0.png",
+                        "panel": "shopfalls_files/panels/Panel15.png",
                         "call": "Evaluate the current situation",
                         "response": "In my professional opinion, it feels like I've been dead for 6 months."
                     }

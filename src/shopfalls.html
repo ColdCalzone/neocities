@@ -21,7 +21,7 @@
 
         <!-- PANEL -->
         <div id="flex">
-            <main id="panelContainer">
+            <main id="panel">
             </main>
         </div>
         <!-- RESPONSE -->
@@ -65,6 +65,23 @@
         // why? I hate JavaScript.
         if (!(page >= 1)) { page = 1; }
 
+        // a list tracking whether call/panel/response/etc has been added
+        var addedElements = {}
+
+        fetch("shopfalls_files/shopfalls.json")
+        .then((res) => {
+            return res.json();
+        })
+        .then((json) => {
+            return getCurrentPageFromJSON(json);
+        })
+        .then((pageData) => {
+            parsePageData(pageData);
+        });
+
+
+        // Here be parsing functions
+
         // Parse the json and return the current page
         function getCurrentPageFromJSON(json) {
             console.log(json);
@@ -90,17 +107,24 @@
 
         // Read the page and populate the document
         function parsePageData(pageData) {
-            parseCall(pageData["call"]);
-            parsePanels(pageData["panel"]);
-            parseResponse(pageData["response"]);
-        }
-        
-        function parseCall(call) {
-            if(call == "" || call == null || call == undefined) {
-                document.getElementById("call").remove();
-                return;
+            // A list of functions to call for a particular field
+            const parseFunctions = {
+                "call": (call) => { document.getElementById("call").innerHTML = "<div class=\"centered\"><strong>" + call + "</strong></div>"; },
+                "panel": parsePanels,
+                "response": (response) => { document.getElementById("response").innerHTML = "<div class=\"centered\">" + response + "</div>"; },
+            };
+
+            // Go through the page data and parse each field with its parsing function
+            for(let key in pageData) {
+                let data = pageData[key];
+                parseFunctions[key](data);
+                addedElements[key] = true;
             }
-            document.getElementById("call").innerHTML = "<div class=\"centered\"><strong>" + call + "</strong></div>";
+            
+            // Remove any elements which weren't added (i.e. the first few pages have no call)
+            for(let key in parseFunctions) {
+                if(!addedElements[key]) { document.getElementById(key).remove(); }
+            }
         }
 
         // Populate the panels section
@@ -109,47 +133,23 @@
 
             for(file of files) {
                 if (extensionRegex.exec(file)[1] == "mp4") {
+                    // Do the witchcraft to make a video in HTML
                     var panel = document.createElement("video");
                     panel.setAttribute("controls", "");
                     panel.setAttribute("width", "100%");
                     let source = document.createElement("source");
                     source.src = file;
                     panel.appendChild(source);
-                    document.getElementById("panelContainer").appendChild(panel);
+                    document.getElementById("panel").appendChild(panel);
                 } else {
+                    // Just make a normal image
                     let panel = document.createElement("img");
                     panel.setAttribute("width", "100%");
                     panel.src = file;
-                    document.getElementById("panelContainer").appendChild(panel);
+                    document.getElementById("panel").appendChild(panel);
                 }
             }
         }
-                
-        function parseResponse(response) {
-            if(response == "" || response == null || response == undefined) {
-                document.getElementById("response").remove();
-                return;
-            }
-            document.getElementById("response").innerHTML = "<div class=\"centered\">" + response + "</div>";
-        }
-
-        fetch("shopfalls_files/shopfalls.json")
-            .then((res) => {
-                return res.json();
-            })
-            .catch(() => {
-                return [{
-                            "panel": "shopfalls_files/panels/Panel15.png",
-                            "call": "Evaluate the current situation",
-                            "response": "In my professional opinion, it feels like I've been dead for 6 months."
-                        }];
-            })
-            .then((json) => {
-                return getCurrentPageFromJSON(json);
-            })
-            .then((pageData) => {
-                parsePageData(pageData);
-            });
     </script>
 
 </body>

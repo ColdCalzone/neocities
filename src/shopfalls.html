@@ -41,7 +41,7 @@
                 <a href="https://deep-freezer.neocities.org/">
                     <img style="position:relative;left:0px;top:-30px;z-index:1000" src="shopfalls_files/Return.png" width="7%">
                 </a>
-                <a id="NextPage" href="https://deep-freezer.neocities.org/shopfalls.html?page=2">
+                <a id="NextPage">
                     <img style="position:relative;left:0px;top:-30px;z-index:1000" src="shopfalls_files/ArrowRight.png" width="7%">
                 </a>
                 <a id="LastPage" href="https://deep-freezer.neocities.org/shopfalls.html">
@@ -54,32 +54,30 @@
 
     <!-- SCRIPTS SCRIPTS SCRIPTS -->
     <script type="text/javascript">
+        // Get the current page
         let params = (new URL(document.location)).searchParams;
         let page = parseInt(params.get("page"));
-        if (!(page >= 1)) {
-            page = 1;
-        }
+
+        // Regex for file extensions i.e. handling .mp4s, .pngs, etc.
         var extensionRegex = /(?:\.([^.]+))?$/;
+        
+        
+        if (page < 1) { page = 1; }
 
-        // Handle Navigation
-
-        if (page > 1) {
-            document.getElementById("PrevPage").href = "shopfalls.html?page=" + String(page - 1);
-            if ((page - 1) == 69) {
-                document.getElementById("PrevPage").href += "_hahanice";
-            }
-        }
-        document.getElementById("NextPage").href = "shopfalls.html?page=" + String(page + 1);
-        if ((page + 1) == 69) {
-            document.getElementById("NextPage").href += "_hahanice";
-        }
-
-        function parseJson(json) {
+        // Parse the json and return the current page
+        function getCurrentPageFromJSON(json) {
             console.log(json);
             if (page >= json.length) {
                 document.getElementById("NextPage").href = ""
             }
 
+            // Handle Navigation
+            if(page > 1) {
+                document.getElementById("PrevPage").href = "shopfalls.html?page=" + String(page - 1);
+            }
+            if(page < json.length) {
+                document.getElementById("NextPage").href = "shopfalls.html?page=" + String(page + 1);
+            }
             document.getElementById("LastPage").href = "shopfalls.html?page=" + String(json.length);
             if ((json.length) == 69) {
                 document.getElementById("LastPage").href += "_hahanice";
@@ -88,72 +86,58 @@
             return json[page - 1];
         }
 
-        function parseCallResponsePanel(pageData) {
-            let center = document.createElement("center");
-            // This doesn't cover the edge-case of two subsequent videos
-            // But why would you do that?
-            // Regardless... This checks if the panel is a video or image before displaying it
-            if (extensionRegex.exec(pageData["panel"])[1] == "mp4") {
-                var panel = document.createElement("video");
-                panel.setAttribute("controls", "");
-                panel.setAttribute("width", "100%");
-                let source = document.createElement("source");
-                source.src = pageData["panel"];
-                panel.appendChild(source);
-                document.getElementById("panelContainer").appendChild(panel);
-            } else {
-                if (typeof pageData["panel"] === "string") {
-                    let panel = document.createElement("img");
-                    panel.setAttribute("width", "100%");
-                    panel.src = pageData["panel"];
-                    document.getElementById("panelContainer").appendChild(panel);
-                } else if (typeof pageData["panel"] === "object") {
-                    for (var i of pageData["panel"]) {
-                        let panel = document.createElement("img");
-                        panel.setAttribute("width", "100%");
-                        panel.src = i;
-                        document.getElementById("panelContainer").appendChild(panel);
-                    }
-                }
-            }
-
-            if (pageData["flags"] == undefined) {
-                if (pageData["call"] === "" || pageData["call"] === undefined) {
-                    document.getElementById("call").remove();
-                } else {
-                    document.getElementById("call").innerHTML = "<div class=\"centered\"><strong>" + pageData["call"] + "</strong></div>";
-                }
-
-                if (pageData["response"] === "" || pageData["response"] === undefined) {
-                    document.getElementById("response").remove();
-                } else {
-                    document.getElementById("response").innerHTML = "<div class=\"centered\">" + pageData["response"] + "</div>";
-                }
-
-            } else {
-                document.getElementById("container").remove();
-                document.body.style.overflow = "hidden";
-            }
+        // Read the page and populate the document
+        function parsePageData(pageData) {
+            parseCall(pageData["call"]);
+            parsePanels(pageData["panel"]);
+            parseResponse(pageData["response"]);
+        }
+        
+        function parseCall(call) {
+            document.getElementById("call").innerHTML = "<div class=\"centered\"><strong>" + pageData["call"] + "</strong></div>";
         }
 
+        // Populate the panels section
+        function parsePanels(files) {
+            if(typeof files == "string") { files = [files]; }
+
+            for(file of files) {
+                if (extensionRegex.exec(file)[1] == "mp4") {
+                    var panel = document.createElement("video");
+                    panel.setAttribute("controls", "");
+                    panel.setAttribute("width", "100%");
+                    let source = document.createElement("source");
+                    source.src = file;
+                    panel.appendChild(source);
+                    document.getElementById("panelContainer").appendChild(panel);
+                } else {
+                    let panel = document.createElement("img");
+                    panel.setAttribute("width", "100%");
+                    panel.src = file;
+                    document.getElementById("panelContainer").appendChild(panel);
+                }
+            }
+        }
+                
+        function parseResponse(call) {
+            document.getElementById("call").innerHTML = "<div class=\"centered\">" + pageData["response"] + "</div>";
+        }
         fetch("shopfalls_files/shopfalls.json")
             .then((res) => {
                 return res.json();
             })
             .catch(() => {
-                return [
-                    {
-                        "panel": "shopfalls_files/panels/Panel15.png",
-                        "call": "Evaluate the current situation",
-                        "response": "In my professional opinion, it feels like I've been dead for 6 months."
-                    }
-                ];
+                return [{
+                            "panel": "shopfalls_files/panels/Panel15.png",
+                            "call": "Evaluate the current situation",
+                            "response": "In my professional opinion, it feels like I've been dead for 6 months."
+                        }];
             })
             .then((json) => {
-                return parseJson(json);
+                return getCurrentPageFromJSON(json);
             })
             .then((pageData) => {
-                parseCallResponsePanel(pageData);
+                parsePageData(pageData);
             });
     </script>
 

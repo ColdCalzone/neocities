@@ -94,9 +94,17 @@
             if(page > 1) {
                 document.getElementById("PrevPage").href = "shopfalls.html?page=" + String(page - 1);
             }
+            if ((page - 1) == 69) {
+                document.getElementById("NextPage").href += "_hahanice";
+            }
+
             if(page < json.length) {
                 document.getElementById("NextPage").href = "shopfalls.html?page=" + String(page + 1);
             }
+            if ((page + 1) == 69) {
+                document.getElementById("NextPage").href += "_hahanice";
+            }
+
             document.getElementById("LastPage").href = "shopfalls.html?page=" + String(json.length);
             if ((json.length) == 69) {
                 document.getElementById("LastPage").href += "_hahanice";

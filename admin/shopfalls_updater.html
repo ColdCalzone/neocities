@@ -43,6 +43,18 @@
                     <label for="responsein">RESPONSE:</label>
                     <textarea id="responsein" type="text" name="response" style="width:100%;"></textarea>
                 </strong></div>
+            </main>
+            <!-- Inventory -->
+
+            <main id="inventory" style="padding: 10px;">
+                <div class="centered"><strong>
+                    <label for="inventoryin">INVENTORY:</label>
+                    <textarea id="inventoryin" type="text" name="inventory" style="width:100%;"></textarea>
+                </strong></div>
+                <div class="centered"><strong>
+                    <label for="headin">EQUIPMENT:</label>
+                    <textarea id="headin" type="text" name="equipment" style="width:100%;"></textarea>
+                </strong></div>
                 <div class="centered">
                     <input type="submit" id="submit">
                 </div>
@@ -72,8 +84,10 @@
 
                 var data = {
                     "call": form.get("call").replace(newline, "<br>"),
-                    "panel": form.get("panel").split('\n'),
-                    "response": form.get("response").replace(newline, "<br>")
+                    "panel": form.get("panel").split('\n').filter((x) => { return x.trim() != ""; }),
+                    "response": form.get("response").replace(newline, "<br>"),
+                    "inventory": JSON.parse(form.get("inventory")),
+                    "equipment": JSON.parse(form.get("equipment")),
                 };
                 json.push(data);
 

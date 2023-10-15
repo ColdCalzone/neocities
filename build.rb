@@ -234,3 +234,15 @@ Dir.glob(File.join("**", "*.{htm,html}")) {|file|
         f.puts updated_page
     end
 }
+
+puts "Compiling TypeScript files..."
+
+
+# Iterate through every .ts file in all child directories
+Dir.glob(File.join("**", "*.ts")) {|file| 
+    puts "● " + file
+    puts `tsc #{file}`
+    
+    # delete the original .ts file
+    File.delete(file)
+}

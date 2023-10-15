@@ -135,6 +135,10 @@ footer {
     background-color: #bababa;
 }
 
+#inventoryGrid {
+    scale: 2;
+}
+
 h1,
 h2,
 h3 {
@@ -154,7 +158,7 @@ strong {
 
 em {
     /* this styles bold text */
-    color: #111111;
+    color: #a9a3d5;
     font-size: 25
 }
 
@@ -186,6 +190,10 @@ feel free to play around with the order!
 */
     main {
         order: 1;
+    }
+    
+    #inventory {
+        visibility: hidden;
     }
 
 }

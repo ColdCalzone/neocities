@@ -137,6 +137,7 @@ footer {
 
 #inventoryGrid {
     scale: 2;
+    translate:50%;
 }
 
 h1,

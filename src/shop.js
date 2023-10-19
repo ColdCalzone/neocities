@@ -5,7 +5,7 @@ const COMIC_FILE = "shopfalls.html";
 let params = (new URL(document.URL)).searchParams;
 let pageValue = params.get("page");
 if(pageValue === null) {
-    pageValue = "1";
+    pageValue = "0";
 }
 let page = parseInt(pageValue);
 
@@ -18,14 +18,12 @@ let addedElements = {};
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 // ! CHANGE THIS TO THE PATH TO YOUR COMIC'S DATA !
 // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-fetch("shopfalls_files/shopfalls.json")
+fetch("shopfalls_files/page_data/" + page + ".json")
 .then((res) => {
     return res.json();
 })
-.then((json) => {
-    return getCurrentPageFromJSON(json);
-})
 .then((pageData) => {
+    handleNavigation(page);
     parsePageData(pageData);
 });
 
@@ -33,34 +31,35 @@ fetch("shopfalls_files/shopfalls.json")
 // Here be parsing functions
 
 // Parse the json and return the current page
-function getCurrentPageFromJSON(json) {
-    console.log(json);
-    if (page >= json.length) {
-        document.getElementById("NextPage").href = ""
-    }
+function handleNavigation(currentPage) {
+    // Next page nav
+    fetch("shopfalls_files/shopfalls.json")
+        .then((res) => {
+            return res.json();
+        })
+        .then((meta) => {
+            if(meta["last"] > currentPage) {
+                // next page nav
+                document.getElementById("NextPage").href = COMIC_FILE + "?page=" + String(currentPage + 1);
+                if ((currentPage + 1) == 69) {
+                    document.getElementById("NextPage").href += "_hahanice";
+                }
 
-    // Handle Navigation
-    
-    if(page > 1) {
-        document.getElementById("PrevPage").href = COMIC_FILE + "?page=" + String(page - 1);
-    }
-    if ((page - 1) == 69) {
-        document.getElementById("NextPage").href += "_hahanice";
-    }
+            }
+            // prev page nav
+            if(currentPage > 1) {
+                document.getElementById("PrevPage").href = COMIC_FILE + "?page=" + String(currentPage - 1);
+            }
+            if ((currentPage - 1) == 69) {
+                document.getElementById("PrevPage").href += "_hahanice";
+            }
 
-    if(page < json.length) {
-        document.getElementById("NextPage").href = COMIC_FILE + "?page=" + String(page + 1);
-    }
-    if ((page + 1) == 69) {
-        document.getElementById("NextPage").href += "_hahanice";
-    }
-
-    document.getElementById("LastPage").href = COMIC_FILE + "?page=" + String(json.length);
-    if ((json.length) == 69) {
-        document.getElementById("LastPage").href += "_hahanice";
-    }
-    
-    return json[page - 1];
+            // last page nav
+            document.getElementById("LastPage").href = COMIC_FILE + "?page=" + String(meta["last"]);
+            if (meta["last"] == 69) {
+                document.getElementById("LastPage").href += "_hahanice";
+            }
+        });
 }
 
 // Read the page and populate the document
@@ -74,9 +73,6 @@ function parsePageData(pageData) {
         "inventory": parseInventory,
         "equipment": parseEquipment,
     };
-    const updateFunctions = {
-        "inventory": (_) => { renderInventory(itemsList); },
-    };
 
     // Go through the page data and parse each field with its parsing function
     console.log(pageData);
@@ -84,9 +80,6 @@ function parsePageData(pageData) {
         if(!(key in parseFunctions)) { continue; }
         let data = pageData[key];
         parseFunctions[key](data);
-        if(key in updateFunctions) {
-            updateFunctions[key](data);
-        }
         addedElements[key] = true;
     }
     
@@ -130,6 +123,8 @@ function parsePanels(files) {
 
 // Here be inventory stuff
 
+var ITEMS = fetch("shopfalls_files/items.json").then((res) => { return res.json(); }).then((json) => { return json; });
+
 // a list of item objects for the inventory, for the purpose of tooltips
 let itemsList = [];
 let equipList = [];
@@ -157,20 +152,21 @@ backgroundInv.src = "shopfalls_files/Inventory1.png";
 const backgroundEq = new Image(400, 252);
 backgroundEq.src = "shopfalls_files/Inventory2.png";
 
-function parseInventory(items) {
+async function parseInventory(inventory) {
     const width = 32;
     const height = 29;
     const gridX = 6;
     let cursor = 0;
+    let items = await ITEMS;
     
-    for(let i in items) {
+    for(let i in inventory) {
         let x = cursor % gridX;
         let y = Math.floor(cursor / gridX);
         
         let tempSprite = new Image(width, height);
         tempSprite.src = items[i]["sprite"];
         
-        let item = new Item(x * width + 3, y * height + 4, width, height, tempSprite, items[i]["name"], items[i]["description"], items[i]["count"]);
+        let item = new Item(x * width + 3, y * height + 4, width, height, tempSprite, items[i]["name"], items[i]["description"], inventory[i]);
         itemsList.push(item);
         cursor++;
     }
@@ -189,11 +185,13 @@ function parseInventory(items) {
             renderEquipment(equipList);
         }
     };
+    renderInventory(itemsList);
 }
 
-function parseEquipment(items) {
+async function parseEquipment(equipment) {
     const width = 32;
     const height = 29;
+    let items = await ITEMS;
 
     let map = {
         "head": [34, 8],
@@ -201,15 +199,19 @@ function parseEquipment(items) {
         "right_arm": [136, 46],
     }
 
-    for(let i in items) {
-        if(!("sprite" in items[i])) { continue; }
+    for(let i in equipment) {
+        if(equipment[i] === undefined) { continue; }
+        console.log(equipment[i]);
+        console.log(i);
+        console.log(equipment);
+        if(!("sprite" in items[equipment[i]])) { continue; }
         let x = map[i][0];
         let y = map[i][1];
 
         let tempSprite = new Image(width, height);
-        tempSprite.src = items[i]["sprite"];
+        tempSprite.src = items[equipment[i]]["sprite"];
         
-        let item = new Item(x, y, width, height, tempSprite, items[i]["name"], items[i]["description"], items[i]["count"]);
+        let item = new Item(x, y, width, height, tempSprite, items[equipment[i]]["name"], items[equipment[i]]["description"], undefined);
         equipList.push(item);
     }
 }

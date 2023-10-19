@@ -1,0 +1,10 @@
+{
+    "panel": "shopfalls_files/panels/Panel20.png",
+    "call": "Cold: Summon <strong><a href=\"https://other-space.neocities.org/TheBastardizedModernRebootForAmericanAudiencesUsingThePriorNameRecognitionOfTheOriginalIntellectualProperty\">Jake Dee: American Hero</a></strong>",
+    "response": "I'M NOT SUMMONING \"<strong><a href=\"https://other-space.neocities.org/TheBastardizedModernRebootForAmericanAudiencesUsingThePriorNameRecognitionOfTheOriginalIntellectualProperty\">JAKE DEE</a></strong>\"",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

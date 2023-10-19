@@ -1,0 +1,10 @@
+{
+    "panel": "shopfalls_files/panels/Panel18.png",
+    "call": "Cold: Check vitals",
+    "response": "Yep, uhuh.<br><br><br>still no blood.",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

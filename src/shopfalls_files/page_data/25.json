@@ -1,0 +1,10 @@
+{
+    "panel": "shopfalls_files/panels/Panel26.png",
+    "call": "The surrounding terrain seems pretty odd, what's up with that",
+    "response": "Hey, you're right, these are pretty weird.<br><br>I... don't know what this is.",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

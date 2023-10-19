@@ -1,0 +1,15 @@
+{
+    "call": "Would rubbing the green drop on the blue knife give it permanent poison?",
+    "panel": [
+        "shopfalls_files/panels/Panel31.png"
+    ],
+    "response": "Seems to be the case!<br><em>The Dread Drop has been consumed</em><br><em>Knife of Swiftness has been <strong>crudely alchemized</strong> with <strong>Poison</strong></em>",
+    "inventory": {
+        "paledrop": 1,
+        "honeydrop": 1
+    },
+    "equipment": {
+        "left_arm": "strongknife",
+        "right_arm": "dreadknife"
+    }
+}

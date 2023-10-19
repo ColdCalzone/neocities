@@ -1,0 +1,11 @@
+{
+    "panel": "shopfalls_files/panels/Panel28.png",
+    "call": "Lick it.",
+    "response": "Tastes vaguely like tv static mixed with caramel",
+    "inventory": {
+        "paledrop": 1
+    },
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

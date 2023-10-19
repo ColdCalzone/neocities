@@ -246,3 +246,11 @@ Dir.glob(File.join("**", "*.ts")) {|file|
     # delete the original .ts file
     File.delete(file)
 }
+
+puts "Removing .mp4s..."
+
+Dir.glob(File.join("**", "*.mp4")) {|file| 
+    puts "● " + file
+
+    File.delete(file)
+}

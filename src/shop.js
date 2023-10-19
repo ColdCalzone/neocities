@@ -33,7 +33,7 @@ fetch("shopfalls_files/page_data/" + page + ".json")
 // Parse the json and return the current page
 function handleNavigation(currentPage) {
     // Next page nav
-    fetch("shopfalls_files/shopfalls.json")
+    fetch("shopfalls_files/shopfalls.json", {cache: "no-cache"})
         .then((res) => {
             return res.json();
         })

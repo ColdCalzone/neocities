@@ -73,30 +73,23 @@
         function updateShopfalls(e) {
             e.preventDefault();
 
-            fetch("../src/shopfalls_files/shopfalls.json")
-            .then((res) => {
-                return res.json();
-            })
-            .then((json) => {
-                var form = new FormData(document.getElementById("submitter"));
-                
-                var newline = new RegExp(/[\n]/g);
+            var form = new FormData(document.getElementById("submitter"));
+            
+            var newline = new RegExp(/[\n]/g);
 
-                var data = {
-                    "call": form.get("call").replace(newline, "<br>"),
-                    "panel": form.get("panel").split('\n').filter((x) => { return x.trim() != ""; }),
-                    "response": form.get("response").replace(newline, "<br>"),
-                    "inventory": JSON.parse(form.get("inventory")),
-                    "equipment": JSON.parse(form.get("equipment")),
-                };
-                json.push(data);
+            var data = {
+                "call": form.get("call").replace(newline, "<br>"),
+                "panel": form.get("panel").split('\n').filter((x) => { return x.trim() != ""; }),
+                "response": form.get("response").replace(newline, "<br>"),
+                "inventory": JSON.parse(form.get("inventory")),
+                "equipment": JSON.parse(form.get("equipment")),
+            };
 
-                var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(json));
-                var dlAnchorElem = document.getElementById('downloadAnchorElem');
-                dlAnchorElem.setAttribute("href",     dataStr     );
-                dlAnchorElem.setAttribute("download", "shopfalls.json");
-                dlAnchorElem.click();
-            });
+            var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
+            var dlAnchorElem = document.getElementById('downloadAnchorElem');
+            dlAnchorElem.setAttribute("href",     dataStr     );
+            dlAnchorElem.setAttribute("download", "n.json");
+            dlAnchorElem.click();
         }
 
         function updatePanels() {

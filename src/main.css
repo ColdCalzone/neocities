@@ -204,13 +204,8 @@ before and after the text */
 the other elements, you will need to move that div outside
 of the container */
 #container {
-    max-width: 1000px;
-    /* this is the width of your layout! */
-    /* if you change the above value, scroll to the bottom
-and change the media query according to the comment! */
-    margin: 0 auto;
-    margin-bottom:10px;
-    /* this centers the entire page */
+    width: 100%;
+    margin-top: 3%;
 }
 
 #headerArea {
@@ -244,24 +239,17 @@ aside > * {
     background-color: #141645;
     font-size: smaller;
     padding: 20px;
-    margin-bottom:10px;
 }
 
 aside {
     width: 230px;
 }
 
-#leftSidebar {
-    margin-right:10px;
-}
-
-#rightSidebar {
-    margin-left:10px;
-}
 
 #copyButton {
     font-size: 8px;
     display: block;
+    text-align: center;
 }
 
 .buttonsContainer {
@@ -284,6 +272,16 @@ aside {
     margin-left:3px;
 }
 
+.footer-button-container {
+    flex:1;
+    height: fit-content;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.footer-button-container > * {
+    margin-bottom: 15px;
+}
+
 /* this is the color of the main content area,
 between the sidebars! */
 main {
@@ -299,19 +297,19 @@ if you're using both sidebars, the "order" value
 tells the CSS the order in which to display them.
 left sidebar is 1, content is 2, and right sidebar is 3! */
 
-*/ #leftSidebar {
-    order: 1;
+#leftSidebar {
+    order: 2;
 }
 
-#rightSidebar {
+#footer {
     order: 3;
 }
 
 footer {
     background-color: #13092D;
     /* background color for footer */
-    width: 100%;
-    height: 40px;
+    float: right;
+    width: 80%;
     padding: 10px;
     text-align: center;
     /* this centers the footer text */
@@ -369,9 +367,22 @@ webring-css {
     display: inline-block;
     vertical-align: middle;
     max-width: 180px;
-    margin: 1rem auto;
 }
 
+.links-box {
+    list-style: none;
+    width: fit-content;
+    margin: 0 auto;
+    height: 16px;
+}
+.links-box > li {
+    float: left;
+    color: white;
+}
+.links-box > li:not(:last-child)::after {
+    content: "| ";
+    margin: 0 0.3em;
+}
 
 /* BELOW THIS POINT IS MEDIA QUERY */
 
@@ -408,7 +419,7 @@ feel free to play around with the order!
         margin-right: 0px;
     }
 
-    #rightSidebar {
+    #footer {
         order: 3;
         margin-left: 0px;
     }

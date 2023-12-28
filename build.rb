@@ -195,7 +195,7 @@ end
 # Get the header / sidebar from their html files
 header = File.open("header.html") {|f| f.gets(nil)}
 
-right_sidebar = File.open("rightSidebar.html") {|f| f.gets(nil)}
+footer = File.open("footer.html") {|f| f.gets(nil)}
 
 # Delete and re-copy src/ -> out/
 puts "Copying src/ to out/"
@@ -217,9 +217,9 @@ Dir.glob(File.join("**", "*.{htm,html}")) {|file|
             when "header"
                 puts "> Header Macro"
                 header
-            when "rightSidebar"
-                puts "> Sidebar Macro"
-                right_sidebar
+            when "footer"
+                puts "> Footer Macro"
+                footer
             when "posts"
                 puts "> Blog Section Macro on " + macro[1]
                 generatePosts macro[1..-1]

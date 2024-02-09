@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A spinoff of a parody of a webcomic alluding to another webcomic">
+    <meta name="author" content="Cold Calzone">
+
+    <title>Shopfalls</title>
+    <link href="shopfalls.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+</head>
+
+<body>
+
+    <div id="container">
+        <!-- CALL -->
+        <main id="call" style="margin-bottom: 2px; padding-top:2px;">
+        </main>
+
+        <!-- PANEL -->
+        <div id="flex">
+            <main id="panel">
+            </main>
+        </div>
+        <!-- RESPONSE -->
+
+        <main id="response" style="padding: 10px;">
+            <div class="centered"></div>
+        </main>
+        <!-- NAVIGATION -->
+        <div id="navi" style="padding: 10px;">
+            <div class="centered">
+                <a href="https://deep-freezer.neocities.org/shopfalls/">
+                    <img style="position:relative;left:0px;top:-30px;z-index:1000" src="ui/ArrowLeftLeft.png" width="7%">
+                </a>
+                <a id="PrevPage">
+                    <img style="position:relative;left:0px;top:-30px;z-index:1000" src="ui/ArrowLeft.png" width="7%">
+                </a>
+                <a href="https://deep-freezer.neocities.org/">
+                    <img style="position:relative;left:0px;top:-30px;z-index:1000" src="ui/Return.png" width="7%">
+                </a>
+                <a id="NextPage">
+                    <img style="position:relative;left:0px;top:-30px;z-index:1000" src="ui/ArrowRight.png" width="7%">
+                </a>
+                <a id="LastPage" href="https://deep-freezer.neocities.org/shopfalls/">
+                    <img style="position:relative;left:0px;top:-30px;z-index:1000" src="ui/ArrowRightRight.png" width="7%">
+                </a>
+            </div>
+        </div>
+        <div id="inventory" style="display:inline-block;width:100%;">
+            <canvas id="inventoryGrid" width="200" height="126">The inventory display relies on canvas rendering, sorry.</canvas>
+            <main id="description" style="float:right;width: 425px;max-width: 450px;">
+                <h2 id="descriptionName">Item</h2>
+                <hr>
+                <p id="descriptionDescription" style="color:white;">Item descriptions will appear here.</p>
+            </main>
+        </div>
+    </div>
+</body>
+
+<script src="shop.js"></script>
+
+</html>

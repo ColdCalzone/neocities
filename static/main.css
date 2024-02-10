@@ -117,26 +117,6 @@ aside {
     text-align: center;
 }
 
-.buttonsContainer {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    width:100%;
-}
-
-.buttons {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-}
-
-.buttons * {
-    display: inline-block;
-    vertical-align: middle;
-    margin-top:3px;
-    margin-left:3px;
-}
-
 .footer-button-container {
     flex:1;
     height: fit-content;

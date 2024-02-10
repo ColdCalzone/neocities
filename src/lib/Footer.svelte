@@ -73,7 +73,7 @@
             <li><a href="https://coldcalzone.tumblr.com">Tumblr</a></li>
             <li><a href="https://coldcalzone.itch.io">Itch.io</a></li>
             <li><a href="https://github.com/ColdCalzone">Github</a></li>
-            <li><a href="shopfalls/prelude.html">Shopfalls</a></li>
+            <li><a href="/shopfalls/prelude/">Shopfalls</a></li>
             <li><a href="https://acdsstuck.neocities.org/">ACDSstuck</a></li>
         </ul>
     </div>

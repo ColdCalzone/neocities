@@ -1,27 +1,7 @@
 <script lang="ts">
     import Box from "$lib/Box.svelte";
-
-    import { marked } from "marked";
-    const posts = import.meta.glob("$lib/blog/*", {eager: true, query: "raw"});
-    const post_contents : string[] = Object.values(posts).map( (x : any) => x.default ).reverse();
-
-    const buttons = import.meta.glob("$lib/images/misc_buttons/*");
-    const button_srcs = Object.keys(buttons);
-
-    
-    let post_index = 0;
-    $: current_post = marked(post_contents[post_index]);
-
-    function decrementPost() {
-        post_index--;
-        if(post_index < 0) {
-            post_index = post_contents.length - 1;
-        }
-    }
-
-    function incrementPost() {
-        post_index = (post_index + 1) % post_contents.length;
-    }
+    import Buttons from "$lib/Buttons.svelte";
+    import Blog from "$lib/Blog.svelte";
 </script>
 
 <div id="flex">
@@ -33,32 +13,18 @@
         <hr>
         <Box title="I make things!">
             <p>I make games at <a href="https://coldcalzone.itch.io">my Itch!</a></p>
-            <p>More secretive is my <a href="art.html">art</a>, which I don't post elsewhere!</p>
+            <p>More secretive is my <a href="/art/">art</a>, which I don't post elsewhere!</p>
         </Box>
         <Box title="Reading?">
             <p>I read things! Sometimes! Less than I'd like!</p>
-            <p>Here's a? <a href="read.html">Reading list?</a> It'll have stuff I've read/wanna read.</p>
+            <p>Here's a? <a href="/read/">Reading list?</a> It'll have stuff I've read/wanna read.</p>
             <p>Be warned, it's gonna be all compsci all the way down.</p>
         </Box>
         <Box title="Open Source!">
             <h4>I use <a href="https://godotengine.org">Godot</a> to make my games, all of which have their source available on my github (see links)</h4>
             <h5>Additionally, if you'd like to see the code behind this site (There's a few moving parts, y'know!) it's available <a href="https://github.com/ColdCalzone/neocities">here!</a></h5>
         </Box>
-        <div>
-            <h1 style='text-align: center'>Blog</h1>
-            <hr>
-            <Box>
-                {@html current_post}
-            </Box>
-            <div style="margin: 0 auto; width: fit-content;">
-                <Box style="display: inline-block; padding: 0;">
-                    <button style="border:none; background-color:transparent; color:white;" on:click={decrementPost}>&lt;=</button>
-                </Box>
-                <Box style="display: inline-block; padding: 0;">
-                    <button style="border:none; background-color:transparent; color:white;" on:click={incrementPost}>=&gt;</button>
-                </Box>
-            </div>
-        </div>
+        <Blog />
     </main>
     <aside id="leftSidebar">
         <div id="latestGame">
@@ -78,17 +44,11 @@
                 </ul>
             </Box>
             <hr>
-            <div class="box">
+            <Box>
                 <p>Last Updated: <span id="lastupdate"></span></p>
                 <p>You are visitor #<span id="hitcount"></span></p>
-            </div>
-            <div class="buttonsContainer">
-                <div class="buttons">
-                    {#each button_srcs as src}
-                    <img {src}>
-                    {/each}
-                </div>   
-            </div>
+            </Box>
+            <Buttons />
         </div>
     </aside>
 </div>

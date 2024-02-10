@@ -1,4 +1,3 @@
-<!--Navbar/Header-->
 <style>
     #header {
         width: 20%;

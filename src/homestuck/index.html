@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        #container > div {
+            margin-bottom: 10px;
+        }
+        #header {
+            width: 20%;
+            min-width: 270px;
+            background-color: #00000000;
+            /* header color here! */
+            height: 150px;
+            /* this is only for a background image! */
+            /* if you want to put images IN the header, 
+        you can add them directly to the <div id="header"></div> element! */
+            background-image: url('images/banner.png');
+            /*background-size:cover;*/
+            background-repeat: no-repeat;
+            background-position: center;
+            position: fixed;
+        }
+    
+        /* navigation section!! */
+        #navbar {
+            height: calc(100vh - 150px);
+            /* navbar color */
+            background-color: #00000000;
+            position: fixed;
+            bottom: 0;
+            width: 20%;
+            min-width: 270px;
+        }
+    
+        #navbar ul {
+            padding: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            list-style-type: none;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    
+        #navbar li {
+            padding-top: 10px;
+            text-align: center;
+            margin: auto;
+        }
+    
+        /* navigation links*/
+        #navbar li a {
+            color: #d7cdf7;
+            /* navbar text color */
+            font-weight: 800;
+            text-decoration: none;
+            /* this removes the underline */
+        }
+    
+        /* navigation link when a link is hovered over */
+        #navbar li a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+    
+        #navbar div {
+            margin: 0 auto;
+            height: 100%;
+            /* width: 900px; */
+        }
+    
+        #navigation {
+            float: left;
+            height: 100vh;
+            width: 20%;
+            min-width: 270px;
+        }
+    
+    
+        @media only screen and (max-width: 800px) {
+    
+            #navbar ul {
+                flex-wrap: wrap;
+            }
+    
+            #navbar div {
+                width: 100%;
+            }
+        }
+    </style>
+    <link href="hs.css" rel="stylesheet">
+</head>
+<body> 
+    <div id="navigation">
+        <div id="header"></div>
+        <nav id="navbar">
+            <div>
+                <ul>
+                    <li><a href="/homestuck/">Home</a></li>
+                    <li><a href="/homestuck/classes.html">Classpect Analysis</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div id="container" >
+        <div class="flex">
+            <a href="https://413.gay"><img style="width: 100%;" src="https://www.homestuck.com/assets/HS_logo-d428d19c5a20af8e0e84ec06a0a67ab6add95a595c18a2d412031d7615edc2c7.png"></a>
+        </div>
+        <div class="flex">
+            <main>
+                <h1 style="text-align: center;">
+                    Let me tell you about HOMESTUCK.
+                </h1>
+                <p>
+                    Recently I've gotten into Homestuck. I don't even remember when I finished the comic, but I've been a fan for, like, 7 years? But now I'm actually actively thinking about it. I've thought about it so much I decided to dedicate part of my site to it.
+                </p>
+                <p>
+                    Part of this is, undoubtedly, <a href="https://acdsstuck.neocities.org/">because I'm part of a team working on an MSPFA</a>. Turns out, when you start trying to make a story in direct response to another, you start to analyze the original.
+                </p>
+                <h2 style="text-align: center;">
+                    So what's here?
+                </h2>
+                <p>
+                    I've gotten into the habit of making essays across many messages on Discord talking about the systems of SBURB or the logistics of this and that, and well... I want to actually preserve those somewhere, and give them more thought than the hour of fervent typing they can be spared on Discord. You'll find a directory of those, starting with my theorizing on Classes.
+                </p>
+            </main>
+        </div>
+        <div class="flex">
+            <main>
+                <h1 style="text-align: center;">Directory of Essays</h1>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

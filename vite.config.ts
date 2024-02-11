@@ -5,5 +5,5 @@ export default defineConfig({
 	plugins: [
 		sveltekit()
 	],
-	assetsInclude: ['**/*.md']
+	assetsInclude: ['**/*.md', '**/*.json']
 });

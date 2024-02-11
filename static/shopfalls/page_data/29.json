@@ -1,0 +1,16 @@
+{
+    "call": "Take that miniature sword, posthaste",
+    "panel": [
+        "/shopfalls/panels/Panel30.png"
+    ],
+    "response": "Reunited at last.<br><em>The Knife of Strength, Honey Drop, and Dread Drop have been added to the inventory</em>",
+    "inventory": {
+        "paledrop": 1,
+        "honeydrop": 1,
+        "dreaddrop": 1
+    },
+    "equipment": {
+        "left_arm": "strongknife",
+        "right_arm": "swiftknife"
+    }
+}

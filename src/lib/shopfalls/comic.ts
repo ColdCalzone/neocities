@@ -1,6 +1,7 @@
 import type { PageData, NextPageOverride } from "./modules/types.js";
-import { abortController, call, parseCustom, parsePanels, parseScript, parseStyle, response, setCall, setResponse, type ComicState, setPanels } from "./modules/parse/parsecomic.js";
+import { abortController, parseCustom, parsePanels, parseScript, parseStyle, type ComicState } from "./modules/parse/parsecomic.js";
 import { browser } from "$app/environment";
+import { parseInventory, parseEquipment } from "./modules/parse/inventory.js";
 
 let loading = false
 
@@ -35,10 +36,14 @@ export async function updatePage(state : ComicState) : Promise<ComicState> {
 export function resetPage(state : ComicState) {
     abortController.abort();
 
-    setCall(undefined, state);
-    setResponse(undefined, state);
-    setPanels([], state);
-
+    state.panelMode = [];
+    state.panels = [];
+    state.call = undefined;
+    state.response = undefined;
+    state.inventory = undefined;
+    state.tooltipName = undefined;
+    state.tooltipDescription = undefined;
+    
     for(let s of document.getElementsByClassName("temp-style")) {
         s.remove();
     }
@@ -83,23 +88,11 @@ function handleNavigation(currentPage : number) {
 function parsePageData(pageData : PageData, state : ComicState) {
     // A list of functions to call for a particular field
     const parseFunctions : {[key : string]: (data: any, state: ComicState) => void} = {
-        "call": (call : string) => { setCall(call, state); },
+        "call": (call : string) => { state.call = call; },
         "panel": parsePanels,
-        "response": (response : string) => { setResponse(response, state); },
-        // "chatlog": parseChatlog, 
-        // "style": parseStyle,
-        // "script": parseScript,
-        // "custom": parseCustom,
-        // "song": parseSong,
-        // "next_page": (next : NextPageOverride) => {
-        //     let nextPage = document.getElementById("nextPage") as HTMLAnchorElement;
-        //     if(next.link != undefined) {
-        //         nextPage.href = next.link;
-        //     }
-        //     nextPage.innerHTML = next.text;
-            
-        //     document.getElementById("nextPageContainer")?.classList.remove("hidden");
-        // }
+        "response": (response : string) => { state.response = response; },
+        "inventory": parseInventory,
+        "equipment": parseEquipment,
     };
 
     // Go through the page data and parse each field with its parsing function

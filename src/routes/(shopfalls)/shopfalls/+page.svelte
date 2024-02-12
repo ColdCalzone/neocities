@@ -1,15 +1,20 @@
 <script lang="ts">
     import { browser } from "$app/environment";
     import type { ComicState } from "$lib/shopfalls/modules/parse/parsecomic";
+    
     import { resetPage, setPage, updatePage } from "$lib/shopfalls/comic";
     import { onMount } from "svelte";
+    import { Inventory, displayItemTooltip, Point, renderInventory, renderEquipment } from "$lib/shopfalls/modules/parse/inventory";
     
     let progress : string[] = [];
     let state : ComicState = {
         panelMode: [],
         panels: [],
         call: undefined,
-        response: undefined
+        response: undefined,
+        inventory: undefined,
+        tooltipName: undefined,
+        tooltipDescription: undefined
     }
 
     async function leftArrow() {
@@ -25,6 +30,32 @@
         let page = url.searchParams.get("page");
         if(!page) page = "0";
         if(page) await setPage(parseInt(page) + 1, state);
+        state = state;
+    }
+
+    function canvasMouseMove(event : any) {
+        if(state.inventory!.mode == "inventory") {
+            renderInventory(state.inventory!.inventory);
+        }
+        else if(state.inventory!.mode == "equipment") {
+            renderEquipment(state.inventory!.equipment);
+        }
+        console.log(event.offsetX);
+        console.log(event.offsetY);
+        displayItemTooltip(new Point(event.offsetX, event.offsetY), state);
+        
+        state = state;
+    }
+
+    function canvasClick() {
+        if(state.inventory!.mode == "equipment") {
+            state.inventory!.mode = "inventory";
+            renderInventory(state.inventory!.inventory);
+        } else {
+            state.inventory!.mode = "equipment";
+            renderEquipment(state.inventory!.equipment);
+        }
+        
         state = state;
     }
 
@@ -56,8 +87,7 @@
     });
     $: {
         console.log(`Updated state: ${state.call}`);
-        console.log(`${state.response}`);
-        console.log(`${state.panels}`);
+        console.log(state);
     }
 </script>
 
@@ -72,11 +102,13 @@
     <!-- PANEL -->
     <div id="flex">
         <main id="panel">
-            {#each state.panels as src, i }
+            {#each state.panels as src, i}
                 {#if state.panelMode[i] = "image"}
+                    <!-- svelte-ignore a11y-missing-attribute -->
                     <img width="100%" data-panel-type="image" {src}>
                 {:else if state.panelMode[i] = "video"}
                     <div data-panel-type="video">
+                        <!-- svelte-ignore a11y-media-has-caption -->
                         <video autoplay width="100%" preload="auto" {src} on:timeupdate={ (ev) => {
                             progress[i] = String(ev.currentTarget.currentTime / ev.currentTarget.duration * 100);
                             progress = progress;
@@ -102,46 +134,83 @@
     <!-- NAVIGATION -->
     <div id="navi" style="padding: 10px;">
         <div class="centered">
-            <a href="javascript:void(0);" on:click={ (e) => {
+            <!-- svelte-ignore a11y-invalid-attribute -->
+            <a href="javascript:void(0);" on:click={ async (e) => {
                 e.preventDefault();
-                setPage(0, state);
+                await setPage(0, state);
                 state = state;
             }}>
+                <!-- svelte-ignore a11y-missing-attribute -->
                 <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/ArrowLeftLeft.png" width="7%">
             </a>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
+            <!-- svelte-ignore a11y-invalid-attribute -->
             <a id="PrevPage" href="javascript:void(0);" on:click={ leftArrow }>
+                <!-- svelte-ignore a11y-missing-attribute -->
                 <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/ArrowLeft.png" width="7%">
             </a>
+            <!-- svelte-ignore a11y-missing-attribute -->
             <a href="/">
                 <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/Return.png" width="7%">
             </a>
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
-            <a id="NextPage" href="javascript:void(0);" on:click={ rightArrow }>
+            {#await fetch("/shopfalls/shopfalls.json").then((x) => x.json()).then((y) => y["last"]).catch(() => 0)}
+            <!-- svelte-ignore a11y-invalid-attribute -->
+            <!-- svelte-ignore a11y-missing-attribute -->
+            <a id="NextPage" href="javascript:void(0);">
                 <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/ArrowRight.png" width="7%">
             </a>
-            {#await fetch("/shopfalls/shopfalls.json").then((x) => x.json()).then((y) => y["last"]).catch(() => {return 0})}
                 
+            <!-- svelte-ignore a11y-invalid-attribute -->
+            <a id="LastPage"  href="javascript:void(0);">
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/ArrowRightRight.png" width="7%">
+            </a>
+            <!-- svelte-ignore a11y-invalid-attribute -->
             {:then x} 
+            <!-- svelte-ignore a11y-invalid-attribute -->
+            <a id="NextPage" href="javascript:void(0);" on:click={ () => {
+                
+                let url = new URL(document.URL);
+                let page = url.searchParams.get("page");
+                if(!page) page = "0";
+                if(parseInt(page) <= x) rightArrow()
+            }}>
+                <!-- svelte-ignore a11y-missing-attribute -->
+                <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/ArrowRight.png" width="7%">
+            </a>
+                
+            <!-- svelte-ignore a11y-invalid-attribute -->
             <a id="LastPage"  href="javascript:void(0);" on:click={ async () => {
                 let url = new URL(document.URL);
                 let page = url.searchParams.get("page");
                 if(page) await setPage(parseInt(x), state);
                 state = state;
             }}>
+                <!-- svelte-ignore a11y-missing-attribute -->
                 <img style="position:relative;left:0px;top:-30px;z-index:1000" src="/shopfalls/ui/ArrowRightRight.png" width="7%">
             </a>
             {/await}
         </div>
     </div>
+    {#if state.inventory !== undefined}
     <div id="inventory" style="display:inline-block;width:100%;">
-        <canvas id="inventoryGrid" width="200" height="126">The inventory display relies on canvas rendering, sorry.</canvas>
+        <canvas id="inventoryGrid" width="200" height="126" on:mousemove={ canvasMouseMove } on:click={ canvasClick }>The inventory display relies on canvas rendering, sorry.</canvas>
         <main id="description" style="float:right;width: 425px;max-width: 450px;">
+            {#if !state.tooltipName}
             <h2 id="descriptionName">Item</h2>
+            {:else}
+            <h2 id="descriptionName"><strong>{@html state.tooltipName}</strong></h2>
+            {/if}
             <hr>
+            {#if !state.tooltipDescription}
             <p id="descriptionDescription" style="color:white;">Item descriptions will appear here.</p>
+            {:else}
+            <p id="descriptionDescription" style="color:white;">{@html state.tooltipDescription}</p>
+            {/if}
         </main>
     </div>
+    {/if}
 </div>

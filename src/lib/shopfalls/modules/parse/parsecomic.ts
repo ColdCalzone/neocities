@@ -1,24 +1,15 @@
 // Read the page and populate the document
 import type { FilePath, NextPageOverride, PageData, PageSongData, PanelSource, SourceMode } from "../types.js";
+import { parseInventory, Inventory } from "./inventory.js";
 
 export type ComicState = {
     panelMode : string[]
     panels : string[]
     call : string | undefined
     response : string | undefined
-}
-export function setPanels(x : string[], state : ComicState) {
-    state.panels = x;
-}
-
-export let call : string | undefined = undefined;
-export function setCall(x : string | undefined, state : ComicState) {
-    state.call = x;
-}
-
-export let response : string | undefined = undefined;
-export function setResponse(x : string | undefined, state : ComicState) {
-    state.response = x;
+    inventory : Inventory | undefined
+    tooltipName : string | undefined
+    tooltipDescription : string | undefined
 }
 
 export let abortController = new AbortController();

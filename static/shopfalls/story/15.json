@@ -1,0 +1,9 @@
+{
+    "panel": "/shopfalls/panels/Panel16.png",
+    "response": "where the fuck am I",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

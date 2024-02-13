@@ -1,0 +1,10 @@
+{
+    "panel": "/shopfalls/panels/Panel24.png",
+    "call": "Expand your comically long legs back to the surface<br>/<br>Yeah, how about now, are your legs long enough to leave?",
+    "response": "Not exactly.",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

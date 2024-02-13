@@ -1,6 +1,31 @@
+<script>
+    import Box from "$lib/Box.svelte";
+</script>
+
 <svelte:head>
     <link href="/homestuck/hs.css" rel="stylesheet">
 </svelte:head>
+
+<style>
+    .box-container {
+        width: 50%;
+        padding: 5px;
+    }
+    .box-container:nth-of-type(2n) {
+        float: right;
+    }
+    .box-container:nth-of-type(2n + 1) {
+        float: left;
+    }
+
+    @media only screen and (max-width: 850px) {
+        .box-container {
+            width: 100%;
+            margin: 5px;
+            display: block;
+        }
+    }
+</style>
 
 <div class="flex">
     <a href="https://413.gay"><img style="width: 100%;" src="https://www.homestuck.com/assets/HS_logo-d428d19c5a20af8e0e84ec06a0a67ab6add95a595c18a2d412031d7615edc2c7.png"></a>
@@ -27,5 +52,14 @@
 <div class="flex">
     <main>
         <h1 style="text-align: center;">Directory of Essays</h1>
+        <div>
+            <div class="box-container">
+                <Box>
+                    <h2><a href="/homestuck/classpects/">An accidental analysis of Homestuck's Classes</a></h2>
+                    <hr>
+                    This is the big one I wanted to make this part of my site for. And it SUCKS! I want to fix it up some time, but for now I NEED to archive this.
+                </Box>
+            </div>
+        </div>
     </main>
 </div>

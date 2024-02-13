@@ -16,7 +16,7 @@
     }
 </style>
 
-<div id="flex">
+<div class="flex">
     <main>
         <h2>I make pixel art sometimes</h2>
         <hr>

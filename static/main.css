@@ -11,7 +11,7 @@ img {
 }
 
 :root {
-    --body-bg-image: url('https://deep-freezer.neocities.org/images/bg.png');
+    --body-bg-image: url('/images/bg.png');
 
     /* colors */
     --content: #03030d;
@@ -105,11 +105,11 @@ a {
     font-weight: bold;
 }
 
-#flex {
+.flex {
     display: flex;
 }
 
-#flex * {
+.flex * {
     padding-top: -10px;
 }
 
@@ -234,10 +234,7 @@ and then subtrack it by 100. use this new number as the
 
 @media only screen and (max-width: 850px) {
 
-    #navbar ul {
-        flex-wrap: wrap;
-    }
-    #flex {
+    .flex {
         flex-wrap: wrap;
     }
 

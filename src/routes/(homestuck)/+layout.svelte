@@ -9,10 +9,7 @@
     <meta name="author" content="Cold Calzone">
 </head>
 
-<Navigation>
-    <li><a href="/homestuck/">Home(stuck)</a></li>
-    <li><a href="/homestuck/">Classpect Analysis (WIP DRAFT BAD ETC.)</a></li>
-</Navigation>
+<Navigation custom={[["/homestuck/", "Home(stuck)"], ["/homestuck/classpects", "Classpect Analysis (WIP DRAFT BAD ETC.)"]]}/>
 
 <slot />
 

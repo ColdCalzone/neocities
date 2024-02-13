@@ -3,7 +3,7 @@
 </script>
 
 <div id="container">
-    <div id="flex">
+    <div class="flex">
         <main>
             <h1>Reading List</h1>
             <hr>

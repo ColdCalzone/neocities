@@ -100,7 +100,7 @@
     {/if}
 
     <!-- PANEL -->
-    <div id="flex">
+    <div class="flex">
         <main id="panel">
             {#each state.panels as src, i}
                 {#if state.panelMode[i] = "image"}

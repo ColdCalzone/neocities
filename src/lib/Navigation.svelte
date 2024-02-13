@@ -1,3 +1,6 @@
+<script lang="ts">
+    export let custom : string[][] = [];
+</script>
 <style>
     #header {
         width: 20%;
@@ -67,7 +70,7 @@
     }
 
 
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 850px) {
         #navbar ul {
             flex-wrap: wrap;
         }
@@ -82,14 +85,18 @@
     <nav id="navbar">
         <div>
             <ul>
-                <slot>
+                {#if custom.length > 0}
+                {#each custom as [href, inner]}
+                    <li><a {href}>{inner}</a></li>
+                {/each}
+                {:else}
                     <li><a href="/">Home</a></li>
                     <li><a href="/projects/">Projects</a></li>
                     <li><a href="/art/">Art</a></li>
                     <li><a href="/read/">Reading</a></li>
                     <li><a href="/homestuck/">Homestuck</a></li>
                     <li><a href="/comments/">Comments</a></li>
-                </slot>
+                {/if}
             </ul>
         </div>
     </nav>

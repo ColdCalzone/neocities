@@ -1,4 +1,4 @@
-<div id="flex">
+<div class="flex">
     <main>
         <div>
             <!-- begin wwww.htmlcommentbox.com -->

@@ -43,7 +43,7 @@
     }
 </style>
 
-<div id="flex">
+<div class="flex">
     <main>
         <h1>Games</h1>
         <p>I spend a lot of my time making games, to the chagrin of my friends who will inevitably see me incessantly post in-dev screenshots and loudly complaining about something being broken. Below will be a few of those games.</p>

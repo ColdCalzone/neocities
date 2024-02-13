@@ -29,7 +29,7 @@
     }
 </script>
 
-<div id="flex">
+<div class="flex">
     <main>
         <h1>Welcome to my website!</h1>
         

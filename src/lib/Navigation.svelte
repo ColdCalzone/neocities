@@ -78,14 +78,18 @@
     }
 </style>
 <div id="navigation">
-    <div id="header"></div>
+    <a href="/"><div id="header"></div></a>
     <nav id="navbar">
         <div>
             <ul>
-                <li><a href="/">Home</a></li>
-                <li><a href="/projects/">Projects</a></li>
-                <li><a href="/art/">Art</a></li>
-                <li><a href="/read/">Reading</a></li>
+                <slot>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/projects/">Projects</a></li>
+                    <li><a href="/art/">Art</a></li>
+                    <li><a href="/read/">Reading</a></li>
+                    <li><a href="/homestuck/">Homestuck</a></li>
+                    <li><a href="/comments/">Comments</a></li>
+                </slot>
             </ul>
         </div>
     </nav>

@@ -1,6 +1,47 @@
 <script>
     import Box from "$lib/Box.svelte";
 </script>
+<style>
+    :root {
+        --playButtonColor: #d8a825;
+    }
+    .projectBox > img {
+        width: 64px;
+        display: inline-block; 
+        position: absolute;
+        right: 0px;
+        top: 0px;
+    }
+    .projectBox {
+        display:flex;
+        position: relative;
+        width: 100%;
+    }
+    .projectBox > a {
+        margin-right:64px;
+    }
+    .playButton {
+        transition-duration: 0.2s;
+        background-color: transparent; /* Green */
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border: 2px solid var(--playButtonColor);
+        border-radius: 10px;
+    }
+
+    .playButton:hover {
+        background-color: var(--playButtonColor);
+        color: white;
+    }
+</style>
 
 <div id="flex">
     <main>
@@ -71,45 +112,3 @@
         </Box>
     </main>
 </div>
-
-<style>
-    :root {
-        --playButtonColor: #d8a825;
-    }
-    .projectBox > img {
-        width: 64px;
-        display: inline-block; 
-        position: absolute;
-        right: 0px;
-        top: 0px;
-    }
-    .projectBox {
-        display:flex;
-        position: relative;
-        width: 100%;
-    }
-    .projectBox > a {
-        margin-right:64px;
-    }
-    .playButton {
-        transition-duration: 0.2s;
-        background-color: transparent; /* Green */
-        border: none;
-        color: white;
-        padding: 8px 16px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        transition-duration: 0.4s;
-        cursor: pointer;
-        border: 2px solid var(--playButtonColor);
-        border-radius: 10px;
-    }
-
-    .playButton:hover {
-        background-color: var(--playButtonColor);
-        color: white;
-    }
-</style>

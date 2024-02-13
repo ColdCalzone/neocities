@@ -1,4 +1,5 @@
 <script>
+    import Canvas from "$lib/Canvas.svelte";
     import Footer from "$lib/Footer.svelte";
     import Navigation from "$lib/Navigation.svelte";
 </script>
@@ -14,3 +15,5 @@
 <slot />
 
 <Footer />
+
+<Canvas />

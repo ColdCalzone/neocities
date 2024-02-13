@@ -1,14 +1,10 @@
-/* I'm a pixel artist. */
-img { 
-    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
-    image-rendering: -moz-crisp-edges;          /* Firefox                        */
-    image-rendering: -o-crisp-edges;            /* Opera                          */
-    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
-    image-rendering: pixelated; /* Chrome */
-    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
-    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+/* user styles */
 
-}
+/* styles are what change the color and sizes of stuff on your site. */
+
+/* these are variables that are being used in the code
+these tended to confuse some people, so I only kept 
+the images as variables */
 
 :root {
     --body-bg-image: url('https://deep-freezer.neocities.org/images/bg.png');
@@ -25,10 +21,6 @@ h3, h4, h5, h6, textarea{
     margin: 10px;
 }
 
-/* p, h1, h2, h3, h4, h5, h6, strong, b, i, textarea {
-    cursor: url(images/cursors/text.png) 9 8, text;
-} */
-
 /* if you have the URL of a font, you can set it below */
 /* feel free to delete this if it's not your vibe */
 
@@ -40,33 +32,9 @@ and then link it! Many fonts have separate files for each style
 
 */
 
-@font-face {
-    font-family: Nunito;
-    src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
-}
-
-@font-face {
-    font-family: Nunito;
-    src: url('https://sadhost.neocities.org/fonts/Nunito-Bold.ttf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: Nunito;
-    src: url('https://sadhost.neocities.org/fonts/Nunito-Italic.ttf');
-    font-style: italic;
-}
-
-@font-face {
-    font-family: Nunito;
-    src: url('https://sadhost.neocities.org/fonts/Nunito-BoldItalic.ttf');
-    font-style: italic;
-    font-weight: bold;
-}
 
 body {
-    font-family: 'Nunito', sans-serif;
-    padding: 3% 0 0 0;
+    font-family: 'Courier New', Courier, monospace;
     margin: 0;
     background-color: #00000000;
     color: #fceaff;
@@ -100,16 +68,21 @@ of the container */
     outline: none;
 }
 
-a {
+/* the area below is for all links on your page
+EXCEPT for the navigation */
+#container a {
     color: #d7cdf7;
     font-weight: bold;
+    /* if you want to remove the underline
+you can add a line below here that says:
+text-decoration:none; */
 }
 
-#flex {
+.flex {
     display: flex;
 }
 
-#flex * {
+.flex * {
     padding-top: -10px;
 }
 
@@ -131,6 +104,26 @@ aside {
     font-size: 8px;
     display: block;
     text-align: center;
+}
+
+.buttonsContainer {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width:100%;
+}
+
+.buttons {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.buttons * {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:3px;
+    margin-left:3px;
 }
 
 .footer-button-container {
@@ -196,6 +189,20 @@ strong {
     width: 100%;
 }
 
+/* this is just a cool box, it's the darker colored one */
+.box {
+    background-color: #13092D;
+    border: 1px solid #d7cdf7;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+button.box:hover:enabled {
+    color: orangered;
+}
+button.box:enabled {
+    color: white;
+}
+
 /* CSS for extras */
 
 #topBar {
@@ -206,7 +213,15 @@ strong {
     background-color: #13092D;
 }
 
-
+/* simmy's webring thingy mabob */
+webring-css {
+    background: url('https://raw.githubusercontent.com/wiregrrrl/ACDSring/main/bg.png');
+    
+    /*block or inline-block work. Adjust as you want babyyy*/
+    display: inline-block;
+    vertical-align: middle;
+    max-width: 180px;
+}
 
 .links-box {
     list-style: none;
@@ -237,7 +252,7 @@ and then subtrack it by 100. use this new number as the
     #navbar ul {
         flex-wrap: wrap;
     }
-    #flex {
+    .flex {
         flex-wrap: wrap;
     }
 

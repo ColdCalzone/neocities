@@ -4,7 +4,7 @@
         background: url('https://raw.githubusercontent.com/wiregrrrl/ACDSring/main/bg.png');
         
         /*block or inline-block work. Adjust as you want babyyy*/
-        display: inline-block;
+        display: block;
         vertical-align: middle;
         max-width: 180px;
     }
@@ -38,6 +38,8 @@
         new NeocitiesButton("https://timelesstinka.neocities.org/", "https://timelesstinka.neocities.org/Images/buttonless.png", "Timelessness button"),
         new NeocitiesButton("https://timewatcher.neocities.org/", "https://timewatcher.neocities.org/img/site-button.gif", "A button that will take you to Timewatcher's website/fake OS."),
         new NeocitiesButton("https://store.steampowered.com/app/2256450/RAM_Random_Access_Mayhem/", "https://deep-freezer.neocities.org/images/RAM.gif", "RAM: Random Access Mayhem"),
+        new NeocitiesButton("https://homestuck.com/", "/images/misc_buttons/homestuckbutton1.png", "Read Homestuck"),
+        new NeocitiesButton("https://413.gay/", "/images/misc_buttons/sburb.gif", "Read Homestuck via the UHC"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif", "Read ACDSStuck!"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/izzybutton.gif", "Read ACDSStuck! Feat. Izzy Pendles"),
     ]
@@ -63,10 +65,13 @@
                 </span>
             {/each}
         </div>
-        <div style="min-width:230px;">
+        <div style="min-width:230px;padding-left: 35px;">
             <webring-css site="https://deep-freezer.neocities.org"></webring-css>
             <script type="text/javascript" src="https://wiregrrrl.neocities.org/js/ACDSring.js"></script>
-        </div> 
+            <div style="margin: 0 auto 0 0;max-width: 180px;">
+                <script src="https://nuthead.neocities.org/ring/ring.js"></script> 
+            </div>
+        </div>
     </div>
     <div>
         <ul class="links-box">

@@ -1,6 +1,24 @@
+<script>
+    import { onMount } from "svelte";
+
+    onMount(() => {
+        let x = document.getElementById("hcb");
+        // @ts-ignore
+        let code = x.innerText;
+        // @ts-ignore
+        x.remove();
+
+        let script = document.createElement("script");
+        script.innerText = code;
+
+        // @ts-ignore
+        document.getElementById("hcb_container").appendChild(script);
+    })
+</script>
+
 <div class="flex">
     <main>
-        <div>
+        <div id="hcb_container">
             <!-- begin wwww.htmlcommentbox.com -->
             <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>
             <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />

@@ -1,5 +1,6 @@
 <script lang="ts">
     export let custom : string[][] = [];
+    export let banner : string = '/images/banner.png';
 </script>
 <style>
     #header {
@@ -7,7 +8,7 @@
         min-width: 270px;
         background-color: #00000000;
         height: 150px;
-        background-image: url('/images/banner.png');
+        background-image: var(--banner);
         
         background-repeat: no-repeat;
         background-position: center;
@@ -80,7 +81,7 @@
         }
     }
 </style>
-<div id="navigation">
+<div id="navigation" style="--banner: url('{banner}');">
     <a href="/"><div id="header"></div></a>
     <nav id="navbar">
         <div>

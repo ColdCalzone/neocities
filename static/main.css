@@ -12,9 +12,6 @@ img {
 
 :root {
     --body-bg-image: url('/images/bg.png');
-
-    /* colors */
-    --content: #03030d;
 }
 
 * {
@@ -25,9 +22,9 @@ h3, h4, h5, h6, textarea{
     margin: 10px;
 }
 
-/* p, h1, h2, h3, h4, h5, h6, strong, b, i, textarea {
+textarea, input[type="text"] {
     cursor: url(images/cursors/text.png) 9 8, text;
-} */
+}
 
 /* if you have the URL of a font, you can set it below */
 /* feel free to delete this if it's not your vibe */
@@ -195,17 +192,6 @@ strong {
     text-align: center;
     width: 100%;
 }
-
-/* CSS for extras */
-
-#topBar {
-    width: 100%;
-    height: 30px;
-    padding: 10px;
-    font-size: smaller;
-    background-color: #13092D;
-}
-
 
 
 .links-box {

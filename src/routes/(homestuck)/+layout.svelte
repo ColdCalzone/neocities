@@ -2,14 +2,16 @@
     import Footer from "$lib/Footer.svelte";
     import Navigation from "$lib/Navigation.svelte";
 </script>
-<head>
+<svelte:head>
     <title>Homestuck | Deep Freezer</title>
+    <link href="/main.css" rel="stylesheet" type="text/css" media="all">
     <link href="/homestuck/hs.css" rel="stylesheet" type="text/css" media="all">
     <meta name="description" content="A directory of many Homestuck theories, essays, etc.">
     <meta name="author" content="Cold Calzone">
-</head>
+</svelte:head>
 
-<Navigation custom={[["/homestuck/", "Home(stuck)"], ["/homestuck/classpects", "Classpect Analysis (WIP DRAFT BAD ETC.)"]]}/>
+<Navigation custom={[["/homestuck/", "Home(stuck)"], ["/homestuck/classpects", "Classpect Analysis (WIP DRAFT BAD ETC.)"]]} banner="/homestuck/images/banner.png"/>
+<!-- <Navigation /> -->
 
 <slot />
 

@@ -16,6 +16,8 @@
 </style>
 
 <script lang="ts">
+    import { onMount } from "svelte";
+
     class NeocitiesButton {
         href : string;
         src : string;
@@ -50,6 +52,14 @@
         html.children[0].removeAttribute("class");
         navigator.clipboard.writeText(html.outerHTML);
     }
+
+    onMount(() => {
+        let x = document.getElementById("nullring")!;
+        let y = x.parentElement;
+        x.remove();
+
+        y?.appendChild(x);
+    })
 </script>
 
 <footer>
@@ -69,7 +79,7 @@
             <webring-css site="https://deep-freezer.neocities.org"></webring-css>
             <script type="text/javascript" src="https://wiregrrrl.neocities.org/js/ACDSring.js"></script>
             <div style="margin: 0 auto 0 0;max-width: 180px;">
-                <script src="https://nuthead.neocities.org/ring/ring.js"></script> 
+                <script id="nullring" src="https://nuthead.neocities.org/ring/ring.js"></script> 
             </div>
         </div>
     </div>

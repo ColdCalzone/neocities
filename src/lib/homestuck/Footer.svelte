@@ -10,8 +10,7 @@
     }
     
     footer {
-        background-color: #13092D;
-        /* background color for footer */
+        background-color: #092d28;;
         float: right;
         width: 80%;
         max-width: calc(100% - 270px);
@@ -82,16 +81,8 @@
         }
     }
     const buttons = [
-        new NeocitiesButton("https://wiregrrrl.neocities.org/", "https://wiregrrrl.neocities.org/design/wiregrrrlbutton.gif", "WIREGRRRL button"),
-        new NeocitiesButton("https://other-space.neocities.org/", "https://other-space.neocities.org/resources/OSbuttonX.gif", "Other Space button"),
-        new NeocitiesButton("https://sadgrl.online/", "https://sadgrl.online/assets/images/buttons/sadgrlonline.gif", "sadgrl button"),
-        new NeocitiesButton("https://excessiveclownery.neocities.org/", "https://excessiveclownery.neocities.org/Buttons/DaCircus.png", "da circus button"),
         new NeocitiesButton("https://doctorispie.neocities.org/", "https://doctorispie.neocities.org/images/DoclingButton.png", "Docling invasion button"),
-        new NeocitiesButton("https://oberon-industries.neocities.org/", "https://oberon-industries.neocities.org/buttons/OberonButton.gif", "Oberon Industries button"),
-        new NeocitiesButton("https://undead-mel.neocities.org/", "https://doctorispie.neocities.org/images/Mel.png", "Undead Mel button"),
         new NeocitiesButton("https://timelesstinka.neocities.org/", "https://timelesstinka.neocities.org/Images/buttonless.png", "Timelessness button"),
-        new NeocitiesButton("https://timewatcher.neocities.org/", "https://timewatcher.neocities.org/img/site-button.gif", "A button that will take you to Timewatcher's website/fake OS."),
-        new NeocitiesButton("https://store.steampowered.com/app/2256450/RAM_Random_Access_Mayhem/", "https://deep-freezer.neocities.org/images/RAM.gif", "RAM: Random Access Mayhem"),
         new NeocitiesButton("https://homestuck.com/", "/images/misc_buttons/homestuckbutton1.png", "Read Homestuck"),
         new NeocitiesButton("https://413.gay/", "/images/misc_buttons/sburb.gif", "Read Homestuck via the UHC"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif", "Read ACDSStuck!"),

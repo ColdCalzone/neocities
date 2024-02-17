@@ -117,7 +117,7 @@
         <h1>An accidental analysis of Homestuck's Classes</h1>
         <p style="text-align: center;">The below is nearly a copy-pasted series of messages I made in a Discord Server on the subject of classes. The later parts have been revised since their inception.</p>
         <hr>
-        <img style="margin: 0 auto; display: block;" src="/homestuck/images/IncitingIncident.png">
+        <img style="margin: 0 auto; display: block;max-width: 100%;" src="/homestuck/images/IncitingIncident.png">
         
         <h2>Part 1</h2>
         <hr>

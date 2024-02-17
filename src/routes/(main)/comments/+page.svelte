@@ -17,7 +17,7 @@
 </script>
 
 <div class="flex">
-    <main>
+    <main style="max-width: 100%;">
         <div id="hcb_container">
             <!-- begin wwww.htmlcommentbox.com -->
             <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div>

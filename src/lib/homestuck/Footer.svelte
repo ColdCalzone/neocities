@@ -133,6 +133,7 @@
             <li><a href="https://github.com/ColdCalzone">Github</a></li>
             <li><a href="/shopfalls/prelude/">Shopfalls</a></li>
             <li><a href="https://acdsstuck.neocities.org/">ACDSstuck</a></li>
+            <li><a href="/homestuck/">Homestuck</a></li>
         </ul>
     </div>
 </footer>

@@ -88,7 +88,7 @@
         new NeocitiesButton("https://excessiveclownery.neocities.org/", "https://excessiveclownery.neocities.org/Buttons/DaCircus.png", "da circus button"),
         new NeocitiesButton("https://doctorispie.neocities.org/", "https://doctorispie.neocities.org/images/DoclingButton.png", "Docling invasion button"),
         new NeocitiesButton("https://oberon-industries.neocities.org/", "https://oberon-industries.neocities.org/buttons/OberonButton.gif", "Oberon Industries button"),
-        new NeocitiesButton("https://undead-mel.neocities.org/", "https://doctorispie.neocities.org/images/Mel.png", "Undead Mel button"),
+        new NeocitiesButton("https://undeadmel.neocities.org/", "https://doctorispie.neocities.org/images/Mel.png", "Undead Mel button"),
         new NeocitiesButton("https://timelesstinka.neocities.org/", "https://timelesstinka.neocities.org/Images/buttonless.png", "Timelessness button"),
         new NeocitiesButton("https://timewatcher.neocities.org/", "https://timewatcher.neocities.org/img/site-button.gif", "A button that will take you to Timewatcher's website/fake OS."),
         new NeocitiesButton("https://store.steampowered.com/app/2256450/RAM_Random_Access_Mayhem/", "https://deep-freezer.neocities.org/images/RAM.gif", "RAM: Random Access Mayhem"),
@@ -142,6 +142,7 @@
             <li><a href="https://github.com/ColdCalzone">Github</a></li>
             <li><a href="/shopfalls/prelude/">Shopfalls</a></li>
             <li><a href="https://acdsstuck.neocities.org/">ACDSstuck</a></li>
+            <li><a href="/homestuck/">Homestuck</a></li>
         </ul>
     </div>
 </footer>

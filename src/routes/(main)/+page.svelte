@@ -29,6 +29,24 @@
     }
 </script>
 
+<style>
+    .changes-box {
+        display: flex;
+        gap: 10px;
+    }
+
+    :global(.changes-box > div) {
+        height: 200px;
+        overflow-y: auto;
+    }
+
+    @media only screen and (max-width: 850px) {
+        .changes-box {
+            display: block;
+        }
+    }
+</style>
+
 <div class="flex">
     <main>
         <h1>Welcome to my website!</h1>
@@ -49,7 +67,32 @@
             <h4>I use <a href="https://godotengine.org">Godot</a> to make my games, all of which have their source available on my github (see links)</h4>
             <h5>Additionally, if you'd like to see the code behind this site (There's a few moving parts, y'know!) it's available <a href="https://github.com/ColdCalzone/neocities">here!</a></h5>
         </Box>
-        <Blog />
+        <div style="margin-top:10px" class="changes-box">
+            <Box style="flex: 1;">
+                <h3>Changelog</h3>
+                <hr>
+                <h4>2/12/24 - 2/17/24</h4>
+                <ul>
+                    <li>Split the blog into its own page (experimental)</li>
+                    <li>Made the site mobile compatible</li>
+                    <li>Added nullring</li>
+                    <li>Homestuck</li>
+                    <li>Rewrote site in Svelte</li>
+                </ul>
+            </Box>
+            <Box style="flex: 1;">
+                <h3>TODO</h3>
+                <hr>
+                <ul>
+                    <li>Re-do the Homestuck essay. Preferably just make a new one so the old one can be deleted.</li>
+                    <li>Create a "wiki" for Homestuck theory stuff</li>
+                    <li>Think of stuff to put on the TODO list</li>
+                    <li>Work on ACDSstuck</li>
+                </ul>
+            </Box>
+        </div>
+        <Blog locked="4"/>
+        
     </main>
     <aside id="leftSidebar">
         <div id="latestGame">

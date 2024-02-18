@@ -1,5 +1,12 @@
 :root {
     --body-bg-image: url('/homestuck/images/bg.png');
+
+    --dark-background-color: 09, 45, 40;
+
+    --link-color: 205, 247, 225;
+    
+    --main-color: 37, 110, 59;
+    --sidebar-color: 20, 69, 46;
 }
 
 * {
@@ -8,19 +15,6 @@
 
 body {
     font-family: 'Courier New', Courier, monospace;
-}
-
-a {
-    color: #cdf7e1;
-    font-weight: bold;
-}
-
-aside > * {
-    background-color: #14452e;
-}
-
-main {
-    background-color: #256e3b;
 }
 
 strong {

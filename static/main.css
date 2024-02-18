@@ -12,6 +12,16 @@ img {
 
 :root {
     --body-bg-image: url('/images/bg.png');
+
+    --dark-background-color: 19, 9, 45;
+
+    --link-color: 215, 205, 247;
+    --link-hover-color: 255, 255, 255;
+
+    --text-color: 252, 234, 255;
+
+    --main-color: 37, 43, 110;
+    --sidebar-color: 20, 22, 69;
 }
 
 * {
@@ -66,7 +76,7 @@ body {
     padding: 3% 0 0 0;
     margin: 0;
     background-color: #00000000;
-    color: #fceaff;
+    color: rgb(var(--text-color));
     background-image: var(--body-bg-image);
     background-repeat: repeat;
 }
@@ -98,7 +108,7 @@ of the container */
 }
 
 a {
-    color: #d7cdf7;
+    color: rgb(var(--link-color));
     font-weight: bold;
 }
 
@@ -114,7 +124,7 @@ a {
 if you want to style them separately,
 create styles for #leftSidebar and #rightSidebar */
 aside > * {
-    background-color: #141645;
+    background-color: rgb(var(--sidebar-color));
     font-size: smaller;
     padding: 20px;
 }
@@ -133,7 +143,7 @@ aside {
 /* this is the color of the main content area,
 between the sidebars! */
 main {
-    background-color: #252b6e;
+    background-color: rgb(var(--main-color));
     flex: 1;
     padding: 20px;
     order: 2;
@@ -152,7 +162,7 @@ left sidebar is 1, content is 2, and right sidebar is 3! */
 h1,
 h2,
 h3 {
-    color: #d7cdf7F5;
+    color: rgb(var(--link-color), 245);
 }
 
 h1 {
@@ -161,7 +171,7 @@ h1 {
 
 strong {
     /* this styles bold text */
-    color: #d7cdf7;
+    color: rgb(var(--link-color));
 }
 
 #postButtons {

@@ -67,7 +67,7 @@
 
     
     a {
-        color: #d7cdf7;
+        color: rgb(var(--link-color));
         /* navbar text color */
         font-weight: 800;
         text-decoration: none;
@@ -76,7 +76,7 @@
 
     
     a:hover {
-        color: #ffffff;
+        color: rgb(var(--link-hover-color));
         text-decoration: underline;
     }
 
@@ -128,7 +128,7 @@
             position: fixed;
             transition: 0.2s;
 
-            background-color: #13092DAA;
+            background-color: rgb(var(--dark-background-color), 0.66);
             top: 0;
             z-index: 1000;
         }

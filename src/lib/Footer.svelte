@@ -10,7 +10,7 @@
     }
     
     footer {
-        background-color: #13092D;
+        background-color: rgb(var(--dark-background-color));
         /* background color for footer */
         float: right;
         width: 80%;

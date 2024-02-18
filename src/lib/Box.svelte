@@ -5,13 +5,12 @@
 </script>
 <style>
     .box {
-        background-color: #13092D;
-        border: 1px solid #d7cdf7;
+        background-color: rgb(var(--dark-background-color));
+        border: 1px solid rgb(var(--link-color));
         padding: 5px;
         margin-bottom: 10px;
 
         scrollbar-width: thin;
-        scrallbar-color: transparent #524c68;
     }
     /* button.box:hover:enabled {
         color: orangered;

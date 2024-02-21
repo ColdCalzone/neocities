@@ -71,6 +71,18 @@
             <Box style="flex: 1;">
                 <h3>Changelog</h3>
                 <hr>
+                <h4>2/20/24</h4>
+                <ul>
+                    <li>Added a Homestuck button I made</li>
+                </ul>
+                <h4>2/19/24</h4>
+                <ul>
+                    <li>Added a toggle to the footer to show only the buttons I made.</li>
+                </ul>
+                <h4>2/18/24</h4>
+                <ul>
+                    <li>Made the colors variables. Now hs.css is cooler. :)</li>
+                </ul>
                 <h4>2/12/24 - 2/17/24</h4>
                 <ul>
                     <li>Split the blog into its own page (experimental)</li>

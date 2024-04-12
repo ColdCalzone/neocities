@@ -12,6 +12,10 @@
 
         scrollbar-width: thin;
     }
+
+    :global(.box img) {
+        max-width: 100%;
+    }
     /* button.box:hover:enabled {
         color: orangered;
     }

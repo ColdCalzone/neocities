@@ -103,7 +103,7 @@
                 </ul>
             </Box>
         </div>
-        <Blog locked="4"/>
+        <Blog locked="5"/>
         
     </main>
     <aside id="leftSidebar">

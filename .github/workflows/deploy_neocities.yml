@@ -11,45 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
     steps:
-      - uses: actions/checkout@v2
-      - name: Get all story .json file and parse them into log entries
-        id: get-files
-        run: |
-          files=`ls -1 -v ./public/story/*.json`
-          files="${files//$'\n'/' '}"
-          echo "$files"
-          
-          for file in $files;
-          do
-              number="${file##*/}"
-              number="${number%.*}"
-              file="${file//'%'/'%25'}"
-              file="${file//$'\n'/' '}"
-              file="${file//$'\r'/'%0D'}"
-              
-              file="<div>$(cat "$file" | jq -r .date) - <a href=\"story.html?page="$number"\">"$(cat "$file" | jq .call)"</a></div>"
-
-              echo "$number=$file" >> $GITHUB_OUTPUT
-              
-          done
-      - name: update public/log.html
-        uses: bluwy/substitute-string-action@v1
-        id: sub
-        with:
-          _input-file: "./html/log.html"
-          _output-file: "./public/log.html"
-          _format-key: '[key]'
-          log: ${{ join(steps.get-files.outputs.*, ' ') }}
-      - name: Authenticate
-        uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Commit changes
-        run: |
-          git add -A
-          git commit -m "Automatically fill log.html"
-          git push
-
       - name: Deploy to neocities
         if: ${{ success() || failure() }}
         uses: bcomnes/deploy-to-neocities@v1.1.9

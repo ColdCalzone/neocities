@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="./favicon.png" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+			/* FUNNY DRAWING */
+			#canvas {
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				cursor: url(/images/drawing/brush.png) 2 14, default;
+				image-rendering: pixelated;
+				image-rendering: crisp-edges;
+			}
+			#canvas:is(.animate) {
+				pointer-events: all;
+			}
+			#canvas:is(.erase) {
+				cursor: url(/images/drawing/eraser.png) 2 14, default;
+			}
+		
+			#palette {
+				position: fixed;
+				/* Vertical centering...*/
+				top:50%;
+				transform:translateY(-50%);
+		
+				right: -38px;
+				width: 36px;
+				background-color: #0d0d31;
+				padding-left: 2px;
+				padding-top: 3px;
+				outline: solid black 1px;
+				transition: all 0.65s;
+			}
+			#palette:is(.animate) {
+				right: 0px;
+			}
+		
+			.palette-color {
+				outline: solid black 1px;
+				width: 14px;
+				height: 14px;
+				float: left;
+				margin-right: 3px;
+				margin-bottom: 3px;
+			}
+		
+			#drawing-control {
+				position: fixed;
+				bottom: -80px;
+				right: 56px;
+				transition: all 0.65s;
+			}
+			#drawing-control:is(.animate) {
+				bottom: 48px;
+			}
+		
+			#drawing-control > * {
+				display: block;
+				/*vertical-align: middle;*/
+				background-color: transparent;
+				margin-top: 5px;
+				border: none;
+			}
+		
+			#drawing-control > * > * {
+				height: 32px;
+				width: 32px;
+			}
+		
+			#drawing-control > * > *:hover {
+				-webkit-filter: drop-shadow(1px 1px 0 white);
+				filter: drop-shadow(1px 1px 0 white);
+			}
+		
+			#drawing-toggle {
+				position: fixed;
+				bottom: 0px;
+				right: 48px;
+			}
+		
+			#drawing-toggle > * {
+				background-color: transparent;
+				border: none;
+			}
+			#drawing-toggle > * > * {
+				height: 48px;
+				width: 48px;
+			}
+			#drawing-toggle > * > *:hover {
+				-webkit-filter: drop-shadow(1px 1px 0 white);
+				filter: drop-shadow(1px 1px 0 white);
+			}
+		
+			#colorpick {
+				background: #000000;
+				width: 14px;
+				height: 14px;
+				float: left;
+				margin-right: 3px;
+				margin-bottom: 3px;
+			}
+		</style>
+		
+		<link href="./_app/immutable/assets/3.C7NxyNFL.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/Navigation.BxncSzti.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.QbSH43ee.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/entry.11buD8ah.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/scheduler.BDXRdsok.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.Ivozs8Gt.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.BZDGbRj9.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/0.CrsuLM8I.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/3.By2hMwmb.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/each.D6YF6ztN.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/Navigation.CWs1sub0.js">
+		<link rel="modulepreload" href="./_app/immutable/nodes/10.CPNLxp5s.js"><title>Home of Cold Calzones</title><!-- HEAD_svelte-74jp8c_START --><link href="/main.css" rel="stylesheet" type="text/css" media="all"><meta name="description" content="A website full of stuff made by a person"><meta name="author" content="Cold Calzone"><!-- HEAD_svelte-74jp8c_END -->
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">   <div class="navigation-shown svelte-6qfdit"></div> <div id="navigation" style="--banner: url('/images/banner.png');" class="svelte-6qfdit"><a href="/" class="svelte-6qfdit" data-svelte-h="svelte-soyx21"><div id="header" class="svelte-6qfdit"></div></a> <nav id="navbar" class="svelte-6qfdit"><div class="svelte-6qfdit"><ul class="svelte-6qfdit"><li class="svelte-6qfdit" data-svelte-h="svelte-1huopth"><a href="/" class="svelte-6qfdit">Home</a></li> <li class="svelte-6qfdit" data-svelte-h="svelte-fyezkf"><a href="/projects/" class="svelte-6qfdit">Projects</a></li> <li class="svelte-6qfdit" data-svelte-h="svelte-nx5331"><a href="/art/" class="svelte-6qfdit">Art</a></li> <li class="svelte-6qfdit" data-svelte-h="svelte-14ue3b5"><a href="/read/" class="svelte-6qfdit">Reading</a></li> <li class="svelte-6qfdit" data-svelte-h="svelte-r9p8a1"><a href="/homestuck/" class="svelte-6qfdit">Homestuck</a></li> <li class="svelte-6qfdit" data-svelte-h="svelte-3nl1kz"><a href="/comments/" class="svelte-6qfdit">Comments</a></li></ul></div></nav> <div id="show" class="svelte-6qfdit" data-svelte-h="svelte-125zqna"><div style="pointer-events: none;" class="svelte-6qfdit"></div></div></div> <div class="flex" data-svelte-h="svelte-ma4iqx"><main style="max-width: 100%;"><div id="hcb_container"> <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Comment Form</a> is loading comments...</div> <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0"> <script type="text/javascript" id="hcb">/*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24G8e0.yiZvZ41BI%2FlQF8FE1"+"&opts=16798&num=10&ts=1707785265173");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/</script> </div></main></div> <footer class="svelte-4zw51u"><div style="display:flex;" class="svelte-4zw51u"><div class="footer-button-container svelte-4zw51u"><span style="display:inline-block;transform: translateY(13px);" class="svelte-4zw51u"><a id="deepfreezerButton" href="https://deep-freezer.neocities.org/" target="_blank" data-svelte-h="svelte-1s4xq33"><img src="https://deep-freezer.neocities.org/images/deepfreeze.gif" alt="Deep Freezer button"></a> <a id="copyButton" href="javascript:void(0);" data-svelte-h="svelte-czkxxh">(copy button)</a></span> <span class="svelte-4zw51u"><a href="https://wiregrrrl.neocities.org/"><img src="https://wiregrrrl.neocities.org/design/wiregrrrlbutton.gif" alt="WIREGRRRL button"></a> </span><span class="svelte-4zw51u"><a href="https://other-space.neocities.org/"><img src="https://other-space.neocities.org/resources/OSbuttonX.gif" alt="Other Space button"></a> </span><span class="svelte-4zw51u"><a href="https://sadgrl.online/"><img src="https://sadgrl.online/assets/images/buttons/sadgrlonline.gif" alt="sadgrl button"></a> </span><span class="svelte-4zw51u"><a href="https://excessiveclownery.neocities.org/"><img src="https://excessiveclownery.neocities.org/Buttons/DaCircus.png" alt="da circus button"></a> </span><span class="svelte-4zw51u"><a href="https://doctorispie.neocities.org/"><img src="https://doctorispie.neocities.org/images/DoclingButton.png" alt="Docling invasion button"></a> </span><span class="svelte-4zw51u"><a href="https://oberon-industries.neocities.org/"><img src="https://oberon-industries.neocities.org/buttons/OberonButton.gif" alt="Oberon Industries button"></a> </span><span class="svelte-4zw51u"><a href="https://undeadmel.neocities.org/"><img src="https://doctorispie.neocities.org/images/Mel.png" alt="Undead Mel button"></a> </span><span class="svelte-4zw51u"><a href="https://timelesstinka.neocities.org/"><img src="https://timelesstinka.neocities.org/Images/buttonless.png" alt="Timelessness button"></a> </span><span class="svelte-4zw51u"><a href="https://timewatcher.neocities.org/"><img src="https://timewatcher.neocities.org/img/site-button.gif" alt="A button that will take you to Timewatcher's website/fake OS."></a> </span><span class="svelte-4zw51u"><a href="https://store.steampowered.com/app/2256450/RAM_Random_Access_Mayhem/"><img src="https://deep-freezer.neocities.org/images/RAM.gif" alt="RAM: Random Access Mayhem"></a> </span><span class="svelte-4zw51u"><a href="https://homestuck.com/"><img src="/images/misc_buttons/HomestuckButton.gif" alt="Read Homestuck"></a> </span><span class="svelte-4zw51u"><a href="https://413.gay/"><img src="/images/misc_buttons/sburb.gif" alt="Read Homestuck via the UHC"></a> </span><span class="svelte-4zw51u"><a href="https://acdsstuck.neocities.org/"><img src="https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif" alt="Read ACDSStuck!"></a> </span><span class="svelte-4zw51u"><a href="https://acdsstuck.neocities.org/"><img src="https://acdsstuck.neocities.org/MiscAssets/izzybutton.gif" alt="Read ACDSStuck! Feat. Izzy Pendles"></a> </span> </div> <div id="webring-contain" class="svelte-4zw51u" data-svelte-h="svelte-1f9d1vk"><webring-css site="https://deep-freezer.neocities.org" class="svelte-4zw51u"></webring-css> <script type="text/javascript" src="https://wiregrrrl.neocities.org/js/ACDSring.js" class="svelte-4zw51u"></script> <div style="max-width: 180px;" id="nullring" class="svelte-4zw51u"></div></div></div> <div class="svelte-4zw51u" data-svelte-h="svelte-wjafey"><ul class="links-box"><li><a href="https://coldcalzone.tumblr.com">Tumblr</a></li> <li><a href="https://coldcalzone.itch.io">Itch.io</a></li> <li><a href="https://github.com/ColdCalzone">Github</a></li> <li><a href="/shopfalls/prelude/">Shopfalls</a></li> <li><a href="https://acdsstuck.neocities.org/">ACDSstuck</a></li> <li><a href="/homestuck/">Homestuck</a></li></ul></div> <label class="button-switch svelte-4zw51u"><input type="checkbox" class="svelte-4zw51u"> <span class="button-slider svelte-4zw51u"></span></label></footer> <canvas id="canvas"></canvas> <div id="drawing-control"><button id="brush" data-svelte-h="svelte-6uqv5f"><img src="/images/drawing/brush.png"></button> <button id="erase" data-svelte-h="svelte-180mwel"><img src="/images/drawing/eraser.png"></button></div> <div id="drawing-toggle"><button id="toggle" data-svelte-h="svelte-1welh0e"><img src="/images/drawing/palette.png"></button></div> <div id="palette"><div class="palette-color" style="background-color: #030621;"></div><div class="palette-color" style="background-color: #FFFFFF;"></div><div class="palette-color" style="background-color: #FF0000;"></div><div class="palette-color" style="background-color: #00FF00;"></div><div class="palette-color" style="background-color: #0000FF;"></div> <input id="colorpick" type="color"></div> 
+			
+			<script>
+				{
+					__sveltekit_16s0itu = {
+						base: new URL(".", location).pathname.slice(0, -1)
+					};
+
+					const element = document.currentScript.parentElement;
+
+					const data = [null,null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.QbSH43ee.js"),
+						import("./_app/immutable/entry/app.Ivozs8Gt.js")
+					]).then(([kit, app]) => {
+						kit.start(app, element, {
+							node_ids: [0, 3, 10],
+							data,
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
+</html>

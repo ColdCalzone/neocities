@@ -1,0 +1,10 @@
+{
+    "panel": "/shopfalls/panels/Panel22.gif",
+    "call": "Try jumping back up",
+    "response": "...doesn't seem to be working.",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

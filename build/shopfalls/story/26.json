@@ -1,0 +1,10 @@
+{
+    "panel": "/shopfalls/panels/Panel27.png",
+    "response": "I wonder, if I...<br><br><strong><em>Item Obtained: Pale Drop</em></strong>",
+    "inventory": {
+        "paledrop_old": 1
+    },
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

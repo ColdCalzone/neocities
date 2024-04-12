@@ -1,0 +1,10 @@
+{
+    "panel": "/shopfalls/panels/Panel23.png",
+    "call": "why are your legs so long?",
+    "response": "Who, <em>me?</em><br><br>...I dunno, why are you... filled with blood?",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

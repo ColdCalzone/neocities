@@ -1,0 +1,10 @@
+{
+    "panel": "/shopfalls/panels/Panel25.png",
+    "call": "Where even are you?",
+    "response": "I have no idea, but there's a path over here...",
+    "inventory": {}
+,
+    "equipment": {
+        "right_arm": "swiftknife"
+    }
+}

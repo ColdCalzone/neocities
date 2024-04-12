@@ -1,0 +1,230 @@
+/* I'm a pixel artist. */
+img { 
+    image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
+    image-rendering: -moz-crisp-edges;          /* Firefox                        */
+    image-rendering: -o-crisp-edges;            /* Opera                          */
+    image-rendering: -webkit-optimize-contrast; /* Chrome (and eventually Safari) */
+    image-rendering: pixelated; /* Chrome */
+    image-rendering: optimize-contrast;         /* CSS3 Proposed                  */
+    -ms-interpolation-mode: nearest-neighbor;   /* IE8+                           */
+
+}
+
+:root {
+    --body-bg-image: url('/images/bg.png');
+
+    --dark-background-color: 19, 9, 45;
+
+    --link-color: 215, 205, 247;
+    --link-hover-color: 255, 255, 255;
+
+    --text-color: 252, 234, 255;
+
+    --main-color: 37, 43, 110;
+    --sidebar-color: 20, 22, 69;
+}
+
+* {
+    cursor: url(/images/cursors/default.png) 2 2, default;
+}
+
+h3, h4, h5, h6, textarea{
+    margin: 10px;
+}
+
+textarea, input[type="text"] {
+    cursor: url(images/cursors/text.png) 9 8, text;
+}
+
+/* if you have the URL of a font, you can set it below */
+/* feel free to delete this if it's not your vibe */
+
+/* this seems like a lot for just one font and I would have to agree 
+but I wanted to include an example of how to include a custom font.
+If you download a font file you can upload it onto your Neocities
+and then link it! Many fonts have separate files for each style
+(bold, italic, etc. T_T) which is why there are so many!
+
+*/
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-BoldItalic.ttf');
+    font-style: italic;
+    font-weight: bold;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    padding: 3% 0 0 0;
+    margin: 0;
+    background-color: #00000000;
+    color: rgb(var(--text-color));
+    background-image: var(--body-bg-image);
+    background-repeat: repeat;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* below this line is CSS for the layout */
+
+/* this is a CSS comment
+to uncomment a line of CSS, remove the * and the /
+before and after the text */
+
+
+/* the "container" is what wraps your entire website */
+/* if you want something (like the header) to be Wider than
+the other elements, you will need to move that div outside
+of the container */
+#container {
+    width: 100%;
+    margin-top: 3%;
+}
+
+#headerArea {
+    max-width:1000px;
+    height:fit-content;
+    outline: none;
+}
+
+a {
+    color: rgb(var(--link-color));
+    font-weight: bold;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex * {
+    padding-top: -10px;
+}
+
+/* this colors BOTH sidebars
+if you want to style them separately,
+create styles for #leftSidebar and #rightSidebar */
+aside > * {
+    background-color: rgb(var(--sidebar-color));
+    font-size: smaller;
+    padding: 20px;
+}
+
+aside {
+    width: 230px;
+}
+
+
+#copyButton {
+    font-size: 8px;
+    display: block;
+    text-align: center;
+}
+
+/* this is the color of the main content area,
+between the sidebars! */
+main {
+    background-color: rgb(var(--main-color));
+    flex: 1;
+    padding: 20px;
+    order: 2;
+}
+
+/* what's this "order" stuff about??
+allow me to explain!
+if you're using both sidebars, the "order" value
+tells the CSS the order in which to display them.
+left sidebar is 1, content is 2, and right sidebar is 3! */
+
+#leftSidebar {
+    order: 2;
+}
+
+h1,
+h2,
+h3 {
+    color: rgb(var(--link-color), 245);
+}
+
+h1 {
+    font-size: 25px;
+}
+
+strong {
+    /* this styles bold text */
+    color: rgb(var(--link-color));
+}
+
+#postButtons {
+    text-align: center;
+    width: 100%;
+}
+
+
+.links-box {
+    list-style: none;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    height: 16px;
+}
+.links-box > li {
+    float: left;
+    color: white;
+}
+.links-box > li:not(:last-child)::after {
+    content: "| ";
+    margin: 0 0.3em;
+}
+
+/* BELOW THIS POINT IS MEDIA QUERY */
+
+/* so you wanna change the width of your page? 
+by default, the container width is 900px.
+in order to keep things responsive, take your new height,
+and then subtrack it by 100. use this new number as the 
+"max-width" value below
+*/
+
+@media only screen and (max-width: 850px) {
+
+    .flex {
+        flex-wrap: wrap;
+    }
+
+    aside {
+        width: 100%;
+    }
+
+    /* the order of the items is adjusted here for responsiveness!
+since the sidebars would be too small on a mobile device.
+feel free to play around with the order!
+*/
+    main {
+        order: 1;
+    }
+
+    #leftSidebar {
+        order: 2;
+        margin-right: 0px;
+    }
+}

@@ -7,6 +7,38 @@ concurrency: # prevent concurrent deploys doing strange things
   cancel-in-progress: true
 
 jobs:
+  # https://gist.github.com/AndrewLester/2d3e6257d932831756226ca9a281d9b5
+  build_site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # If you're using pnpm, add this step then change the commands and cache key below to use `pnpm`
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v3
+      #   with:
+      #     version: 8
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: build
+        env:
+          BASE_PATH: '/${{ github.event.repository.name }}'
+        run: |
+          npm run build
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # this should match the `pages` option in your adapter-static options
+          path: 'build/'
   deploy:
     runs-on: ubuntu-latest
     if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
@@ -17,4 +49,4 @@ jobs:
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: false
-          dist_dir: public
+          dist_dir: build

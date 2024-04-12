@@ -10,6 +10,8 @@ jobs:
   # https://gist.github.com/AndrewLester/2d3e6257d932831756226ca9a281d9b5
   build_site:
     runs-on: ubuntu-latest
+    if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4

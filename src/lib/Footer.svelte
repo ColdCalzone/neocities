@@ -159,6 +159,7 @@
         new NeocitiesButton("https://413.gay/", "/images/misc_buttons/sburb.gif", "Read Homestuck via the UHC"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif", "Read ACDSStuck!"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/izzybutton.gif", "Read ACDSStuck! Feat. Izzy Pendles"),
+        new NeocitiesButton("https://sporewhore.neocities.org/", "https://sporewhore.neocities.org/Button.gif", "Sporewhore button"),
     ]
 
     const my_buttons = [

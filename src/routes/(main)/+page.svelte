@@ -71,6 +71,11 @@
             <Box style="flex: 1;">
                 <h3>Changelog</h3>
                 <hr>
+                <h4>4/13/24</h4>
+                <ul>
+                    <li>Added rudimentary image functionality to blog posts</li>
+                    <li>Added the <a href="https://sporewhore.neocities.org/">sporewhore</a> button</li>
+                </ul>
                 <h4>2/20/24</h4>
                 <ul>
                     <li>Added a Homestuck button I made</li>

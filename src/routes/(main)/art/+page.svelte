@@ -50,13 +50,8 @@
         <hr>
         <div class="artContain">
             <div class="art">
-                <img src="/images/art/Cold_32x.png">
-                <p>My old profile picture.</p>
-            </div>
-
-            <div class="art">
-                <img src="/images/art/Cold_64x.png">
-                <p>My latest profile picture.</p>
+                <img src="/images/art/Knife_subpixel_test.png">
+                <p>An experiment with sub-pixel<br>anti-aliasing. See <a href="https://learn.microsoft.com/en-us/typography/cleartype/">ClearType</a>.</p>
             </div>
 
             <div class="art">

@@ -9,7 +9,8 @@
         "/images/misc_buttons/krusie.png",
         "/images/misc_buttons/firefox.gif",
         "/images/misc_buttons/portal2.png",
-    ]
+        "/images/misc_buttons/lagtrain.gif",
+  ]
 </script>
 <style>
     .buttonsContainer {

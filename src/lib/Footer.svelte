@@ -226,7 +226,7 @@
     </div>
     <div>
         <ul class="links-box">
-            <li><a href="https://coldcalzone.tumblr.com">Tumblr</a></li>
+            <li><a href="https://cohost.org/coldcalzone">Cohost</a></li>
             <li><a href="https://coldcalzone.itch.io">Itch.io</a></li>
             <li><a href="https://github.com/ColdCalzone">Github</a></li>
             <li><a href="/shopfalls/prelude/">Shopfalls</a></li>

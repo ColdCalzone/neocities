@@ -144,7 +144,7 @@
 </style>
 <div class="navigation-shown"></div>
 <div id="navigation" style="--banner: url('{banner}');">
-    <a href="/"><div id="header"></div></a>
+    <a href="/"><div class="clickable" id="header"></div></a>
     <nav id="navbar">
         <div>
             <ul>

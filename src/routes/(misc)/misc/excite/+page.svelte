@@ -25,22 +25,14 @@
 
       constructor(palette : string[], canvas : HTMLCanvasElement) {
         this.palette = [];
-        for(let color of palette) {
-          let rgba_color : Color = {
-            r: parseInt(color.substring(1, 3), 16),
-            g: parseInt(color.substring(3, 5), 16),
-            b: parseInt(color.substring(5, 7), 16),
-            a: 0xFF
-          }
-          this.palette.push(rgba_color);
-        }
+        this.setPalette(palette);
 
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d")!;
         this.cells = [];
-        for(let y = 0; y < 200; y++) {
+        for(let y = 0; y < 180; y++) {
           this.cells.push([]);
-          for(let x = 0; x < 200; x++) {
+          for(let x = 0; x < 320; x++) {
             let cell : Cell = {
               state: (Math.random() > 0.99) ? this.palette.length - 1 : 0,
             };
@@ -58,6 +50,19 @@
         this.render();
       }
 
+      setPalette(palette : string[]) {
+        this.palette = [];
+        for(let color of palette) {
+          let rgba_color : Color = {
+            r: parseInt(color.substring(1, 3), 16),
+            g: parseInt(color.substring(3, 5), 16),
+            b: parseInt(color.substring(5, 7), 16),
+            a: 0xFF
+          }
+          this.palette.push(rgba_color);
+        }
+      }
+
       getCellWrapping(x : number, y : number) {
         if (!this.cells) return undefined;
         return this.cells.at(y % this.cells.length)!.at(x % this.cells[0].length);
@@ -73,7 +78,7 @@
 
           if(cell.state > 0) {
             new_cell.state = cell.state - 1;
-            if(cell.state > 2) return new_cell;
+            return new_cell;
           }
 
           for(let offsetX of [-1, 1]) {
@@ -117,16 +122,48 @@
       }
     }
 
-    const PALETTE = [
-      "#030516",
-      "#2A4347",
-      "#218278",
-      "#18C0A9",
-      "#0FFFDB"
+    const PALETTES = [
+      [
+        "#030516",
+        "#2A4347",
+        "#218278",
+        "#18C0A9",
+        "#0FFFDB"
+      ],
+      [
+        "#05252A",
+        "#431F32",
+        "#821A3A",
+        "#c01442",
+        "#FF0F4B"
+      ],
+      [
+        "#4F1A4D",
+        "#432360",
+        "#372C73",
+        "#2B3686",
+        "#1F3F99",
+        "#1449AC",
+      ],
+      [
+        "#000009",
+        "#4B00FF",
+        "#09DFFF",
+        "#4BFF09",
+        "#DFFB00",
+        "#FFB409",
+        "#FF0F4B",
+      ]
     ];
 
-    let grid = new Grid(PALETTE, <HTMLCanvasElement>document.getElementById("excite-canvas")!);
+    let palette_index = 0;
+    let grid = new Grid(PALETTES[palette_index], <HTMLCanvasElement>document.getElementById("excite-canvas")!);
 
+    document.getElementById("excite-canvas")!.onclick = () => {
+      palette_index += 1;
+      palette_index %= PALETTES.length;
+      grid.setPalette(PALETTES[palette_index])
+    }
     
     setInterval(() => {
       grid.step()
@@ -141,7 +178,7 @@
   }
 
   #excite-canvas {
-    width: 600px;
+    width: 100%;
     height: 100%;
   }
 </style>

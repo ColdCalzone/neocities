@@ -1,129 +1,136 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<style>
-			/* FUNNY DRAWING */
-			#canvas {
-				position: fixed;
-				top: 0px;
-				left: 0px;
-				width: 100%;
-				height: 100%;
-				pointer-events: none;
-				cursor: url(/images/drawing/brush.png) 2 14, default;
-				image-rendering: pixelated;
-				image-rendering: crisp-edges;
-			}
-			#canvas:is(.animate) {
-				pointer-events: all;
-			}
-			#canvas:is(.erase) {
-				cursor: url(/images/drawing/eraser.png) 2 14, default;
-			}
-		
-			#palette {
-				position: fixed;
-				/* Vertical centering...*/
-				top:50%;
-				transform:translateY(-50%);
-		
-				right: -38px;
-				width: 36px;
-				background-color: #0d0d31;
-				padding-left: 2px;
-				padding-top: 3px;
-				outline: solid black 1px;
-				transition: all 0.65s;
-			}
-			#palette:is(.animate) {
-				right: 0px;
-			}
-		
-			.palette-color {
-				outline: solid black 1px;
-				width: 14px;
-				height: 14px;
-				float: left;
-				margin-right: 3px;
-				margin-bottom: 3px;
-			}
-		
-			#drawing-control {
-				position: fixed;
-				bottom: -80px;
-				right: 56px;
-				transition: all 0.65s;
-			}
-			#drawing-control:is(.animate) {
-				bottom: 48px;
-			}
-		
-			#drawing-control > * {
-				display: block;
-				/*vertical-align: middle;*/
-				background-color: transparent;
-				margin-top: 5px;
-				border: none;
-			}
-		
-			#drawing-control > * > * {
-				height: 32px;
-				width: 32px;
-			}
-		
-			#drawing-control > * > *:hover {
-				-webkit-filter: drop-shadow(1px 1px 0 white);
-				filter: drop-shadow(1px 1px 0 white);
-			}
-		
-			#drawing-toggle {
-				position: fixed;
-				bottom: 0px;
-				right: 48px;
-			}
-		
-			#drawing-toggle > * {
-				background-color: transparent;
-				border: none;
-			}
-			#drawing-toggle > * > * {
-				height: 48px;
-				width: 48px;
-			}
-			#drawing-toggle > * > *:hover {
-				-webkit-filter: drop-shadow(1px 1px 0 white);
-				filter: drop-shadow(1px 1px 0 white);
-			}
-		
-			#colorpick {
-				background: #000000;
-				width: 14px;
-				height: 14px;
-				float: left;
-				margin-right: 3px;
-				margin-bottom: 3px;
-			}
-		</style>
-		
-		<link rel="modulepreload" href="../_app/immutable/entry/start.64AS2zS-.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/entry.CqV91UfR.js">
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+		/* FUNNY DRAWING */
+		#canvas {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			cursor: url(/images/drawing/brush.png) 2 14, default;
+			image-rendering: pixelated;
+			image-rendering: crisp-edges;
+		}
+
+		#canvas:is(.animate) {
+			pointer-events: all;
+		}
+
+		#canvas:is(.erase) {
+			cursor: url(/images/drawing/eraser.png) 2 14, default;
+		}
+
+		#palette {
+			position: fixed;
+			/* Vertical centering...*/
+			top: 50%;
+			transform: translateY(-50%);
+
+			right: -38px;
+			width: 36px;
+			background-color: #0d0d31;
+			padding-left: 2px;
+			padding-top: 3px;
+			outline: solid black 1px;
+			transition: all 0.65s;
+		}
+
+		#palette:is(.animate) {
+			right: 0px;
+		}
+
+		.palette-color {
+			outline: solid black 1px;
+			width: 14px;
+			height: 14px;
+			float: left;
+			margin-right: 3px;
+			margin-bottom: 3px;
+		}
+
+		#drawing-control {
+			position: fixed;
+			bottom: -80px;
+			right: 56px;
+			transition: all 0.65s;
+		}
+
+		#drawing-control:is(.animate) {
+			bottom: 48px;
+		}
+
+		#drawing-control>* {
+			display: block;
+			/*vertical-align: middle;*/
+			background-color: transparent;
+			margin-top: 5px;
+			border: none;
+		}
+
+		#drawing-control>*>* {
+			height: 32px;
+			width: 32px;
+		}
+
+		#drawing-control>*>*:hover {
+			-webkit-filter: drop-shadow(1px 1px 0 white);
+			filter: drop-shadow(1px 1px 0 white);
+		}
+
+		#drawing-toggle {
+			position: fixed;
+			bottom: 0px;
+			right: 48px;
+		}
+
+		#drawing-toggle>* {
+			background-color: transparent;
+			border: none;
+		}
+
+		#drawing-toggle>*>* {
+			height: 48px;
+			width: 48px;
+		}
+
+		#drawing-toggle>*>*:hover {
+			-webkit-filter: drop-shadow(1px 1px 0 white);
+			filter: drop-shadow(1px 1px 0 white);
+		}
+
+		#colorpick {
+			background: #000000;
+			width: 14px;
+			height: 14px;
+			float: left;
+			margin-right: 3px;
+			margin-bottom: 3px;
+		}
+	</style>
+	
+		<link rel="modulepreload" href="../_app/immutable/entry/start.CKTwhCGu.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.DPsQs--I.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.BDXRdsok.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.BSb3EEP_.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.CGq9qK4R.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.COp5QqbU.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/5.C9RvSp2y.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/16.DLytBl7T.js"><title>Shopfalls Prelude</title><!-- HEAD_svelte-1n344rq_START --><link href="/shopfalls/shopfalls.css" rel="stylesheet" type="text/css" media="all"><meta name="description" content="A spinoff of a parody of a webcomic alluding to another webcomic"><meta name="author" content="Cold Calzone"><!-- HEAD_svelte-1n344rq_END --><!-- HEAD_svelte-173oo4m_START --><!-- HEAD_svelte-173oo4m_END -->
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">    <div style="padding-top: 10%;" id="container" data-svelte-h="svelte-13sbwx1"><main class="centered"><h2>Before reading <strong>SHOPFALLS</strong>, you need to read up to page 73 of <strong><a href="https://other-space.neocities.org/start">SHOPSTUCK</a>!</strong></h2>
+		<link rel="modulepreload" href="../_app/immutable/entry/app.a61b2dQT.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.CZd9ryWx.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.BM5HExdH.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/5.CMohDDbc.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/16.DE3Cz3VE.js"><title>Shopfalls Prelude</title><!-- HEAD_svelte-1n344rq_START --><link href="/shopfalls/shopfalls.css" rel="stylesheet" type="text/css" media="all"><meta name="description" content="A spinoff of a parody of a webcomic alluding to another webcomic"><meta name="author" content="Cold Calzone"><!-- HEAD_svelte-1n344rq_END --><!-- HEAD_svelte-173oo4m_START --><!-- HEAD_svelte-173oo4m_END -->
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">    <div style="padding-top: 10%;" id="container" data-svelte-h="svelte-13sbwx1"><main class="centered"><h2>Before reading <strong>SHOPFALLS</strong>, you need to read up to page 73 of <strong><a href="https://other-space.neocities.org/start">SHOPSTUCK</a>!</strong></h2>
         ShopFalls is a spinoff of Shopstuck made during its hiatus. References are and will be made to events from Shopstuck.</main> <main class="centered"><h2><strong>When you&#39;re ready...</strong></h2> <br> <a href="/shopfalls/"><img src="/shopfalls/prelude/StartButton.png"></a></main></div> 
 			
 			<script>
 				{
-					__sveltekit_1oa70z9 = {
+					__sveltekit_9d78tz = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
@@ -132,8 +139,8 @@
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.64AS2zS-.js"),
-						import("../_app/immutable/entry/app.BSb3EEP_.js")
+						import("../_app/immutable/entry/start.CKTwhCGu.js"),
+						import("../_app/immutable/entry/app.a61b2dQT.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 5, 16],
@@ -145,5 +152,6 @@
 				}
 			</script>
 		</div>
-	</body>
+</body>
+
 </html>

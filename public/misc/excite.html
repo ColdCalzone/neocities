@@ -1,131 +1,138 @@
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="../favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<style>
-			/* FUNNY DRAWING */
-			#canvas {
-				position: fixed;
-				top: 0px;
-				left: 0px;
-				width: 100%;
-				height: 100%;
-				pointer-events: none;
-				cursor: url(/images/drawing/brush.png) 2 14, default;
-				image-rendering: pixelated;
-				image-rendering: crisp-edges;
-			}
-			#canvas:is(.animate) {
-				pointer-events: all;
-			}
-			#canvas:is(.erase) {
-				cursor: url(/images/drawing/eraser.png) 2 14, default;
-			}
-		
-			#palette {
-				position: fixed;
-				/* Vertical centering...*/
-				top:50%;
-				transform:translateY(-50%);
-		
-				right: -38px;
-				width: 36px;
-				background-color: #0d0d31;
-				padding-left: 2px;
-				padding-top: 3px;
-				outline: solid black 1px;
-				transition: all 0.65s;
-			}
-			#palette:is(.animate) {
-				right: 0px;
-			}
-		
-			.palette-color {
-				outline: solid black 1px;
-				width: 14px;
-				height: 14px;
-				float: left;
-				margin-right: 3px;
-				margin-bottom: 3px;
-			}
-		
-			#drawing-control {
-				position: fixed;
-				bottom: -80px;
-				right: 56px;
-				transition: all 0.65s;
-			}
-			#drawing-control:is(.animate) {
-				bottom: 48px;
-			}
-		
-			#drawing-control > * {
-				display: block;
-				/*vertical-align: middle;*/
-				background-color: transparent;
-				margin-top: 5px;
-				border: none;
-			}
-		
-			#drawing-control > * > * {
-				height: 32px;
-				width: 32px;
-			}
-		
-			#drawing-control > * > *:hover {
-				-webkit-filter: drop-shadow(1px 1px 0 white);
-				filter: drop-shadow(1px 1px 0 white);
-			}
-		
-			#drawing-toggle {
-				position: fixed;
-				bottom: 0px;
-				right: 48px;
-			}
-		
-			#drawing-toggle > * {
-				background-color: transparent;
-				border: none;
-			}
-			#drawing-toggle > * > * {
-				height: 48px;
-				width: 48px;
-			}
-			#drawing-toggle > * > *:hover {
-				-webkit-filter: drop-shadow(1px 1px 0 white);
-				filter: drop-shadow(1px 1px 0 white);
-			}
-		
-			#colorpick {
-				background: #000000;
-				width: 14px;
-				height: 14px;
-				float: left;
-				margin-right: 3px;
-				margin-bottom: 3px;
-			}
-		</style>
-		
+
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+		/* FUNNY DRAWING */
+		#canvas {
+			position: fixed;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			cursor: url(/images/drawing/brush.png) 2 14, default;
+			image-rendering: pixelated;
+			image-rendering: crisp-edges;
+		}
+
+		#canvas:is(.animate) {
+			pointer-events: all;
+		}
+
+		#canvas:is(.erase) {
+			cursor: url(/images/drawing/eraser.png) 2 14, default;
+		}
+
+		#palette {
+			position: fixed;
+			/* Vertical centering...*/
+			top: 50%;
+			transform: translateY(-50%);
+
+			right: -38px;
+			width: 36px;
+			background-color: #0d0d31;
+			padding-left: 2px;
+			padding-top: 3px;
+			outline: solid black 1px;
+			transition: all 0.65s;
+		}
+
+		#palette:is(.animate) {
+			right: 0px;
+		}
+
+		.palette-color {
+			outline: solid black 1px;
+			width: 14px;
+			height: 14px;
+			float: left;
+			margin-right: 3px;
+			margin-bottom: 3px;
+		}
+
+		#drawing-control {
+			position: fixed;
+			bottom: -80px;
+			right: 56px;
+			transition: all 0.65s;
+		}
+
+		#drawing-control:is(.animate) {
+			bottom: 48px;
+		}
+
+		#drawing-control>* {
+			display: block;
+			/*vertical-align: middle;*/
+			background-color: transparent;
+			margin-top: 5px;
+			border: none;
+		}
+
+		#drawing-control>*>* {
+			height: 32px;
+			width: 32px;
+		}
+
+		#drawing-control>*>*:hover {
+			-webkit-filter: drop-shadow(1px 1px 0 white);
+			filter: drop-shadow(1px 1px 0 white);
+		}
+
+		#drawing-toggle {
+			position: fixed;
+			bottom: 0px;
+			right: 48px;
+		}
+
+		#drawing-toggle>* {
+			background-color: transparent;
+			border: none;
+		}
+
+		#drawing-toggle>*>* {
+			height: 48px;
+			width: 48px;
+		}
+
+		#drawing-toggle>*>*:hover {
+			-webkit-filter: drop-shadow(1px 1px 0 white);
+			filter: drop-shadow(1px 1px 0 white);
+		}
+
+		#colorpick {
+			background: #000000;
+			width: 14px;
+			height: 14px;
+			float: left;
+			margin-right: 3px;
+			margin-bottom: 3px;
+		}
+	</style>
+	
 		<link href="../_app/immutable/assets/14.BA7aPb2Z.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.64AS2zS-.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/entry.CqV91UfR.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.CKTwhCGu.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.DPsQs--I.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.BDXRdsok.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.BSb3EEP_.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.CGq9qK4R.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.COp5QqbU.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/4.BM6PPIPl.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/14.BsgGxBXR.js"><title>Home of Cold Calzones | Excited Medium</title><!-- HEAD_svelte-hqur7_START --><style data-svelte-h="svelte-cd5wzt">body {
+		<link rel="modulepreload" href="../_app/immutable/entry/app.a61b2dQT.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.CZd9ryWx.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.BM5HExdH.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/4.BmJ0yEOo.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/14.am9abf2L.js"><title>EXCITED_MEDIUM</title><!-- HEAD_svelte-6js37y_START --><link rel="icon" href="/favicon_misc.png"><style data-svelte-h="svelte-cd5wzt">body {
       margin: 0;
-    }</style><!-- HEAD_svelte-hqur7_END -->
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">   <canvas id="excite-canvas" class="svelte-1xcmdn5" data-svelte-h="svelte-tj4okx">This page requires Javascript to render. Sorry.</canvas> 
+    }</style><!-- HEAD_svelte-6js37y_END --><!-- HEAD_svelte-b8dbbl_START --><!-- HEAD_svelte-b8dbbl_END -->
+</head>
+
+<body data-sveltekit-preload-data="hover">
+	<div style="display: contents">   <main style="height: 100vh; background-color: #1b0320; display:flex; flex-direction: column;"><div style="width:100%;height:30px; border: 2px solid #00ff00; border-radius: 10px;margin-bottom:2px;" data-svelte-h="svelte-18iib0d"><a style="color: #00A639" href="/">BACK</a></div>   <div style="width: 25%; height: 100%; padding: 18px; padding-top: 30px; border: 2px solid white; border-radius: 10px;"><div style="width: 100%; border: 2px solid white;"><canvas id="excite-canvas" class="svelte-1xcmdn5" data-svelte-h="svelte-tj4okx">This page requires Javascript to render. Sorry.</canvas></div></div></main> 
 			
 			<script>
 				{
-					__sveltekit_1oa70z9 = {
+					__sveltekit_9d78tz = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
@@ -134,8 +141,8 @@
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.64AS2zS-.js"),
-						import("../_app/immutable/entry/app.BSb3EEP_.js")
+						import("../_app/immutable/entry/start.CKTwhCGu.js"),
+						import("../_app/immutable/entry/app.a61b2dQT.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 4, 14],
@@ -147,5 +154,6 @@
 				}
 			</script>
 		</div>
-	</body>
+</body>
+
 </html>

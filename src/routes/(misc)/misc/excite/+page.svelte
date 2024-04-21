@@ -32,16 +32,15 @@
             b: parseInt(color.substring(5, 7), 16),
             a: 0xFF
           }
-          console.log(color.substring(1, 2));
-          console.log(rgba_color);
           this.palette.push(rgba_color);
         }
+
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d")!;
         this.cells = [];
-        for(let y = 0; y < 50; y++) {
+        for(let y = 0; y < 200; y++) {
           this.cells.push([]);
-          for(let x = 0; x < 50; x++) {
+          for(let x = 0; x < 200; x++) {
             let cell : Cell = {
               state: (Math.random() > 0.99) ? this.palette.length - 1 : 0,
             };
@@ -70,6 +69,7 @@
           let new_cell : Cell = {
             state: cell.state,
           };
+
 
           if(cell.state > 0) {
             new_cell.state = cell.state - 1;
@@ -103,7 +103,6 @@
 
         this.cells.flatMap((row, y) => {
           return row.flatMap((cell, x) => {
-            console.log(cell.state);
             return this.palette[cell.state]
         })
         })
@@ -132,7 +131,7 @@
     setInterval(() => {
       grid.step()
       grid.render();
-    }, 1 / 24);
+    }, 1000 / 50);
   });
 </script>
 
@@ -142,7 +141,7 @@
   }
 
   #excite-canvas {
-    width: 300px;
+    width: 600px;
     height: 100%;
   }
 </style>

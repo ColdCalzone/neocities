@@ -110,5 +110,12 @@
             </div>
             <p>This project is a remiplementation of a feature from an abandoned project. This effectively allows Discord to control your computer, and is intended to let a Discord server host a game night with a host streaming and viewers watching and controlling the game in real time. Due to the nature of this bot, it cannot be hosted publically as a normal bot, and must be ran in a new instance on the host’s computer. Instructions, source code, and examples can be seen in the repository.</p>
         </Box>
+        <Box>
+            <div class="projectBox">
+                <a href="/misc/excite"><h2>Excitable Medium Cellular Automata</h2></a>
+                
+            </div>
+            <p>This is just a cool thing to look at.</p>
+        </Box>
     </main>
 </div>

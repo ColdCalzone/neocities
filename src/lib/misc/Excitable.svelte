@@ -16,33 +16,31 @@
     class Grid {
       private palette : Color[];
 
-      private cells : Cell[][];
+      private cells : Cell[];
       private canvas : HTMLCanvasElement;
       private ctx : CanvasRenderingContext2D;
 
       private width : number;
       private height : number;
 
-      constructor(palette : string[], canvas : HTMLCanvasElement) {
+      constructor(palette : string[], canvas : HTMLCanvasElement, w : number = 100, h : number = 100) {
         this.palette = [];
         this.setPalette(palette);
 
         this.canvas = canvas;
         this.ctx = this.canvas.getContext("2d")!;
-        this.cells = [];
-        for(let y = 0; y < 100; y++) {
-          this.cells.push([]);
-          for(let x = 0; x < 100; x++) {
-            let cell : Cell = {
-              state: (Math.random() > 0.99) ? this.palette.length - 1 : 0,
-            };
-            if(cell.static) cell.state = 0;
-            this.cells[y].push(cell)
-          }
-        }
+        this.cells = Array.from({ length: w * h}, (v, i) => {
+          let cell : Cell = {
+            state: (Math.random() > 0.99) ? this.palette.length - 1 : 0,
+          };
+          if(cell.static) cell.state = 0;
 
-        this.height = this.cells.length;
-        this.width = this.cells[0].length;
+          return cell;
+        });
+        
+
+        this.height = h;
+        this.width = w;
 
         this.canvas.width = this.width;
         this.canvas.height = this.height;
@@ -65,15 +63,26 @@
 
       getCellWrapping(x : number, y : number) {
         if (!this.cells) return undefined;
-        return this.cells.at(y % this.cells.length)!.at(x % this.cells[0].length);
+
+        y %= this.height;
+        x %= this.width;
+
+        if(y < 0) y = this.height + y;
+
+        if(x < 0) x = this.width + x;
+
+        return this.cells[this.width * y + x];
       }
 
       step() {
-        this.cells = this.cells.map((row, y) => row.map((cell, x) => {
+        this.cells = this.cells.map( (cell, i, grid) => {
           if(cell.static) return cell;
           let new_cell : Cell = {
             state: cell.state,
           };
+
+          let x = i % this.width;
+          let y = (i - x) / this.width;
 
 
           if(cell.state > 0) {
@@ -100,16 +109,14 @@
           }
 
           return new_cell;
-        }))
+        });
       }
 
       render() {
         let data = new Uint8ClampedArray(4 * this.width * this.height);
 
-        this.cells.flatMap((row, y) => {
-          return row.flatMap((cell, x) => {
-            return this.palette[cell.state]
-        })
+        this.cells.map((cell, i) => {
+            return this.palette[cell.state];
         })
         .forEach((color, index) => {
           data[(index * 4)] = color.r;
@@ -168,7 +175,7 @@
     setInterval(() => {
       grid.step()
       grid.render();
-    }, 1000 / 24);
+    }, 1000 / 60);
   });
 </script>
 

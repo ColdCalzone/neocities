@@ -101,10 +101,11 @@
       value={`/*
   This JS code is run once per cell (100x100 = 10000 calls per frame. Be mindful.).
   variables:
-    X: X position of the cell
-    Y: Y position of the cell
+    x: X position of the cell
+    y: Y position of the cell
     cell: The original cell. It is advised you make a new cell as seen below.
     getCell(x, y): Gets a cell based on the coordinates.
+    max_value: The highest state a cell can be in (based on the palette)
 
   Review the below code to get some ideas.
 */

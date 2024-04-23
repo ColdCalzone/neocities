@@ -38,6 +38,10 @@
     display: none;
   }
 
+  :global(#editor *) {
+    overflow: clip;
+  }
+
   #editor-container {
     width: 100%;
     height: 100%;

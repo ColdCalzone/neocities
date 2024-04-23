@@ -1,5 +1,40 @@
 <script lang="ts">
-  import { onMount } from "svelte";
+  import { onMount, onDestroy } from "svelte";
+
+  export let width : number = 100;
+  export let height : number = 100;
+  export let logic : Function = (cell : any, x : number, y : number, getCell : Function, max_value : any) => {
+        let new_cell = {
+          state: cell.state
+        };
+        
+        if(cell.state > 0) {
+          new_cell.state = cell.state - 1;
+          return new_cell;
+        }
+
+        for(let offsetX of [-1, 1]) {
+          if(getCell(x + offsetX, y)!.state == max_value) {
+            new_cell.state = max_value;
+            return new_cell
+          }
+        }
+
+        for(let offsetY of [-1, 1]) {
+          if(getCell(x, y + offsetY)!.state == max_value) {
+            new_cell.state = max_value; 
+            return new_cell
+          }
+        }
+
+        if(Math.trunc(Math.random() * 10_000) == 69) {
+          new_cell.state = max_value;
+        }
+
+        return new_cell;
+      };
+
+  let interval;
   
   onMount(() => {
     type Cell = {
@@ -23,6 +58,9 @@
       private width : number;
       private height : number;
 
+      private cellLogic : Function = () => {};
+      
+  
       constructor(palette : string[], canvas : HTMLCanvasElement, w : number = 100, h : number = 100) {
         this.palette = [];
         this.setPalette(palette);
@@ -44,8 +82,6 @@
 
         this.canvas.width = this.width;
         this.canvas.height = this.height;
-
-        this.render();
       }
 
       setPalette(palette : string[]) {
@@ -77,39 +113,16 @@
       step() {
         this.cells = this.cells.map( (cell, i, grid) => {
           if(cell.static) return cell;
-          let new_cell : Cell = {
-            state: cell.state,
-          };
 
           let x = i % this.width;
           let y = (i - x) / this.width;
 
+          return this.cellLogic.bind(this)(cell, x, y, this.getCellWrapping.bind(this), this.palette.length - 1) || cell;
+          });
+      }
 
-          if(cell.state > 0) {
-            new_cell.state = cell.state - 1;
-            return new_cell;
-          }
-
-          for(let offsetX of [-1, 1]) {
-            if(this.getCellWrapping(x + offsetX, y)!.state == this.palette.length - 1) {
-              new_cell.state = this.palette.length - 1;
-              return new_cell
-            }
-          }
-
-          for(let offsetY of [-1, 1]) {
-            if(this.getCellWrapping(x, y + offsetY)!.state == this.palette.length - 1) {
-              new_cell.state = this.palette.length - 1; 
-              return new_cell
-            }
-          }
-
-          if(Math.trunc(Math.random() * 10_000) == 69) {
-            new_cell.state = this.palette.length - 1;
-          }
-
-          return new_cell;
-        });
+      setCellLogic(callbackfn : Function) {
+        this.cellLogic = callbackfn;
       }
 
       render() {
@@ -164,18 +177,24 @@
     ];
 
     let palette_index = (parseInt(new URL(window.location.href).searchParams.get("palette")!) % PALETTES.length) || 0;
-    let grid = new Grid(PALETTES[palette_index], <HTMLCanvasElement>document.getElementById("excite-canvas")!);
+    let grid = new Grid(PALETTES[palette_index], <HTMLCanvasElement>document.getElementById("cell-canvas")!, width, height);
 
-    document.getElementById("excite-canvas")!.onclick = () => {
+    grid.setCellLogic(logic);
+
+    document.getElementById("cell-canvas")!.onclick = () => {
       palette_index += 1;
       palette_index %= PALETTES.length;
       grid.setPalette(PALETTES[palette_index])
     }
     
-    setInterval(() => {
+    interval = setInterval(() => {
       grid.step()
       grid.render();
-    }, 1000 / 60);
+    }, 1000 / 30);
+  });
+
+  onDestroy(() => {
+    if(interval) clearInterval(interval);
   });
 </script>
 
@@ -184,12 +203,11 @@
     image-rendering: pixelated;
   }
 
-  #excite-canvas {
+  #cell-canvas {
     width: 100%;
     height: 100%;
+    display: block;
   }
 </style>
 
-<canvas id="excite-canvas">
-  This page requires Javascript to render. Sorry.
-</canvas>
+<canvas id="cell-canvas">This page requires Javascript to render. Sorry.</canvas>

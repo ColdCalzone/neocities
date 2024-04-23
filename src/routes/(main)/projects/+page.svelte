@@ -112,7 +112,7 @@
         </Box>
         <Box>
             <div class="projectBox">
-                <a href="/misc/excite"><h2>Excitable Medium Cellular Automata</h2></a>
+                <a href="/misc/cell"><h2>Excitable Medium Cellular Automata</h2></a>
                 
             </div>
             <p>This is just a cool thing to look at.</p>

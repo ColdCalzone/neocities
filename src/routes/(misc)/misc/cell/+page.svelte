@@ -18,6 +18,15 @@
     if(ace_session) logic = new Function('cell', 'x', 'y', 'getCell', 'max_value', ace_session.getValue());
   }
 
+  function copyLink() {
+    if(ace_session) {
+      let url = new URL(window.location.href);
+
+      url.searchParams.set("script", btoa(ace_session.getValue()));
+      navigator.clipboard.writeText(url.href);
+    }
+  }
+
   onMount(() => {
     // let codeEdit = document.getElementById("code-edit")! as HTMLTextAreaElement;
     updateLogic();
@@ -145,6 +154,7 @@ return new_cell;`}/>
       <Cell logic={logicCaller}/>
     </div>
     <button on:click={updateLogic}>Compile</button>
+    <button on:click={copyLink}>Copy link</button>
   </div>
 </div>
 

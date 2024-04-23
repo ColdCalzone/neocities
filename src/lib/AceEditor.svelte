@@ -16,6 +16,9 @@
     edit.setTheme("ace/theme/gruvbox");
     edit.session.setMode("ace/mode/javascript");
 
+    let new_script = new URL(window.location.href).searchParams.get("script")
+    if(new_script) edit.setValue(atob(new_script) || value);
+
     editor = edit;
 
     document.getElementById("editor").style.display = "block";

@@ -17,7 +17,23 @@
     edit.session.setMode("ace/mode/javascript");
 
     let new_script = new URL(window.location.href).searchParams.get("script")
-    if(new_script) edit.setValue(atob(new_script) || value);
+    if(new_script) {
+      // https://gist.github.com/asidko/9c7064027039411a11323eaf7d8ea2a4
+      const decompress = base64string => {
+        const bytes = Uint8Array.from(atob(base64string), c => c.charCodeAt(0));
+        const cs = new DecompressionStream('gzip');
+        const writer = cs.writable.getWriter();
+        writer.write(bytes);
+        writer.close();
+        return new Response(cs.readable).arrayBuffer().then(function (arrayBuffer) {
+            return new TextDecoder().decode(arrayBuffer);
+        });
+      }
+      decompress(new_script)
+      .then( (o) => {
+        edit.setValue(o || value);
+      });
+    }
 
     editor = edit;
 

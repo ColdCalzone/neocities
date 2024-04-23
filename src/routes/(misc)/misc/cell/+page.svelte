@@ -20,10 +20,28 @@
 
   function copyLink() {
     if(ace_session) {
+      // https://gist.github.com/asidko/9c7064027039411a11323eaf7d8ea2a4
+      const compress = string => {
+        const blobToBase64 = blob => new Promise((resolve, _) => {
+            const reader = new FileReader();
+            reader.onloadend = () => resolve(reader.result.split(',')[1]);
+            reader.readAsDataURL(blob);
+        });
+        const byteArray = new TextEncoder().encode(string);
+        const cs = new CompressionStream('gzip');
+        const writer = cs.writable.getWriter();
+        writer.write(byteArray);
+        writer.close();
+        return new Response(cs.readable).blob().then(blobToBase64);
+      };
+
       let url = new URL(window.location.href);
 
-      url.searchParams.set("script", btoa(ace_session.getValue()));
-      navigator.clipboard.writeText(url.href);
+      compress(ace_session.getValue())
+      .then((o) => {
+        url.searchParams.set("script", o);
+        navigator.clipboard.writeText(url.href);
+      });
     }
   }
 

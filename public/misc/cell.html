@@ -115,21 +115,21 @@
 	</style>
 	
 		<link href="../_app/immutable/assets/4.DD4q2xqZ.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/14.BNIjCmR9.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.CnwBArtg.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/entry.Cz6G0eq3.js">
+		<link href="../_app/immutable/assets/14.BhLikpCw.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.CH3dqguL.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.BgEPkha9.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.DqiQiJ2X.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.CiwXUkan.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.DtltszZQ.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index.CR_WoLMa.js">
 		<link rel="modulepreload" href="../_app/immutable/nodes/0.CO2RqPZ5.js">
 		<link rel="modulepreload" href="../_app/immutable/nodes/4.DhcVCVgS.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/14.vmJiUtKj.js"><title>CELLULAR_AUTOMATA</title><!-- HEAD_svelte-6js37y_START --><link rel="icon" href="/favicon_misc.png"><style data-svelte-h="svelte-cd5wzt">body {
+		<link rel="modulepreload" href="../_app/immutable/nodes/14.C2fHi3Je.js"><title>CELLULAR_AUTOMATA</title><!-- HEAD_svelte-6js37y_START --><link rel="icon" href="/favicon_misc.png"><style data-svelte-h="svelte-cd5wzt">body {
       margin: 0;
     }</style><!-- HEAD_svelte-6js37y_END --><!-- HEAD_svelte-1djkzu0_START --><!-- HEAD_svelte-1djkzu0_END --><!-- HEAD_svelte-7fphnf_START --><script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/ace.min.js" integrity="sha512-RFjWk8prkK/avV0PuBatirOL57/Q/WSh6BZ82tohL95Ug5h+S9sZoVpRtk+L8LI6q0q5z5wCyrb9N2X+IuNcfA==" crossorigin="anonymous" referrerpolicy="no-referrer" data-svelte-h="svelte-1but1ta"></script><!-- HEAD_svelte-7fphnf_END -->
 </head>
 
 <body data-sveltekit-preload-data="hover">
-	<div style="display: contents">    <main style="height: 100vh; background-color: #1b0320; display:flex; flex-direction: column;"><div style="height:30px; border: 2px solid #00ff00; border-radius: 10px;margin-bottom:2px;" data-svelte-h="svelte-1ct48xw"><a style="color: #00A639" href="/">BACK</a></div>    <div style="display: flex; flex-direction: row; height: 100%; margin-top: 5px;"><div class="terminal-container svelte-1y32402" style="flex: 1;" data-svelte-h="svelte-tyqlys"><h2 style="border-bottom: 2px dotted white;">&gt;./CELLULAR_AUTOMATA</h2> <p>I made this after watching a <a href="https://www.youtube.com/watch?v=SqhXQUzVMlQ" target="_blank" class="svelte-1y32402">Steve Mould video</a> on <i class="svelte-1y32402">Excitable Media</i>, which I then learned could be represented with <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank" class="svelte-1y32402">cellular automata</a>. I thought the idea was cool, and it reminded me of <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank" class="svelte-1y32402">the Belousov-Zhabotinsky reaction</a>, so I wanted to make one. Turns out, onces you have one cellular automata set up, it&#39;s pretty easy to just, make another. Or generalize it. I did that.</p> <br> <p>WIP. Will include:</p> <ul><li>A few automata presets</li> <li>Customizable palettes</li> <li>Proper documentation</li></ul> <p>(Click the cells to change the palette, btw.)</p></div> <div class="terminal-container svelte-1y32402" style="flex: 2; height: 100%; padding: 0; overflow: hidden;">   <div id="editor-container" class="svelte-wt2ffw"><div id="editor" class="svelte-wt2ffw">/*
+	<div style="display: contents">    <main style="height: 100vh; background-color: #1b0320; display:flex; flex-direction: column;"><div style="height:30px; border: 2px solid #00ff00; border-radius: 10px;margin-bottom:2px;" data-svelte-h="svelte-1ct48xw"><a style="color: #00A639" href="/">BACK</a></div>    <div style="display: flex; flex-direction: row; height: 100%; margin-top: 5px;"><div class="terminal-container svelte-1y32402" style="flex: 1;" data-svelte-h="svelte-tyqlys"><h2 style="border-bottom: 2px dotted white;">&gt;./CELLULAR_AUTOMATA</h2> <p>I made this after watching a <a href="https://www.youtube.com/watch?v=SqhXQUzVMlQ" target="_blank" class="svelte-1y32402">Steve Mould video</a> on <i class="svelte-1y32402">Excitable Media</i>, which I then learned could be represented with <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank" class="svelte-1y32402">cellular automata</a>. I thought the idea was cool, and it reminded me of <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank" class="svelte-1y32402">the Belousov-Zhabotinsky reaction</a>, so I wanted to make one. Turns out, onces you have one cellular automata set up, it&#39;s pretty easy to just, make another. Or generalize it. I did that.</p> <br> <p>WIP. Will include:</p> <ul><li>A few automata presets</li> <li>Customizable palettes</li> <li>Proper documentation</li></ul> <p>(Click the cells to change the palette, btw.)</p></div> <div class="terminal-container svelte-1y32402" style="flex: 2; height: 100%; padding: 0; overflow: hidden;">   <div id="editor-container" class="svelte-bz8xh7"><div id="editor" class="svelte-bz8xh7">/*
   This JS code is run once per cell (100x100 = 10000 calls per frame. Be mindful.).
   variables:
     X: X position of the cell
@@ -171,7 +171,7 @@ return new_cell;</div></div></div> <div class="terminal-container svelte-1y32402
 			
 			<script>
 				{
-					__sveltekit_8dj2ii = {
+					__sveltekit_19d8y9g = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
@@ -180,8 +180,8 @@ return new_cell;</div></div></div> <div class="terminal-container svelte-1y32402
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.CnwBArtg.js"),
-						import("../_app/immutable/entry/app.CiwXUkan.js")
+						import("../_app/immutable/entry/start.CH3dqguL.js"),
+						import("../_app/immutable/entry/app.DtltszZQ.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 4, 14],

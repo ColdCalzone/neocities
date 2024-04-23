@@ -129,7 +129,7 @@
         let data = new Uint8ClampedArray(4 * this.width * this.height);
 
         this.cells.map((cell, i) => {
-            return this.palette[cell.state];
+            return this.palette.at(cell.state % this.palette.length);
         })
         .forEach((color, index) => {
           data[(index * 4)] = color.r;

@@ -3,11 +3,11 @@
   <style>
     :root {
       font-family: "courier-std", courier, monospace;
-      box-sizing: border-box;
       font-weight: bold;
     }
 
     body {
+      box-sizing: border-box;
       margin: 0;
     }
 

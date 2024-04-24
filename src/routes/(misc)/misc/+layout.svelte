@@ -2,10 +2,13 @@
   <link rel="icon" href="/favicon_misc.png">
   <style>
     :root {
-      margin: 0;
       font-family: "courier-std", courier, monospace;
       box-sizing: border-box;
       font-weight: bold;
+    }
+
+    body {
+      margin: 0;
     }
 
     .terminal-container {

@@ -1,25 +1,22 @@
 <svelte:head>
   <link rel="icon" href="/favicon_misc.png">
   <style>
-    body {
+    :root {
       margin: 0;
+      font-family: "courier-std", courier, monospace;
+      box-sizing: border-box;
+      font-weight: bold;
     }
 
-  :global(*) {
-    box-sizing: border-box;
-    font-family: "courier-std", courier, monospace;
-    font-weight: bold;
-  }
+    .terminal-container {
+      border: 2px solid white; border-radius: 10px;
+      color: white;
+    }
 
-  .terminal-container {
-    border: 2px solid white; border-radius: 10px;
-    color: white;
-  }
-
-  :global(main *) {
-    overflow-y: auto;
-    overflow-x: hidden;
-  }
+    :global(main *) {
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
   </style>
 </svelte:head>
 

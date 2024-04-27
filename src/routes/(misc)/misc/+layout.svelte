@@ -19,7 +19,7 @@
       color: white;
     }
 
-    :global(main *) {
+    main * {
       overflow-y: auto;
       overflow-x: hidden;
     }

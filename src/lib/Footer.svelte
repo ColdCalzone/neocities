@@ -159,6 +159,7 @@
         new NeocitiesButton("https://413.gay/", "/images/misc_buttons/sburb.gif", "Read Homestuck via the UHC"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif", "Read ACDSStuck!"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/izzybutton.gif", "Read ACDSStuck! Feat. Izzy Pendles"),
+        new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/drewbutton.gif", "Read ACDSStuck! Feat. Drew Tinker"),
         new NeocitiesButton("https://sporewhore.neocities.org/", "https://sporewhore.neocities.org/Button.gif", "Sporewhore button"),
         new NeocitiesButton("https://corru.observer/", "https://corru.observer/8831.gif", "corru.observer button"),
     ]
@@ -168,6 +169,7 @@
         new NeocitiesButton("https://homestuck.com/", "/images/misc_buttons/HomestuckButton.gif", "Read Homestuck"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif", "Read ACDSStuck!"),
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/izzybutton.gif", "Read ACDSStuck! Feat. Izzy Pendles"),
+        new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/drewbutton.gif", "Read ACDSStuck! Feat. Drew Tinker"),
     ]
 
     let buttons : NeocitiesButton[] = all_buttons;

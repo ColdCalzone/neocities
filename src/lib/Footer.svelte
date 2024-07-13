@@ -162,6 +162,7 @@
         new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/drewbutton.gif", "Read ACDSStuck! Feat. Drew Tinker"),
         new NeocitiesButton("https://sporewhore.neocities.org/", "https://sporewhore.neocities.org/Button.gif", "Sporewhore button"),
         new NeocitiesButton("https://corru.observer/", "https://corru.observer/8831.gif", "corru.observer button"),
+        new NeocitiesButton("https://brynnadarosa.neocities.org/", "https://brynnadarosa.neocities.org/graphics/BrynnaDaRosas_88x31.gif", "BrynnaDaRosas button"),
     ]
 
     const my_buttons = [

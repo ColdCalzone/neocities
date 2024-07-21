@@ -677,27 +677,3 @@ function preview(ctx) {
 	});
 }
 
-window.onload = () => preview(CTX);
-
-// Makes the preview for your text
-let textarea = document.querySelector("textarea");
-textarea.onkeyup = () => {
-	renderText = textarea.value;
-	preview(CTX);
-}
-
-[...document.querySelector("fieldset").children]
-.filter((child) => child.tagName == "DIV")
-.map((div) => div.children[0])
-.forEach((input) => {
-	console.log(input);
-	input.onchange = () => {
-		options[input.name] = input.checked || false;
-		renderText = textarea.value;
-		preview(CTX);
-	}
-});
-
-let button = document.querySelector("button");
-
-button.onclick = () => render(CTX);

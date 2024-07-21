@@ -11,6 +11,7 @@ const KERN = {
 	':)': -4,
 	':(': -6,
 	':3': -6,
+	'Am': 2, 
 }
 
 // Kerning values for the edge -- a bit imprecise, but it helps make it look better
@@ -640,10 +641,11 @@ export async function render(ctx) {
 		quality: 0,
 		width: canvas.width,
 		height: canvas.height,
+		transparent: "",
 	};
 
 	if(options.transparent) {
-		gifOptions.transparent = 0xEFEFEF;
+		gifOptions.transparent = "#EFEFEF";
 	}
 	
 	let gif = new GIF(gifOptions);

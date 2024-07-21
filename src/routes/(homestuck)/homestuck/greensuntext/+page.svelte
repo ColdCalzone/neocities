@@ -1,43 +1,42 @@
 <svelte:head>
   <title>GREEN MOTHERFUCKING SUN</title>
   <link href="/homestuck/greensuntext/greensun.css" rel="stylesheet" type="text/css">
-  <script src="/homestuck/greensuntext/gif.js"></script>
-  <script src="/homestuck/greensuntext/greensun.js"></script>
-  <script>
-    import { onMount } from "svelte";
-    onMount(() => {
-      const CANVAS = document.querySelector("#greensun-canvas");
-      const CTX = CANVAS.getContext("2d");
-
-      setText(CTX);
-      preview(CTX);
-
-      // Makes the preview for your text
-      let textarea = document.querySelector("textarea");
-      textarea.onkeyup = () => {
-      	renderText = textarea.value;
-      	preview(CTX);
-      }
-
-      [...document.querySelector("fieldset").children]
-      .filter((child) => child.tagName == "DIV")
-      .map((div) => div.children[0])
-      .forEach((input) => {
-      	console.log(input);
-      	input.onchange = () => {
-      		options[input.name] = input.checked || false;
-      		renderText = textarea.value;
-      		preview(CTX);
-      	}
-      });
-
-      let button = document.querySelector("#generate-gif");
-
-      button.onclick = () => render(CTX);
-    });
-  </script>
 </svelte:head>
 
+<script type="ts">
+  import { onMount } from "svelte";
+  import { setText, preview, render as render_, setRenderText } from "$lib/homestuck/greensuntext/greensun";
+  onMount(() => {
+    const CANVAS : HTMLCanvasElement = document.querySelector("#greensun-canvas")!;
+    const CTX = CANVAS.getContext("2d")!;
+
+    setText(CTX);
+    preview(CTX);
+
+    // Makes the preview for your text
+    let textarea = document.querySelector("textarea");
+    textarea.onkeyup = () => {
+    	setRenderText(textarea.value);
+    	preview(CTX);
+    }
+
+    [...document.querySelector("fieldset").children]
+    .filter((child) => child.tagName == "DIV")
+    .map((div) => div.children[0])
+    .forEach((input) => {
+    	console.log(input);
+    	input.onchange = () => {
+    		options[input.name] = input.checked || false;
+    		setRenderText(textarea.value);
+    		preview(CTX);
+    	}
+    });
+
+    let button = document.querySelector("#generate-gif");
+
+    button.onclick = () => render_(CTX);
+  });
+</script>
 <div class="flex">
   <main>
     <section class="horiz">

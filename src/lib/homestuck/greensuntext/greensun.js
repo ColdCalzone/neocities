@@ -1,3 +1,5 @@
+import GIF from "gif.js";
+
 // Custom kerning values
 const KERN = {
 	'AT': -1,
@@ -332,6 +334,10 @@ let LIGHTNING;
 // Text to render, defaults to "WHAT DID YOU DO?" because that's the original text
 let renderText = "WHAT DID YOU DO?";
 
+export function setRenderText(x) {
+	renderText = x;
+}
+
 function combineBounds(bound1, bound2) {
 	let newBound = {
 		x: 0,
@@ -358,7 +364,7 @@ function combineBounds(bound1, bound2) {
 
 // Used to be called "initialize". Realized this needed to be called frequently, inexplicably.
 // something something "you should use ctx.save" I don't care.
-function setText(ctx) {
+export function setText(ctx) {
 	ctx.scale(1, 1);
 	// let canvas = ctx.canvas;
 	ctx.font = `${options.italic ? "italic ": ""}48px courierstuck`;
@@ -543,7 +549,7 @@ async function renderLightning(ctx) {
 }
 
 // Draws to the canvas and saves the frames in a gif.
-async function render(ctx) {
+export async function render(ctx) {
 	// The main body of rendering, called once per frame with a slight delay to let the canvas catch up
 	async function renderLoop(perLoop, onFinish) {
 		lightningState.old_pos = undefined;
@@ -656,7 +662,7 @@ async function render(ctx) {
 
 }
 
-function preview(ctx) {
+export function preview(ctx) {
 	let bound = drawText(ctx, {
 		text: renderText,
 		position: {x: 10, y: 42},

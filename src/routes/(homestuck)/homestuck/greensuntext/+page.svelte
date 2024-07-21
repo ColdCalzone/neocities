@@ -3,29 +3,29 @@
   <link href="/homestuck/greensuntext/greensun.css" rel="stylesheet" type="text/css">
 </svelte:head>
 
-<script type="ts">
+<script>
   import { onMount } from "svelte";
-  import { setText, preview, render as render_, setRenderText, setOptions} from "$lib/homestuck/greensuntext/greensun";
+  import { setText, preview, render as render_, setRenderText, setOptions } from "$lib/homestuck/greensuntext/greensun";
   onMount(() => {
-    const CANVAS : HTMLCanvasElement = document.querySelector("#greensun-canvas")!;
-    const CTX = CANVAS.getContext("2d")!;
+    const CANVAS = document.querySelector("#greensun-canvas");
+    const CTX = CANVAS.getContext("2d");
 
     setText(CTX);
     preview(CTX);
 
     // Makes the preview for your text
-    let textarea = document.querySelector("textarea")!;
+    let textarea = document.querySelector("textarea");
     textarea.onkeyup = () => {
     	setRenderText(textarea.value);
     	preview(CTX);
     }
 
-    [...document.querySelector("fieldset")!.children]
+    [...document.querySelector("fieldset").children]
     .filter((child) => child.tagName == "DIV")
     .map((div) => div.children[0])
     .forEach((input) => {
     	console.log(input);
-      if(!(input instanceof HTMLInputElement)) return;
+      if((input instanceof HTMLInputElement)) return;
     	input.onchange = () => {
     		setOptions(input.name,input.checked || false);
     		setRenderText(textarea.value);
@@ -33,7 +33,7 @@
     	}
     });
 
-    let button : HTMLButtonElement = document.querySelector("#generate-gif")!;
+    let button = document.querySelector("#generate-gif");
 
     button.onclick = () => render_(CTX);
   });

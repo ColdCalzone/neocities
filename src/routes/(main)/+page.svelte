@@ -58,7 +58,7 @@
 
     @font-face {
     	font-family: 'courierstuck';
-    	src: url("courierstuck.ttf");
+    	src: url("/homestuck/greensuntext/courierstuck.ttf");
     }
 
     .greensun {

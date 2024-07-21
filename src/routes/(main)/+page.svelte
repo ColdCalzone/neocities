@@ -45,6 +45,26 @@
             display: block;
         }
     }
+
+    @keyframes greensunblink {
+        0% {
+            color: #00ed45;
+        }
+
+        100% {
+            color: #00d246;
+        }
+    }
+
+    @font-face {
+    	font-family: 'courierstuck';
+    	src: url("courierstuck.ttf");
+    }
+
+    .greensun {
+        animation: greensunblink 100ms infinite steps(2, end);
+        font-family: 'courierstuck'; 
+    }
 </style>
 
 <div class="flex">
@@ -71,6 +91,11 @@
             <Box style="flex: 1;">
                 <h3>Changelog</h3>
                 <hr>
+                <h4>7/21/24</h4>
+                <ul>
+                    <li>Added <a class="greensun" href="/homestuck/greensuntext/">GREEN SUN</a> text generator</li>
+                    <li>Fixed navigation covering the home button</li>
+                </ul>
                 <h4>4/13/24</h4>
                 <ul>
                     <li>Added rudimentary image functionality to blog posts</li>

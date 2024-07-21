@@ -46,6 +46,7 @@
         bottom: 0;
         width: 20%;
         min-width: 270px;
+        z-index: -1;
     }
 
     #navbar ul {

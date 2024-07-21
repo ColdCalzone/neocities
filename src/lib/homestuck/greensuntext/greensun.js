@@ -641,11 +641,11 @@ export async function render(ctx) {
 		quality: 0,
 		width: canvas.width,
 		height: canvas.height,
-		transparent: "",
+		transparent: 0xEFEFEF,
 	};
 
 	if(options.transparent) {
-		gifOptions.transparent = "#EFEFEF";
+		// gifOptions.transparent = "#EFEFEF";
 	}
 	
 	let gif = new GIF(gifOptions);

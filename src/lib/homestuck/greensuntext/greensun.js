@@ -644,6 +644,8 @@ export async function render(ctx) {
 		transparent: undefined,
 	};
 
+	console.log(options);
+
 	if(options.transparent) {
 		gifOptions.transparent = 0xEFEFEF;
 	}

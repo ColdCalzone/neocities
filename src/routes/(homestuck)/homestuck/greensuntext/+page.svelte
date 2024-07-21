@@ -25,7 +25,7 @@
     .map((div) => div.children[0])
     .forEach((input) => {
     	console.log(input);
-      if((input instanceof HTMLInputElement)) return;
+      if(!(input instanceof HTMLInputElement)) return;
     	input.onchange = () => {
     		setOptions(input.name,input.checked || false);
     		setRenderText(textarea.value);

@@ -1,7 +1,7 @@
 <svelte:head>
   <title>GREEN MOTHERFUCKING SUN</title>
-  <link href="greensun.css" rel="stylesheet" type="text/css">
-  <script src="gif.js"></script>
+  <link href="/homestuck/greensuntext/greensun.css" rel="stylesheet" type="text/css">
+  <script src="/homestuck/greensuntext/gif.js"></script>
 </svelte:head>
 
 <div class="flex">

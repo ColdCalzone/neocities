@@ -1,7 +1,7 @@
 <svelte:head>
   <title>GREEN MOTHERFUCKING SUN</title>
-  <!--<link href="greensun.css" rel="stylesheet" type="text/css">
-  <script src="gif.js"></script>-->
+  <link href="greensun.css" rel="stylesheet" type="text/css">
+  <script src="gif.js"></script>
 </svelte:head>
 
 <div class="flex">
@@ -44,7 +44,6 @@
       <p>Preview</p>
       <canvas width=100 height=150>This site requires JavaScript, soz.</canvas>
     </section>
-  </main>
-  <script src="greensun.js"></script>
   <p>font is Courierstuck, out of necessity. Inacccuracies may occur.</p>
+  </main>
 </div>

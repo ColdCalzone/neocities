@@ -1,6 +1,3 @@
-const CANVAS = document.querySelector("canvas");
-const CTX = CANVAS.getContext("2d");
-
 // Custom kerning values
 const KERN = {
 	'AT': -1,
@@ -658,8 +655,6 @@ async function render(ctx) {
 	});
 
 }
-
-setText(CTX);
 
 function preview(ctx) {
 	let bound = drawText(ctx, {

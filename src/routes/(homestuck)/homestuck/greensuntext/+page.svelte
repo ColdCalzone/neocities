@@ -6,6 +6,10 @@
   <script>
     import { onMount } from "svelte";
     onMount(() => {
+      const CANVAS = document.querySelector("canvas");
+      const CTX = CANVAS.getContext("2d");
+
+      setText(CTX);
       preview(CTX);
 
       // Makes the preview for your text

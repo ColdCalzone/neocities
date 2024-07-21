@@ -2,6 +2,7 @@
   <title>GREEN MOTHERFUCKING SUN</title>
   <link href="/homestuck/greensuntext/greensun.css" rel="stylesheet" type="text/css">
   <script src="/homestuck/greensuntext/gif.js"></script>
+  <script src="/homestuck/greensuntext/greensun.js"></script>
   <script>
     import { onMount } from "svelte";
     onMount(() => {

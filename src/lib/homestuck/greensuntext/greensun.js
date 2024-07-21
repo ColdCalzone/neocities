@@ -328,6 +328,10 @@ let options = {
 	"transparent": false,
 }
 
+export function setOptions(k, v) {
+	options[k] = v;
+}
+
 // Array of lightning sprites -- filled when renderLightning is first called
 let LIGHTNING;
 

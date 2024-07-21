@@ -4,7 +4,9 @@
   <script src="/homestuck/greensuntext/gif.js"></script>
   <script src="/homestuck/greensuntext/greensun.js"></script>
   <script>
-      const CANVAS = document.querySelector("canvas");
+    import { onMount } from "svelte";
+    onMount(() => {
+      const CANVAS = document.querySelector("#greensun-canvas");
       const CTX = CANVAS.getContext("2d");
 
       setText(CTX);
@@ -29,9 +31,10 @@
       	}
       });
 
-      let button = document.querySelector("button");
+      let button = document.querySelector("#generate-gif");
 
       button.onclick = () => render(CTX);
+    });
   </script>
 </svelte:head>
 
@@ -68,12 +71,12 @@
           <input type="checkbox" name="transparent" />
           <label for="transparent">Transparent?</label>
         </div>
-        <button>Generate GIF</button>
+        <button id="generate-gif">Generate GIF</button>
       </fieldset>
     </section>
     <section>
       <p>Preview</p>
-      <canvas width=100 height=150>This site requires JavaScript, soz.</canvas>
+      <canvas id="greensun-canvas" width=100 height=150>This site requires JavaScript, soz.</canvas>
     </section>
   <p>font is Courierstuck, out of necessity. Inacccuracies may occur.</p>
   </main>

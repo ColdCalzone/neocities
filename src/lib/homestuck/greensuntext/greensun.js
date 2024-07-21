@@ -510,7 +510,7 @@ async function renderLightning(ctx) {
 		for(let folder of [0, 1]) {
 			let lightningFrames = [0, 1, 2].map((x) => {
 				let img = new Image();
-				img.src = `/lightning${folder}/${x}.png`;
+				img.src = `/homestuck/greensuntext/lightning${folder}/${x}.png`;
 				return new Promise((resolve) => img.addEventListener("load", resolve(img)));
 			});
 			_LIGHTNING.push(Promise.all(lightningFrames));

@@ -4,8 +4,6 @@
   <script src="/homestuck/greensuntext/gif.js"></script>
   <script src="/homestuck/greensuntext/greensun.js"></script>
   <script>
-    import { onMount } from "svelte";
-    onMount(() => {
       const CANVAS = document.querySelector("canvas");
       const CTX = CANVAS.getContext("2d");
 
@@ -34,7 +32,6 @@
       let button = document.querySelector("button");
 
       button.onclick = () => render(CTX);
-    });
   </script>
 </svelte:head>
 

@@ -35,6 +35,7 @@
         background-repeat: no-repeat;
         background-position: center;
         position: fixed;
+        z-index: 1;
     }
 
     /* navigation section!! */
@@ -46,7 +47,6 @@
         bottom: 0;
         width: 20%;
         min-width: 270px;
-        z-index: -1;
     }
 
     #navbar ul {

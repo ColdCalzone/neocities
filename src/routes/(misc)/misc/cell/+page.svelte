@@ -73,14 +73,6 @@
     margin-right: 5px;
   }
 
-  a {
-    color: #41ff41;
-  }
-
-  i {
-    color: #dd41dd;
-  }
-
   .grid {
     position: relative;
     z-index: 1;
@@ -107,25 +99,10 @@
   }
 </style>
 
-<div style="display: flex; flex-direction: row; height: 100%; margin-top: 5px;">
-
-  <div class="terminal-container" style="flex: 1;">
-    <h2 style="border-bottom: 2px dotted white;">>./CELLULAR_AUTOMATA</h2>
-    <p>I made this after watching a <a href="https://www.youtube.com/watch?v=SqhXQUzVMlQ" target="_blank">Steve Mould video</a> on <i>Excitable Media</i>, which I then learned could be represented with <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank">cellular automata</a>. I thought the idea was cool, and it reminded me of <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank">the Belousov-Zhabotinsky reaction</a>, so I wanted to make one. Turns out, onces you have one cellular automata set up, it's pretty easy to just, make another. Or generalize it. I did that.</p>
-    <br>
-    <p>WIP. Will include:</p>
-    <ul>
-      <li>A few automata presets</li>
-      <li>Customizable palettes</li>
-      <li>Proper documentation</li>
-    </ul>
-    <p>(Click the cells to change the palette, btw.)
-  </div>
-
-  <div class="terminal-container" style="flex: 2; height: 100%; padding: 0; overflow: hidden;">
-    <AceEditor
-      bind:editor={ace_session}
-      value={`/*
+<div class="terminal-container" style="flex: 2; height: 100%; padding: 0; overflow: hidden;">
+  <AceEditor
+    bind:editor={ace_session}
+    value={`/*
   This JS code is run once per cell (100x100 = 10000 calls per frame. Be mindful.).
   variables:
     x: X position of the cell
@@ -167,12 +144,11 @@ if(Math.trunc(Math.random() * 10000) == 69) {
 return new_cell;`}/>
   </div>
 
-  <div class="terminal-container" style="flex: 1; height: 100%; padding: 18px; padding-top: 30px;">
-    <div class="grid" style="width: 100%;" on:mousemove={handleOnMouseMove}>
-      <Cell logic={logicCaller}/>
-    </div>
-    <button on:click={updateLogic}>Compile</button>
-    <button on:click={copyLink}>Copy link</button>
+<div class="terminal-container" style="flex: 1; height: 100%; padding: 18px; padding-top: 30px;">
+  <div class="grid" style="width: 100%;" on:mousemove={handleOnMouseMove}>
+    <Cell logic={logicCaller}/>
   </div>
+  <button on:click={updateLogic}>Compile</button>
+  <button on:click={copyLink}>Copy link</button>
 </div>
 

@@ -114,16 +114,16 @@
 		}
 	</style>
 	
-		<link href="../_app/immutable/assets/15.BhLikpCw.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.CUhdts0c.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/entry.CwB6gvC9.js">
+		<link href="../_app/immutable/assets/16.BzofsrWt.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.BedE19or.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/entry.COTT1Tun.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/scheduler.DqiQiJ2X.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.BaPHEHCq.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.CFf8myiu.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/0.DvLz_tUX.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/4.BrZgLHst.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/15.BHgxtosM.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/globals.D0QH3NT1.js"><title>CELLULAR_AUTOMATA</title><!-- HEAD_svelte-1wfdzfh_START --><link rel="icon" href="/favicon_misc.png"><style data-svelte-h="svelte-14v8l3g">:root {
+		<link rel="modulepreload" href="../_app/immutable/entry/app.DxGrHJdi.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.DJQJZrpW.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/0.DE2Th0iL.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/4.CsFQquZm.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/16.YlJ2oxGc.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/globals.D0QH3NT1.js"><title>CELLULAR_AUTOMATA</title><!-- HEAD_svelte-17t0wea_START --><link rel="icon" href="/favicon_misc.png"><style data-svelte-h="svelte-o5w3bx">:root {
       font-family: "courier-std", courier, monospace;
       font-weight: bold;
     }
@@ -139,16 +139,48 @@
     .terminal-container {
       border: 2px solid white; border-radius: 10px;
       color: white;
+      background-color: #1b0320;
+    }
+
+    .main-terminal {
+      height: 100%;
+    }
+
+    .terminal-output {
+      font-family: "courier-std", courier, monospace;
+      font-weight: bold;
+      width: 100%;
+      margin: 0;
+      padding: 10px;
+      text-wrap: wrap;
     }
 
     main * {
       overflow-y: auto;
       overflow-x: hidden;
-    }</style><!-- HEAD_svelte-1wfdzfh_END --><!-- HEAD_svelte-1djkzu0_START --><!-- HEAD_svelte-1djkzu0_END --><!-- HEAD_svelte-7fphnf_START --><script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/ace.min.js" integrity="sha512-RFjWk8prkK/avV0PuBatirOL57/Q/WSh6BZ82tohL95Ug5h+S9sZoVpRtk+L8LI6q0q5z5wCyrb9N2X+IuNcfA==" crossorigin="anonymous" referrerpolicy="no-referrer" data-svelte-h="svelte-1but1ta"></script><!-- HEAD_svelte-7fphnf_END -->
+    }
+
+    a {
+      color: #41ff41;
+    }
+
+    i {
+      color: #dd41dd;
+    }</style><!-- HEAD_svelte-17t0wea_END --><!-- HEAD_svelte-1djkzu0_START --><!-- HEAD_svelte-1djkzu0_END --><!-- HEAD_svelte-7fphnf_START --><script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.33.0/ace.min.js" integrity="sha512-RFjWk8prkK/avV0PuBatirOL57/Q/WSh6BZ82tohL95Ug5h+S9sZoVpRtk+L8LI6q0q5z5wCyrb9N2X+IuNcfA==" crossorigin="anonymous" referrerpolicy="no-referrer" data-svelte-h="svelte-1but1ta"></script><!-- HEAD_svelte-7fphnf_END -->
 </head>
 
 <body data-sveltekit-preload-data="hover">
-	<div style="display: contents">   <main style="height: 100vh; background-color: #1b0320; display:flex; flex-direction: column;"><div style="height:30px; border: 2px solid #00ff00; border-radius: 10px;margin-bottom:2px;" data-svelte-h="svelte-1ct48xw"><a style="color: #00A639" href="/">BACK</a></div>    <div style="display: flex; flex-direction: row; height: 100%; margin-top: 5px;"><div class="terminal-container svelte-1y32402" style="flex: 1;" data-svelte-h="svelte-tyqlys"><h2 style="border-bottom: 2px dotted white;">&gt;./CELLULAR_AUTOMATA</h2> <p>I made this after watching a <a href="https://www.youtube.com/watch?v=SqhXQUzVMlQ" target="_blank" class="svelte-1y32402">Steve Mould video</a> on <i class="svelte-1y32402">Excitable Media</i>, which I then learned could be represented with <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank" class="svelte-1y32402">cellular automata</a>. I thought the idea was cool, and it reminded me of <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank" class="svelte-1y32402">the Belousov-Zhabotinsky reaction</a>, so I wanted to make one. Turns out, onces you have one cellular automata set up, it&#39;s pretty easy to just, make another. Or generalize it. I did that.</p> <br> <p>WIP. Will include:</p> <ul><li>A few automata presets</li> <li>Customizable palettes</li> <li>Proper documentation</li></ul> <p>(Click the cells to change the palette, btw.)</p></div> <div class="terminal-container svelte-1y32402" style="flex: 2; height: 100%; padding: 0; overflow: hidden;">   <div id="editor-container" class="svelte-bz8xh7"><div id="editor" class="svelte-bz8xh7">/*
+	<div style="display: contents">    <main style="height: 100vh; background-color: black; display:flex;"><div class="terminal-container main-terminal" style="flex: 1;" data-svelte-h="svelte-bagqm8"><pre class="terminal-output"><h2 style="border-bottom: 2px dotted white;">&gt;./CELLULAR_AUTOMATA</h2>I made this after watching a <a href="https://www.youtube.com/watch?v=SqhXQUzVMlQ" target="_blank">Steve
+Mould video</a> on <i>Excitable Media</i>, which I then learned could be represented with <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank">cellular automata</a>. I thought the idea was cool, and it reminded me of <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank">the Belousov-Zhabotinsky reaction</a>, so I wanted to make one. Turns out, onces you have one cellular automata set up, it&#39;s pretty easy to just, make another. Or generalize it. I did that.
+
+
+WIP. Will include:
+    * A few automata presets
+    * Customizable palettes
+    * Proper documentation
+
+(Click the cells to change the palette, btw.)
+    </pre></div>    <div class="terminal-container svelte-iv4t0v" style="flex: 2; height: 100%; padding: 0; overflow: hidden;">   <div id="editor-container" class="svelte-bz8xh7"><div id="editor" class="svelte-bz8xh7">/*
   This JS code is run once per cell (100x100 = 10000 calls per frame. Be mindful.).
   variables:
     x: X position of the cell
@@ -187,11 +219,11 @@ if(Math.trunc(Math.random() * 10000) == 69) {
   new_cell.state = max_value;
 }
 
-return new_cell;</div></div></div> <div class="terminal-container svelte-1y32402" style="flex: 1; height: 100%; padding: 18px; padding-top: 30px;"><div class="grid svelte-1y32402" style="width: 100%;"><canvas id="cell-canvas" class="svelte-mthozf" data-svelte-h="svelte-h7z6jf">This page requires Javascript to render. Sorry.</canvas></div> <button data-svelte-h="svelte-1dql93c">Compile</button> <button data-svelte-h="svelte-32d48k">Copy link</button></div></div></main> 
+return new_cell;</div></div></div> <div class="terminal-container svelte-iv4t0v" style="flex: 1; height: 100%; padding: 18px; padding-top: 30px;"><div class="grid svelte-iv4t0v" style="width: 100%;"><canvas id="cell-canvas" class="svelte-mthozf" data-svelte-h="svelte-h7z6jf">This page requires Javascript to render. Sorry.</canvas></div> <button data-svelte-h="svelte-1dql93c">Compile</button> <button data-svelte-h="svelte-32d48k">Copy link</button></div></main> 
 			
 			<script>
 				{
-					__sveltekit_5mgbr0 = {
+					__sveltekit_1lnfaok = {
 						base: new URL("..", location).pathname.slice(0, -1)
 					};
 
@@ -200,11 +232,11 @@ return new_cell;</div></div></div> <div class="terminal-container svelte-1y32402
 					const data = [null,null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.CUhdts0c.js"),
-						import("../_app/immutable/entry/app.BaPHEHCq.js")
+						import("../_app/immutable/entry/start.BedE19or.js"),
+						import("../_app/immutable/entry/app.DxGrHJdi.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
-							node_ids: [0, 4, 15],
+							node_ids: [0, 4, 16],
 							data,
 							form: null,
 							error: null

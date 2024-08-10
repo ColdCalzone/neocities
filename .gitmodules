@@ -1,0 +1,3 @@
+[submodule "misc-terminal"]
+	path = misc-terminal
+	url = https://github.com/ColdCalzone/neocities-misc-terminal

@@ -3,8 +3,9 @@
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
+		"wasm": "git submodule update --remote --merge && wasm-pack build ./misc-terminal --target web && cp -r ./misc-terminal/pkg/ ./src/lib/misc/pkg/",
+		"dev": "npm run wasm && vite dev",
+		"build": "npm run wasm && vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
@@ -19,8 +20,9 @@
 		"svelte-check": "^3.6.0",
 		"tslib": "^2.4.1",
 		"typescript": "^5.0.0",
-		"vite": "^5.0.3",
-		"vite-plugin-plain-text": "^1.4.2"
+		"vite": "^5.4.0",
+		"vite-plugin-plain-text": "^1.4.2",
+		"vite-plugin-wasm-pack": "^0.1.12"
 	},
 	"type": "module",
 	"dependencies": {

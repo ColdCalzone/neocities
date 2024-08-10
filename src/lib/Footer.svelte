@@ -67,7 +67,7 @@
         bottom: 0;
         width: 34px;
         height: 18px;
-        background-image: url('/misc/ButtonToggleSlider.png');
+        background-image: url('/ButtonToggleSlider.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;
@@ -84,7 +84,7 @@
         width: 10px;
         left: 4px;
         bottom: 4px;
-        background-image: url('/misc/ButtonToggle.png');
+        background-image: url('/ButtonToggle.png');
         background-position: center;
         background-repeat: no-repeat;
         background-size: contain;

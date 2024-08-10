@@ -44,6 +44,7 @@ jobs:
         uses: oleksiyrudenko/gha-git-credentials@v2-latest
         with:
           token: '${{ secrets.GITHUB_TOKEN }}'
+          submodules: true
       - name: Commit changes
         run: |
           git add -A

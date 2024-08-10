@@ -39,6 +39,7 @@ jobs:
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
+          ls ./misc-terminal
           npm run build
       - name: Authenticate
         uses: oleksiyrudenko/gha-git-credentials@v2-latest

@@ -4,7 +4,7 @@ import wasmPack from 'vite-plugin-wasm-pack';
 
 export default defineConfig({
 	plugins: [
-		wasmPack('./misc-terminal'),
+		// wasmPack('./misc-terminal'),
 		sveltekit()
 	],
 	assetsInclude: ['**/*.md', '**/*.json']

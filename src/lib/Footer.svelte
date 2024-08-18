@@ -163,6 +163,7 @@
         new NeocitiesButton("https://sporewhore.neocities.org/", "https://sporewhore.neocities.org/Button.gif", "Sporewhore button"),
         new NeocitiesButton("https://corru.observer/", "https://corru.observer/8831.gif", "corru.observer button"),
         new NeocitiesButton("https://brynnadarosa.neocities.org/", "https://brynnadarosa.neocities.org/graphics/BrynnaDaRosas_88x31.gif", "BrynnaDaRosas button"),
+        new NeocitiesButton("https://thinliquid.dev", "https://thinliquid.dev/thnlqd.png", "thinliquid's site")
     ]
 
     const my_buttons = [

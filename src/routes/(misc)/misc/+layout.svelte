@@ -48,13 +48,13 @@
   </style>
 </svelte:head>
 <script>
-  import wasm from "$lib/misc/pkg/misc_terminal";
+  // import wasm from "$lib/misc/pkg/misc_terminal";
   import { onMount } from "svelte";
 
   onMount(async () => {
-    const TERMINAL = await wasm();
+    // const TERMINAL = await wasm();
 
-    TERMINAL.greet();
+    // TERMINAL.greet();
   });
 </script>
 

@@ -24,6 +24,15 @@
         <p>Another I haven't quite breached the themes of, other than probably being about the constant stream of information available via the internet?<br><br>I've linked the official English cover in the YouTube slot, I just really like it.</p>
       </ListeningBox>
 
+      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02b34e7e66410f3d933d5bcdbd" link_a="https://open.spotify.com/track/26I5UfjfxqsUAB2Ryr4utP" text_a="Giga - Beyond the Way (Spotify)" link_b="https://www.youtube.com/watch?v=SJcgOWsDwi4" text_b="(YouTube)">
+        <p>I don't really have anything to say about this one. It kinda just bangs.</p>
+      </ListeningBox>
+
+      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e0202e855eb06ad7974eadfcf6e" link_a="https://open.spotify.com/track/3WuBuCMPAJED2LRsSOG6wB" text_a="Vane Lily - Six Feet Under (Spotify)" link_b="https://www.youtube.com/watch?v=7gmGYDxlg20" text_b="(YouTube)">
+        <i>CW: Gore</i>
+        <p>I'd put some analysis here but the themes of this song are so clear I literally could not convey it more efficiently than the song itself. Just listen to it.</p>
+      </ListeningBox>
+
       <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02370b78e1aa173de60c62cc8e" link_a="https://open.spotify.com/track/5oxqoWEycODM31NiVYGAjb" text_a="KoruSe - MADE IN HEAVEN (Spotify)" link_b="https://www.youtube.com/watch?v=_kzcvA3yfKE" text_b="(YouTube)">
         <p>Here's the first instance of phonk in this page, which regretably will repeat. Though, the definition of "phonk" is a little hazy, for both me and probably these producers. Maybe I should call it "low effort electronic"?</p>
       </ListeningBox>

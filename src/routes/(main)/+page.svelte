@@ -91,6 +91,10 @@
             <Box style="flex: 1;">
                 <h3>Changelog</h3>
                 <hr>
+                <h4>8/24/24</h4>
+                <ul>
+                    <li>Added <a href="/listening/">a page for the music I'm listening to</a>. There's still *so much* to add.</li>
+                </ul>
                 <h4>7/21/24</h4>
                 <ul>
                     <li>Added <a class="greensun" href="/homestuck/greensuntext/">GREEN SUN</a> text generator</li>

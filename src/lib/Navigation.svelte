@@ -158,6 +158,7 @@
                     <li><a href="/projects/">Projects</a></li>
                     <li><a href="/art/">Art</a></li>
                     <li><a href="/read/">Reading</a></li>
+                    <li><a href="/listening/">Listening</a></li>
                     <li><a href="/homestuck/">Homestuck</a></li>
                     <li><a href="/comments/">Comments</a></li>
                 {/if}

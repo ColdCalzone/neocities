@@ -10,7 +10,7 @@
     <hr>
 
     <div id="listening-box-container" class="flex" style="flex-wrap: wrap; gap: 5px;">
-      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02193ac4142fa040360d8efe64" link_a="https://open.spotify.com/track/5w5wBkH4ana9waptVsxJCq" text_a="Vane Lily - Butcher Vanity (Spotify)" link_b="https://www.youtube.com/watch?v=vjBFftpQxxM" text_b="(YouTube)">
+      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02193ac4142fa040360d8efe64" link_a="https://open.spotify.com/track/5w5wBkH4ana9waptVsxJCq" text_a="Flavor Foley - Butcher Vanity (Spotify)" link_b="https://www.youtube.com/watch?v=vjBFftpQxxM" text_b="(YouTube)">
         <i>CW: Cannibalism</i>
         <p>This one got me through the latter half of senior year. I love just about everything in this track, from the growly and noisy synth to the knife foley, but <i>god</i> the violin at ~0:38 hits.</p>
       </ListeningBox>
@@ -31,6 +31,10 @@
       <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e0202e855eb06ad7974eadfcf6e" link_a="https://open.spotify.com/track/3WuBuCMPAJED2LRsSOG6wB" text_a="Vane Lily - Six Feet Under (Spotify)" link_b="https://www.youtube.com/watch?v=7gmGYDxlg20" text_b="(YouTube)">
         <i>CW: Gore</i>
         <p>I'd put some analysis here but the themes of this song are so clear I literally could not convey it more efficiently than the song itself. Just listen to it.</p>
+      </ListeningBox>
+
+      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02395fd6d515bb8dfae8f1e3d1" link_a="https://open.spotify.com/track/2asWe7CTLmXiGRaWqHZ1rk" text_a="Flavor Foley - weathergirl (Spotify)" link_b="https://www.youtube.com/watch?v=M7VSEZOQIlg" text_b="(YouTube)">
+        <p>Holy shit nothing notified me about this song. Probably because I didn't like their last song <i>at all</i> so the ~algorithm~ didn't bother, but this is so good.</p>
       </ListeningBox>
 
       <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02370b78e1aa173de60c62cc8e" link_a="https://open.spotify.com/track/5oxqoWEycODM31NiVYGAjb" text_a="KoruSe - MADE IN HEAVEN (Spotify)" link_b="https://www.youtube.com/watch?v=_kzcvA3yfKE" text_b="(YouTube)">

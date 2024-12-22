@@ -10,7 +10,7 @@
     <meta name="author" content="Cold Calzone">
 </svelte:head>
 
-<Navigation custom={[["/homestuck/", "Home(stuck)"], ["/homestuck/classpects", "Classpect Analysis (WIP DRAFT BAD ETC.)"]]} banner="/homestuck/images/banner.png"/>
+<Navigation custom={[["/homestuck/", "Home(stuck)"], ["/homestuck/greensuntext", "GREEN SUN text generator"]]} banner="/homestuck/images/banner.png"/>
 <!-- <Navigation /> -->
 
 <slot />

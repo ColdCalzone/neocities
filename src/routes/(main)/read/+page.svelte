@@ -16,7 +16,7 @@
                 <h1><a href="https://homestuck.com/">Homestuck</a></h1>
                 <hr>
                 <p>My history with Homestuck is long, to say the least. Perhaps responsible for my interest in computer science being what it is today, and yet, paradoxically, my interest in Homestuck stems in my interest in programming (and Undertale...).</p>
-                <p>In recent times I've taken a much more active interest in Homestuck, to say the least. I have literally written essays on Homestuck, for fun -- you can read those <a href="/homestuck/">here</a>. I've also become involved in an <a href="https://acdsstuck.neocities.org">MSPFA</a> -- or "MS Paint Fan Adventure", based on the old title of Homestuck's website, mspaintadventures -- with 11 other people.</p>
+                <p>In recent times I've taken a much more active interest in Homestuck, to say the least. I've also become involved in an <a href="https://alternativefunction.neocities.org">MSPFA</a> -- or "MS Paint Fan Adventure", based on the old title of Homestuck's website, mspaintadventures -- with several other people.</p>
                 <p>It starts slow, but it's worth it. About 8000 pages long.</p>
                 <p><a href="https://413.gay">Also, read it with the unnofficial collection, it's better.</a></p>
             </Box>

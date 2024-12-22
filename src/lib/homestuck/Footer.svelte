@@ -85,9 +85,9 @@
         new NeocitiesButton("https://timelesstinka.neocities.org/", "https://timelesstinka.neocities.org/Images/buttonless.gif", "Timelessness button"),
         new NeocitiesButton("https://homestuck.com/", "/images/misc_buttons/HomestuckButton.gif", "Read Homestuck"),
         new NeocitiesButton("https://413.gay/", "/images/misc_buttons/sburb.gif", "Read Homestuck via the UHC"),
-        new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/ACDSstuckButton.gif", "Read ACDSStuck!"),
-        new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/izzybutton.gif", "Read ACDSStuck! Feat. Izzy Pendles"),
-        new NeocitiesButton("https://acdsstuck.neocities.org/", "https://acdsstuck.neocities.org/MiscAssets/drewbutton.gif", "Read ACDSStuck! Feat. Drew Tinker"),
+        new NeocitiesButton("https://alternativefunction.neocities.org/", "https://alternativefunction.neocities.org/MiscAssets/ShatteredSpaceButton.gif", "Read Shattered Space!"),
+        new NeocitiesButton("https://alternativefunction.neocities.org/", "https://alternativefunction.neocities.org/MiscAssets/izzybutton.gif", "Read Shattered Space! Feat. Izzy Pendles"),
+        new NeocitiesButton("https://alternativefunction.neocities.org/", "https://alternativefunction.neocities.org/MiscAssets/drewbutton.gif", "Read Shattered Space! Feat. Drew Tinker"),
     ]
 
     function handleCopyButton() {
@@ -133,7 +133,7 @@
             <li><a href="https://coldcalzone.itch.io">Itch.io</a></li>
             <li><a href="https://github.com/ColdCalzone">Github</a></li>
             <li><a href="/shopfalls/prelude/">Shopfalls</a></li>
-            <li><a href="https://acdsstuck.neocities.org/">ACDSstuck</a></li>
+            <li><a href="https://alternativefunction.neocities.org/">Shattered Space</a></li>
             <li><a href="/homestuck/">Homestuck</a></li>
         </ul>
     </div>

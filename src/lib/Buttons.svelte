@@ -10,6 +10,7 @@
         "/images/misc_buttons/firefox.gif",
         "/images/misc_buttons/portal2.png",
         "/images/misc_buttons/lagtrain.gif",
+        "/images/misc_buttons/i-was-on-cohost.gif",
   ]
 </script>
 <style>

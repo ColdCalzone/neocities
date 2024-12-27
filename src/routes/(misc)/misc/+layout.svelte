@@ -48,29 +48,24 @@
   </style>
 </svelte:head>
 <script>
-  // import wasm from "$lib/misc/pkg/misc_terminal";
+  import wasm from "$lib/misc/pkg/misc_terminal";
   import { onMount } from "svelte";
 
   onMount(async () => {
-    // const TERMINAL = await wasm();
+    const TERMINAL = await wasm();
 
-    // TERMINAL.greet();
+    var session = TERMINAL.get_session();
+    session.output_handler((x) => {
+      document.querySelector(".terminal-output").innerHTML = x;
+    });
+
+    session.run();
   });
 </script>
 
 <main style="height: 100vh; background-color: black;  display:flex;">
   <div class="terminal-container main-terminal" style="flex: 1;">
-    <pre class="terminal-output"><h2 style="border-bottom: 2px dotted white;">>./CELLULAR_AUTOMATA</h2>I made this after watching a <a href="https://www.youtube.com/watch?v=SqhXQUzVMlQ" target="_blank">Steve
-Mould video</a> on <i>Excitable Media</i>, which I then learned could be represented with <a href="https://en.wikipedia.org/wiki/Cellular_automaton" target="_blank">cellular automata</a>. I thought the idea was cool, and it reminded me of <a href="https://en.wikipedia.org/wiki/Belousov%E2%80%93Zhabotinsky_reaction" target="_blank">the Belousov-Zhabotinsky reaction</a>, so I wanted to make one. Turns out, onces you have one cellular automata set up, it's pretty easy to just, make another. Or generalize it. I did that.
-
-
-WIP. Will include:
-    * A few automata presets
-    * Customizable palettes
-    * Proper documentation
-
-(Click the cells to change the palette, btw.)
-    </pre>
+    <pre class="terminal-output"></pre>
   </div>
   <slot />
 

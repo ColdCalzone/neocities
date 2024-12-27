@@ -6,7 +6,6 @@
   <main>
     <h1>Listening</h1>
     <p>I decided to share some of the music I'm listening to, in part since the design of this page struck me at 1 AM like a freight train and in part because, it'd be fun?</p>
-    <p><b>DISCLAIMER:</b> I like <i>phonk</i>. This has a good chance of changing with what regard you hold my opinions on music. And that's entirely fair.</p>
     <hr>
 
     <div id="listening-box-container" class="flex" style="flex-wrap: wrap; gap: 5px;">
@@ -37,19 +36,45 @@
         <p>Holy shit nothing notified me about this song. Probably because I didn't like their last song <i>at all</i> so the ~algorithm~ didn't bother, but this is so good.</p>
       </ListeningBox>
 
-      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02370b78e1aa173de60c62cc8e" link_a="https://open.spotify.com/track/5oxqoWEycODM31NiVYGAjb" text_a="KoruSe - MADE IN HEAVEN (Spotify)" link_b="https://www.youtube.com/watch?v=_kzcvA3yfKE" text_b="(YouTube)">
-        <p>Here's the first instance of phonk in this page, which regretably will repeat. Though, the definition of "phonk" is a little hazy, for both me and probably these producers. Maybe I should call it "low effort electronic"?</p>
+      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e0289e3b38cb86ef8cfb0cd8def" link_a="https://open.spotify.com/track/61KYsWS25JXUO4fGb1138X" text_a="Ado - Usseewa (Spotify)" link_b="https://www.youtube.com/watch?v=Qp3b-RXtz4w" text_b="(YouTube)">
+        <style>
+          @keyframes emphasis {
+            0% {
+              color: red;
+              transform: translateX(8px);
+            }
+            33% {
+              transform: translateY(5px);
+            }
+            25% {
+              transform: translateX(-5px);
+            }
+            50% {
+              color: white;
+              transform: translateX(8px);
+            }
+            66% {
+              transform: translateY(-5px);
+            }
+            75% {
+              transform: translateX(-5px);
+            }
+            100% {
+              color: red;
+              transform: translateX(5px);
+              transform: translateY(-2px);
+            }
+          }
+          
+          #usseewa {
+            animation: 0.5s linear infinite emphasis;
+          }
+        </style>
+        <i id="usseewa">USSEE USSEE USSEEWAA</i>
       </ListeningBox>
 
-      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02c177d3f0c33fa7bcdb7d01f4" link_a="https://open.spotify.com/track/5WbOPXU4eCN9U96OMYEiBj" text_a="KoruSe + YUNG VRO - RICOCHET (Spotify)" link_b="https://www.youtube.com/watch?v=r_vI3dD01-k" text_b="(YouTube)">
-        <p>This one begins a disappointing trend, though perhaps a predictable one. You can see <b>MADE IN HEAVEN</b> has some Arknights character on the cover... well this one's AI. In fact, there's reason to believe the songs are too. There's reason to believe almost every phonk song is.</p>
-      </ListeningBox>
-
-      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e020e692c92147066225f62c7af" link_a="https://open.spotify.com/track/6z9UVyzP5cGSsVmsOhG28F" text_a="KoruSe + MITUJURO - NEW WAY (Spotify)" link_b="https://www.youtube.com/watch?v=t0FefJqyUSs" text_b="(YouTube)">
-        <p>Yet again, AI generated. I feel weird even putting these up here, in a sense platforming AI generated content. On the other hand, the music is good, and it's probable these particular creators are actually authentic producers (and just defer to AI or theft for covers. hm.)</p>
-      </ListeningBox>
-      <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02116dda18aefdfe1bb51277f7" link_a="https://open.spotify.com/album/3HRqcNnHfFihMlscArpdFy" text_a="FORBIDDEN + kellapsage - FREAKSHOW (Spotify)" link_b="https://www.youtube.com/watch?v=Db36t9nWN1Y" text_b="(YouTube)">
-        <p>Technically, this isn't phonk; it lacks the hallmark cowbells. However, it's similar. You'll notice there's no real analysis for these ones. That's because Phonk isn't really ripe for inspection. It's just meant to sound good. I don't think the music is AI generated, so there's that at least.</p>
+      <ListeningBox cover="/listening/badtaste.png" link_a="https://www.youtube.com/watch?v=riaRzUVHEfU" text_a="om - Bad Taste (YouTube)">
+        <p>YouTube showed this to me like right when it came out and it had like 100 views. It's at 20k now and that's not nearly enough.</p>
       </ListeningBox>
     </div>
 

@@ -20,30 +20,11 @@
     <main>
         <h2>I make pixel art sometimes</h2>
         <hr>
-        <h3>Game art</h3>
-        <hr>
         <div class="artContain">
             <div class="art">
-                <img src="/images/art/ghost.gif">
-                <img src="/images/art/mirror_block.gif">
-                <img src="/images/art/dying_ghost.gif">
-                <p>Notable sprites from Refractoplasm.</p>
-                <p>Not too proud of the dying ghost sprite, frankly.</p>
-            </div>
-        </div>
-        <h3>The Uray Section</h3>
-        <h5>Uray is a friend of mine and he has some silly guys and also drew the banner</h5>
-        <h6>Designs here (and most of the art) were made by uraynuke</h6>
-        <hr>
-        <div class="artContain">
-            <div class="art">
-                <img src="/images/art/If_I___Chopped_you_up_in_a_meat_grinder.gif">
-                <p>Dumping Uray into the meatgrinder.</p>
-            </div>
-
-            <div class="art">
-                <img src="/images/art/uray_portal_neocolde.gif">
-                <p>Get portal'd.</p>
+                <img src="/images/art/internal_dynamo.png">
+                <img src="/images/art/procrastination.png">
+                <p>RAM upgrade icons</p>
             </div>
         </div>
         <h3>Misc.</h3>
@@ -60,8 +41,15 @@
             </div>
 
             <div class="art">
-                <img src="/images/art/spinning_mirror.gif">
-                <p>A spinning mirror.<br>Used in a sprite animation above</p>
+                <img src="/images/art/iamfraud.gif">
+                <p>A parody of the "I am you"<br>scene from JJK</p>
+            </div>
+
+            <div class="art">
+                <img src="/images/art/shattered_space_draft.png">
+                <br>
+                <img src="/images/art/shattered_space_final.webp">
+                <p>The first draft and final version of the "<a href="https://alternativefunction.neocities.org/">SHATTERED SPACE</a>" logo</p>
             </div>
         </div>
     </main>

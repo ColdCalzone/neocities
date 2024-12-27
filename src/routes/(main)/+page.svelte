@@ -91,6 +91,13 @@
             <Box style="flex: 1;">
                 <h3>Changelog</h3>
                 <hr>
+                <h4>12/27/24</h4>
+                <ul>
+                    <li>Patched my age.</li>
+                    <li>Changed displayed art.</li>
+                    <li>Added some more music.</li>
+                </ul>
+                <hr>
                 <h4>8/24/24</h4>
                 <ul>
                     <li>Added <a href="/listening/">a page for the music I'm listening to</a>. There's still *so much* to add.</li>
@@ -149,11 +156,11 @@
             <h2>About Me</h2>
             <Box>
                 <ul style="padding-left:10px;">
-                    <li>I've been programming for 11 years now (what the fuck)</li>
+                    <li>I've been programming for 12 years now (what the fuck)</li>
                     <li>I've been doing game development for 3 years</li>
                     <hr>
-                    <li>I'm 17!!!</li>
-                    <li>any pronouns!!!!!</li>
+                    <li>I'm 18!!!</li>
+                    <li>any pronouns</li>
                     <li>My favorite language is Rust</li>
                 </ul>
             </Box>

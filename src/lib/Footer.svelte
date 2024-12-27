@@ -149,7 +149,6 @@
         new NeocitiesButton("https://other-space.neocities.org/", "https://other-space.neocities.org/resources/OSbuttonX.gif", "Other Space button"),
         new NeocitiesButton("https://sadgrl.online/", "https://sadgrl.online/assets/images/buttons/sadgrlonline.gif", "sadgrl button"),
         new NeocitiesButton("https://excessiveclownery.neocities.org/", "https://excessiveclownery.neocities.org/Buttons/DaCircus.png", "da circus button"),
-        new NeocitiesButton("https://doctorispie.neocities.org/", "https://doctorispie.neocities.org/images/DoclingButton.png", "Docling invasion button"),
         new NeocitiesButton("https://oberon-industries.neocities.org/", "https://oberon-industries.neocities.org/buttons/OberonButton.gif", "Oberon Industries button"),
         new NeocitiesButton("https://undeadmel.neocities.org/", "https://doctorispie.neocities.org/images/Mel.png", "Undead Mel button"),
         new NeocitiesButton("https://timelesstinka.neocities.org/", "https://timelesstinka.neocities.org/Images/buttonless.gif", "Timelessness button"),

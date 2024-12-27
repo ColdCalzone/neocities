@@ -48,19 +48,19 @@
   </style>
 </svelte:head>
 <script>
-  import wasm from "$lib/misc/pkg/misc_terminal";
-  import { onMount } from "svelte";
+  // import wasm from "$lib/misc/pkg/misc_terminal";
+  // import { onMount } from "svelte";
 
-  onMount(async () => {
-    const TERMINAL = await wasm();
+  // onMount(async () => {
+    // const TERMINAL = await wasm();
 
-    var session = TERMINAL.get_session();
-    session.output_handler((x) => {
-      document.querySelector(".terminal-output").innerHTML = x;
-    });
+    // var session = TERMINAL.get_session();
+    // session.output_handler((x) => {
+      // document.querySelector(".terminal-output").innerHTML = x;
+    // });
 
-    session.run();
-  });
+    // session.run();
+  // });
 </script>
 
 <main style="height: 100vh; background-color: black;  display:flex;">

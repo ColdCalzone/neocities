@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"wasm": "git submodule update --remote --merge && wasm-pack build ./misc-terminal --target web && cp -r ./misc-terminal/pkg/ ./src/lib/misc/pkg/",
-		"dev": "npm run wasm && vite dev",
+		"dev": "vite dev",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

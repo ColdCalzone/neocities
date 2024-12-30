@@ -1,4 +1,4 @@
-<!-- TODO: This page could use with being turned into components -->
+<!-- TODO: This page could do with being turned into components -->
 <style>
     .art {
         padding-left: 10px;
@@ -18,13 +18,14 @@
 
 <div class="flex">
     <main>
-        <h2>I make pixel art sometimes</h2>
+        <h2>I make pixel art!</h2>
+        <h3>Game Art</h3>
         <hr>
         <div class="artContain">
             <div class="art">
                 <img src="/images/art/internal_dynamo.png">
                 <img src="/images/art/procrastination.png">
-                <p>RAM upgrade icons</p>
+                <p><a href="https://store.steampowered.com/app/2256450/RAM_Random_Access_Mayhem/">RAM</a> upgrade icons</p>
             </div>
         </div>
         <h3>Misc.</h3>

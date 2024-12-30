@@ -30,9 +30,13 @@
 </script>
 
 <style>
-    .changes-box {
+    .horizontal-box {
         display: flex;
         gap: 10px;
+    }
+
+    :global(.horizontal-box > *) {
+        flex: 1;
     }
 
     :global(.changes-box > div) {
@@ -41,7 +45,7 @@
     }
 
     @media only screen and (max-width: 850px) {
-        .changes-box {
+        .horizontal-box {
             display: block;
         }
     }
@@ -70,31 +74,29 @@
 <div class="flex">
     <main>
         <h1>Welcome to my website!</h1>
-        
-        <p>I'm Cold! I'm a programmer, artist, and game developer.</p>
-        <p>This site contains my games, art, and whatever else I want to put on it.</p>
-        <hr>
-        <Box title="I make things!">
-            <p>I make games at <a href="https://coldcalzone.itch.io">my Itch!</a></p>
-            <p>More secretive is my <a href="/art/">art</a>, which I don't post elsewhere!</p>
-        </Box>
-        <Box title="Reading?">
-            <p>I read things! Sometimes! Less than I'd like!</p>
-            <p>Here's a? <a href="/read/">Reading list?</a> It'll have stuff I've read/wanna read.</p>
-            <p>Be warned, it's gonna be all compsci all the way down.</p>
-        </Box>
-        <Box title="Open Source!">
+        <div class="horizontal-box">
+            <Box title="I make things!">
+                <p><a href="https://coldcalzone.itch.io">My itch.io page</a> has some games I've made.<br>It's mostly jam games, and they're certainly not my best work.</p>
+                <p>I show off some <a href="/art">art</a> on this site, too. I use <a href="https://www.aseprite.org/">Aseprite</a> for most of my work.</p>
+            </Box>
+            <Box title="Reading?">
+                <p>I read things! Sometimes! Less than I'd like!</p>
+                <p>Here's a? <a href="/read/">Reading list?</a> It'll have stuff I've read/wanna read.</p>
+            </Box>
+        </div>
+        <Box title="Open Source!" style="text-align: center;">
             <h4>I use <a href="https://godotengine.org">Godot</a> to make my games, all of which have their source available on my github (see links)</h4>
-            <h5>Additionally, if you'd like to see the code behind this site (There's a few moving parts, y'know!) it's available <a href="https://github.com/ColdCalzone/neocities">here!</a></h5>
+            <p>I try to use open source tools for everything. Some day I'll contribute my own tools to the open source pool, but for now all I can do is show the ones I like.</p>
+            <h5>if you'd like to see the code behind this site (there's a few moving parts), it's available <a href="https://github.com/ColdCalzone/neocities">here!</a></h5>
         </Box>
-        <div style="margin-top:10px" class="changes-box">
-            <Box style="flex: 1;">
+        <div style="margin-top:10px" class="changes-box horizontal-box">
+            <Box>
                 <h3>Changelog</h3>
                 <hr>
                 <h4>12/27/24</h4>
                 <ul>
                     <li>Patched my age.</li>
-                    <li>Changed displayed art.</li>
+                    <li>Changed displayed <a href="/art">art</a>.</li>
                     <li>Added some more music.</li>
                 </ul>
                 <hr>
@@ -133,14 +135,11 @@
                     <li>Rewrote site in Svelte</li>
                 </ul>
             </Box>
-            <Box style="flex: 1;">
+            <Box>
                 <h3>TODO</h3>
                 <hr>
                 <ul>
-                    <li>Re-do the Homestuck essay. Preferably just make a new one so the old one can be deleted.</li>
-                    <li>Create a "wiki" for Homestuck theory stuff</li>
                     <li>Think of stuff to put on the TODO list</li>
-                    <li>Work on ACDSstuck</li>
                 </ul>
             </Box>
         </div>
@@ -157,7 +156,7 @@
             <Box>
                 <ul style="padding-left:10px;">
                     <li>I've been programming for 12 years now (what the fuck)</li>
-                    <li>I've been doing game development for 3 years</li>
+                    <li>I've been doing game development for 4 years</li>
                     <hr>
                     <li>I'm 18!!!</li>
                     <li>any pronouns</li>

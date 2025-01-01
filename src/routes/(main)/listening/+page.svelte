@@ -20,7 +20,7 @@
       </ListeningBox>
 
       <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e0221333eb66e3cf9f3818e789f" link_a="https://open.spotify.com/track/5ic62hKqeDhZsa9l6YQxzJ" text_a="32ki - Mesmerizer (Spotify)" link_b="https://www.youtube.com/watch?v=2c9FqIF600A" text_b="Will Stetson + rachie - Mesmerizer (English) (YouTube)">
-        <p>Another I haven't quite breached the themes of, other than probably being about the constant stream of information available via the internet?<br><br>I've linked the official English cover in the YouTube slot, I just really like it.</p>
+        <p>You know what Mesmerizer is.<br>I've linked the official English cover in the YouTube slot, I just really like it.</p>
       </ListeningBox>
 
       <ListeningBox cover="https://i.scdn.co/image/ab67616d00001e02b34e7e66410f3d933d5bcdbd" link_a="https://open.spotify.com/track/26I5UfjfxqsUAB2Ryr4utP" text_a="Giga - Beyond the Way (Spotify)" link_b="https://www.youtube.com/watch?v=SJcgOWsDwi4" text_b="(YouTube)">

@@ -223,7 +223,7 @@
         </div>
         <div id="webring-contain">
             <webring-css site="https://deep-freezer.neocities.org"></webring-css>
-            <script type="text/javascript" src="https://raw.githubusercontent.com/wiregrrrl/ACDSring/refs/heads/failsafe/ACDSring.js"></script>
+            <script type="text/javascript" src="https://raw.githack.com/wiregrrrl/ACDSring/refs/heads/failsafe/ACDSring.js"></script>
             <div style="max-width: 180px;" id="nullring">
             </div>
         </div>

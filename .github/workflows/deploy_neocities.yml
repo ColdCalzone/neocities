@@ -33,33 +33,13 @@ jobs:
       #   with:
       #     version: 8
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install
-      # - name: Install wasm-pack
-        # uses: jetli/wasm-pack-action@v0.4.0
-        # with:
-          # version: 'latest'
-
       - name: build
+        uses: cachix/install-nix-action@v31
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
-          npm run build
-      - name: Authenticate
-        uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Commit changes
-        run: |
-          git add -A
-          git commit -m "Automatically build site"
-          git push
+          nix build
+          # cp result/* public/
 
 #  deploy:
 #    needs: build_site

@@ -1,6 +1,10 @@
 name: Deploy to neocities
 
-on: [workflow_dispatch, push]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency: # prevent concurrent deploys doing strange things
   group: deploy-to-neocities
@@ -10,7 +14,6 @@ jobs:
   # https://gist.github.com/AndrewLester/2d3e6257d932831756226ca9a281d9b5
   build_site:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Checkout
@@ -70,4 +73,4 @@ jobs:
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: false
-          dist_dir: public
+          dist_dir: result

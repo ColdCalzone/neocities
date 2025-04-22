@@ -37,6 +37,7 @@ jobs:
       #     version: 8
 
       - name: build
+        uses: cachix/install-nix-action@v31
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |

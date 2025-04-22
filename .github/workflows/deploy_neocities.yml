@@ -37,7 +37,6 @@ jobs:
       #     version: 8
 
       - name: build
-        uses: cachix/install-nix-action@v31
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
@@ -51,4 +50,4 @@ jobs:
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: false
-          dist_dir: result
+          dist_dir: public

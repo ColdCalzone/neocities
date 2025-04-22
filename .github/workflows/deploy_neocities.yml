@@ -42,7 +42,7 @@ jobs:
         run: |
           nix build
           mkdir -p public/
-          cp result/* public/
+          cp -r result/* public/
 
       - name: Deploy to neocities
         if: ${{ success() || failure() }}

@@ -41,18 +41,13 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
           nix build
-          # cp result/* public/
+          mkdir -p public/
+          cp result/* public/
 
-#  deploy:
-#    needs: build_site
-#    runs-on: ubuntu-latest
-#    if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
-#    steps:
-  
       - name: Deploy to neocities
         if: ${{ success() || failure() }}
         uses: bcomnes/deploy-to-neocities@v1.1.9
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: false
-          dist_dir: result
+          dist_dir: public

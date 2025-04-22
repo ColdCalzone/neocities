@@ -1,6 +1,10 @@
 name: Deploy to neocities
 
-on: [workflow_dispatch, push]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 concurrency: # prevent concurrent deploys doing strange things
   group: deploy-to-neocities
@@ -10,7 +14,6 @@ jobs:
   # https://gist.github.com/AndrewLester/2d3e6257d932831756226ca9a281d9b5
   build_site:
     runs-on: ubuntu-latest
-    if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
 
     steps:
       - name: Checkout
@@ -23,6 +26,9 @@ jobs:
           git pull --recurse-submodules
           git submodule update --remote --recursive
 
+      - name: Install Nix
+        uses: cachix/install-nix-action@v31
+
 
       # If you're using pnpm, add this step then change the commands and cache key below to use `pnpm`
       # - name: Install pnpm
@@ -30,44 +36,19 @@ jobs:
       #   with:
       #     version: 8
 
-      - name: Install Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - name: Install dependencies
-        run: npm install
-      # - name: Install wasm-pack
-        # uses: jetli/wasm-pack-action@v0.4.0
-        # with:
-          # version: 'latest'
-
       - name: build
+        uses: cachix/install-nix-action@v31
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
         run: |
-          npm run build
-      - name: Authenticate
-        uses: oleksiyrudenko/gha-git-credentials@v2-latest
-        with:
-          token: '${{ secrets.GITHUB_TOKEN }}'
-      - name: Commit changes
-        run: |
-          git add -A
-          git commit -m "Automatically build site"
-          git push
+          nix build
+          mkdir -p public/
+          cp -r result/* public/
 
-#  deploy:
-#    needs: build_site
-#    runs-on: ubuntu-latest
-#    if: ${{ contains(github.event.head_commit.message, '!UPD8') || github.event_name == 'workflow_dispatch' }}
-#    steps:
-  
       - name: Deploy to neocities
         if: ${{ success() || failure() }}
         uses: bcomnes/deploy-to-neocities@v1.1.9
         with:
           api_token: ${{ secrets.NEOCITIES_API_TOKEN }}
           cleanup: false
-          dist_dir: public
+          dist_dir: result

@@ -155,10 +155,10 @@
             <h2>About Me</h2>
             <Box>
                 <ul style="padding-left:10px;">
-                    <li>I've been programming for 12 years now (what the fuck)</li>
-                    <li>I've been doing game development for 4 years</li>
+                    <li>I've been programming for 13 years now (what the fuck)</li>
+                    <li>I've been doing game development for 5 years</li>
                     <hr>
-                    <li>I'm 18!!!</li>
+                    <li>I'm 19!!!</li>
                     <li>any pronouns</li>
                     <li>My favorite language is Rust</li>
                 </ul>
